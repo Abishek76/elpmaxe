@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.drnds.abstractshop.R;
 import com.drnds.abstractshop.fragments.client.scoreboardfragment.ScoreBoardFragment;
 import com.drnds.abstractshop.fragments.vendor.DashboardFragmentVendor;
+import com.drnds.abstractshop.fragments.vendor.VendorInvoiceReportFragment;
 import com.drnds.abstractshop.fragments.vendor.scoreboardfragmentvendor.ScoreBoardFragmentVendor;
 import com.drnds.abstractshop.fragments.vendor.orderquefragment.VendorOrderQueueFragment;
 import com.drnds.abstractshop.fragments.vendor.VendorReportFragment;
@@ -58,6 +59,8 @@ public class VendorNavigationActivity extends AppCompatActivity {
     private static final String TAG_SUBCLIENT = "subclient";
     private static final String TAG_CLIENT = "client";
     private static final String TAG_REPORT = "report";
+    private static final String TAG_INVOICEREPORT = "invoicereport";
+
 
     public static String CURRENT_TAG = TAG_SCOREBOARD;
 
@@ -191,7 +194,7 @@ public class VendorNavigationActivity extends AppCompatActivity {
 
             case 3:
                 // settings fragment
-                 viewSubclientFragmentVendor = new ViewSubclientFragmentVendor();
+                viewSubclientFragmentVendor = new ViewSubclientFragmentVendor();
                 return viewSubclientFragmentVendor;
             case 4:
                 // settings fragment
@@ -201,7 +204,10 @@ public class VendorNavigationActivity extends AppCompatActivity {
                 // settings fragment
                 VendorReportFragment vendorReportFragment = new VendorReportFragment();
                 return vendorReportFragment;
-
+            case 6:
+                // settings fragment
+                VendorInvoiceReportFragment vendorInvoiceReportFragment = new VendorInvoiceReportFragment();
+                return vendorInvoiceReportFragment;
 
 
             default:
@@ -252,6 +258,10 @@ public class VendorNavigationActivity extends AppCompatActivity {
                     case R.id.nav_report_vendor:
                         navItemIndex = 5;
                         CURRENT_TAG = TAG_REPORT;
+                        break;
+                    case R.id.nav_invoicereport_vendor:
+                        navItemIndex = 6;
+                        CURRENT_TAG = TAG_INVOICEREPORT;
                         break;
 
                     default:
@@ -465,5 +475,7 @@ public class VendorNavigationActivity extends AppCompatActivity {
 
 
 }
+
+
 
 

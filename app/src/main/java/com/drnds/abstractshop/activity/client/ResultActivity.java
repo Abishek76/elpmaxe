@@ -87,7 +87,7 @@ public class ResultActivity extends AppCompatActivity {
                 search.setSubclient(details.getString("Sub_Client_Name"));
                 search.setOderno(details.getString("Order_Number"));
                 search.setStatus(details.getString("Progress_Status"));
-                search.setProducttype(details.getString("Product_Type"));
+                search.setProducttype(details.getString("Order_Type"));
                 search.setState(details.getString("State"));
                 search.setCounty(details.getString("County"));
                 search.setPropertyaddress(details.getString("Property_Address"));

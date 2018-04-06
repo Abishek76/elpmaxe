@@ -118,7 +118,7 @@ public class SearchActivity extends AppCompatActivity {
                             String Sub_Client_Name = jsonObject.getString("Sub_Client_Name");
                             String Order_Number = jsonObject.getString("Order_Number");
                             String Status = jsonObject.getString("Status");
-                            String Product_Type = jsonObject.getString("Product_Type");
+                            String Product_Type = jsonObject.getString("Order_Type");
                             String State = jsonObject.getString("State");
                             String County = jsonObject.getString("County");
                             String Property_Address = jsonObject.getString("Property_Address");

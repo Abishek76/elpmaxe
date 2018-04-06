@@ -127,6 +127,9 @@ public class Config {
     public static final String EDITVENDORCLIENT_URL = "https://titlelogy.com/title_test_api/api/Edit_ViewClient/";
     //    Vendor Report
     public static  String VENDORREPORT_URL = "https://titlelogy.com/title_test_api/api/Ven_ProductionReport/";
+
+    public static  String VENDORINVOICEREPORT_URL = "https://titlelogy.com/title_test_api/api/Ven_InvoiceReport/";
+
     //    myaccount vendor
     public static final String VENDOR_PASSWORD_URL = "https://titlelogy.com/title_test_api/api/ExternalClientVendorUserChangePassword/";
     public static final String VENDOR_EDIT_URL = " https://titlelogy.com/title_test_api/api/EditVendorMyProfile/";

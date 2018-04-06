@@ -302,10 +302,6 @@ public class VendorInvoiceActivity extends AppCompatActivity {
                 Logger.getInstance().Log("Id .... is"+getVendorUserId());
                 Logger.getInstance().Log("Id .... is"+getSubprocessId());
 
-
-
-
-
                 return params;
             }
 

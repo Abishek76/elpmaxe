@@ -44,6 +44,11 @@
             android:icon="@drawable/ic_reports"
             android:title="@string/nav_report_vendor"
             />
+        <item
+            android:id="@+id/nav_invoicereport_vendor"
+            android:icon="@drawable/ic_increport"
+            android:title="@string/nav_invoicereport_vendor"
+            />
     </group>
 
 

@@ -16,6 +16,7 @@
     <string name="nav_user">Create User</string>
     <string name="nav_vendor">View Vendor</string>
     <string name="nav_report">Report</string>
+    <string name="nav_invoicereport">InvoiceReport</string>
     <string name="nav_processing">Processing Queue</string>
     <string name="nav_pending">Pending Queue</string>
     <string name="nav_completed">Completed</string>
@@ -41,6 +42,8 @@
         <item>ViewVendor</item>
         <!--<item>MyAccount</item>-->
         <item>Report</item>
+        <item>InvoiceReport</item>
+
     </string-array>
     <string-array name="nav_item_activity_vendortitles">
         <item>Scoreboard</item>
@@ -49,6 +52,7 @@
         <item>ViewSubclients</item>
         <item>ViewClients</item>
         <item>Report</item>
+        <item>Invoice Report</item>
         <item>MyAccount</item>
     </string-array>
     <!--Edittext-->
@@ -125,6 +129,7 @@
     <string name="nav_subclient_vendor">Create Subclient</string>
     <string name="nav_user_vendor">Create User</string>
     <string name="nav_report_vendor">Report</string>
+    <string name="nav_invoicereport_vendor">Invoice Report</string>
     <string name="nav_myaccount_vendor">MyAccount</string>
     <string name="hint_subclient_code">Sub Client Code</string>
     <string name="hint_invoice_contact_name">Invoice Contact Name</string>
