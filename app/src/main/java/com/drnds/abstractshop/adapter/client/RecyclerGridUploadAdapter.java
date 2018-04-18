@@ -94,7 +94,7 @@ public class RecyclerGridUploadAdapter extends RecyclerView.Adapter< RecyclerGri
 
 
 
-                    Logger.getInstance().Log("url   : " + url);
+                    //Logger.getInstance().Log("url   : " + url);
 //                    File_DownloadId = DownloadData(file_uri, v);
                     downloadManager=(DownloadManager)ctx.getSystemService(ctx.DOWNLOAD_SERVICE);
 //                    Uri file_uri = Uri.parse("http://maven.apache.org/archives/maven-1.x/maven.pdf");
@@ -136,7 +136,7 @@ public class RecyclerGridUploadAdapter extends RecyclerView.Adapter< RecyclerGri
         holder.date.setText( gridUpload .getUploadedDate());
 
 
-        Logger.getInstance().Log("uploauri"+uploadUri);
+        //Logger.getInstance().Log("uploauri"+uploadUri);
 
         if(selected_usersList.contains(gridUploadList.get(position)))
             holder.ll_listitem.setBackgroundColor(ContextCompat.getColor(ctx, R.color.list_item_selected_state));

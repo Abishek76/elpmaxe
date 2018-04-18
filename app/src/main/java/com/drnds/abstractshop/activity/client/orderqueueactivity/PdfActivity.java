@@ -114,7 +114,7 @@ public class PdfActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    @Override
+    //    @Override
 //    protected void onStart() {
 //        showDialog();
 //        try{

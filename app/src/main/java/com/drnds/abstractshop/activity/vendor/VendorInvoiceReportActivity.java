@@ -88,7 +88,7 @@ public class VendorInvoiceReportActivity extends AppCompatActivity {
         sp = getApplicationContext().getSharedPreferences(
                 "VendorLoginActivity", 0);
         vendorID = sp.getString("Vendor_Id","");
-        Logger.getInstance().Log("vendor 22"+vendorID);
+        //Logger.getInstance().Log("vendor 22"+vendorID);
 
         setSupportActionBar(toolbar);
 
@@ -111,7 +111,7 @@ public class VendorInvoiceReportActivity extends AppCompatActivity {
         To_Date=intent.getStringExtra("To_Date");
         Client_Id=intent.getStringExtra("Client_Id");
         Sub_Client_Id=intent.getStringExtra("Sub_Client_Id");
-        Logger.getInstance().Log("date"+To_Date);
+        //Logger.getInstance().Log("date"+To_Date);
         fireEvent();
 
 //        if (vendorgridItemList.isEmpty()) {
@@ -136,7 +136,7 @@ public class VendorInvoiceReportActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
-                Log.e("hiii9", response.toString());
+                // Log.e("hiii9", response.toString());
 //                 hideDialog();
                 stopDialog();
 
@@ -145,7 +145,7 @@ public class VendorInvoiceReportActivity extends AppCompatActivity {
                     Log.d(TAG, response.toString());
                     boolean error = jObj.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response" + response);
+                    //Logger.getInstance().Log("in error response" + response);
                     // Check for error node in json
 
                     if (jObj.has("message"))
@@ -257,7 +257,7 @@ public class VendorInvoiceReportActivity extends AppCompatActivity {
                 params.put("Sub_Client_Id",Sub_Client_Id);
 
 
-                Logger.getInstance().Log("params " +params);
+                //Logger.getInstance().Log("params " +params);
                 return params;
             }
         };
@@ -339,5 +339,4 @@ public class VendorInvoiceReportActivity extends AppCompatActivity {
 
 
 }
-
 

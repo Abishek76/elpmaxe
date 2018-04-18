@@ -24,8 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="PendingOrders"
-                android:checked="true"/>
+                android:text="PendingOrders" />
 
             <RadioButton
                 android:id="@+id/completedorder"
@@ -130,12 +129,39 @@
             android:layout_weight="1"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:id="@+id/submitreport"
+            android:id="@+id/submitpen"
             android:theme="@style/MyButton"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             android:layout_height="60dp"
-            android:text="Submit"/>
+            android:text="Submit"
+            android:visibility="gone"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/submitcom"
+            android:theme="@style/MyButton"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_height="60dp"
+            android:text="Submit"
+            android:visibility="gone"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/submitall"
+            android:theme="@style/MyButton"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_height="60dp"
+            android:text="Submit"
+            android:visibility="gone"/>
 
     </LinearLayout>
 

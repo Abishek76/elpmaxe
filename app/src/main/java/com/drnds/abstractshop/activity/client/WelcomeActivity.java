@@ -57,9 +57,9 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
@@ -185,86 +185,86 @@ public class WelcomeActivity extends AppCompatActivity {
             window.setStatusBarColor(Color.TRANSPARENT);
         }
     }
-public void checkToken(){
-    StringRequest stringRequest = new StringRequest(Request.Method.POST,
-            Config.TOKEN_REQUEST, new Response.Listener<String>() {
+    public void checkToken(){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                Config.TOKEN_REQUEST, new Response.Listener<String>() {
 
-        @Override
-        public void onResponse(String response) {
-            Log.d(TAG, response.toString());
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, response.toString());
 //                 hideDialog();
 
 
 
-            JSONObject jObj = null;
-            try {
-                jObj = new JSONObject(response);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            Log.d(TAG, response.toString());
-            boolean  error = false;
-            try {
-                error = jObj.getBoolean("error");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+                JSONObject jObj = null;
+                try {
+                    jObj = new JSONObject(response);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                Log.d(TAG, response.toString());
+                boolean  error = false;
+                try {
+                    error = jObj.getBoolean("error");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
-            Logger.getInstance().Log("in error response"+response);
-            // Check for error node in json
-            if (!error) {
+                //Logger.getInstance().Log("in error response"+response);
+                // Check for error node in json
+                if (!error) {
 
-                sp = getApplicationContext().getSharedPreferences(
-                        "Welcomeactivity", 0);
+                    sp = getApplicationContext().getSharedPreferences(
+                            "Welcomeactivity", 0);
 
 
-                SharedPreferences.Editor editor = sp.edit();
+                    SharedPreferences.Editor editor = sp.edit();
 //                editor.putString("Client_User_Id", Client_User_Id);
 
-                editor.commit();
+                    editor.commit();
+
+
+
+
+
+                }
+
 
 
 
 
 
             }
+        }, new Response.ErrorListener() {
 
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d(TAG, "Error: " + error.getMessage());
 
+            }
+        })
 
+        {
+            @Override
+            public String getBodyContentType() {
+                return "application/x-www-form-urlencoded; charset=UTF-8";
+            }
 
-
-
-        }
-    }, new Response.ErrorListener() {
-
-        @Override
-        public void onErrorResponse(VolleyError error) {
-            VolleyLog.d(TAG, "Error: " + error.getMessage());
-
-        }
-    })
-
-    {
-        @Override
-        public String getBodyContentType() {
-            return "application/x-www-form-urlencoded; charset=UTF-8";
-        }
-
-        @Override
-        protected Map<String, String> getParams() throws AuthFailureError {
-            Map<String, String> params = new HashMap<String, String>();
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
 //            params.put("username", etUname.getText().toString().trim());
 
-            return params;
-        }
+                return params;
+            }
 
-    };
+        };
 
 
 
-    // Adding request to request queue
-    AppController.getInstance().addToRequestQueue(stringRequest);
-}
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(stringRequest);
+    }
 
 }
 

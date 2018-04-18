@@ -95,7 +95,7 @@ public class GridviewActivity extends AppCompatActivity implements SwipeRefreshL
         try {
             JSONObject json = new JSONObject(JSON);
             JSONArray jsonArray=json.getJSONArray("View_Order_Info");
-            Log.e(TAG, json.toString());
+            // Log.e(TAG, json.toString());
             for(int i=0;i<jsonArray.length();i++){
 
                 JSONObject details = jsonArray.getJSONObject(i);
@@ -118,7 +118,7 @@ public class GridviewActivity extends AppCompatActivity implements SwipeRefreshL
                 gridItem.setSubId(SubId);
                 String date=details.getString("Order_Date");
                 gridItem.setDate(date);
-                Logger.getInstance().Log("   Order_Assign_Type7777" + Order_Assign_Type);
+                //Logger.getInstance().Log("   Order_Assign_Type7777" + Order_Assign_Type);
 
 
 
@@ -195,7 +195,7 @@ public class GridviewActivity extends AppCompatActivity implements SwipeRefreshL
 
 
 
- //onAc
+    //onAc
 
     @Override
     public void onResume() {

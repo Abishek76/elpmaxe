@@ -118,7 +118,7 @@ public class ViewClientFragmentVendor extends Fragment  implements SwipeRefreshL
     public void viewClient() {
 
         mSwipeRefreshLayout.setRefreshing(true);
-        Logger.getInstance().Log("client id : " + getVendorId());
+        //Logger.getInstance().Log("client id : " + getVendorId());
 
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.VENDORCLIENT_URL + getVendorId(), null, new Response.Listener<JSONObject>() {
@@ -128,7 +128,7 @@ public class ViewClientFragmentVendor extends Fragment  implements SwipeRefreshL
                 ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
                 try {
                     vendorclientArrayList = new ArrayList<>();
-                    Log.e("responce : ", "" + response.toString());
+                    // Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("Users");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);

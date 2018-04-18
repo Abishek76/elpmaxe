@@ -82,7 +82,7 @@ public class GridViewVendorActivity extends AppCompatActivity {
         sp = getApplicationContext().getSharedPreferences(
                 "VendorLoginActivity", 0);
         vendorID = sp.getString("Vendor_Id","");
-        Logger.getInstance().Log("vendor 22"+vendorID);
+        //Logger.getInstance().Log("vendor 22"+vendorID);
         select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,17 +114,17 @@ public class GridViewVendorActivity extends AppCompatActivity {
                     //If Text is Select All then loop to all array List items and check all of them
                     for (VendorGridItem vendorGridItem : vendorgridItemList) {
                         vendorGridItem.setSelected(false);
-                        Logger.getInstance().Log("select false = " + vendorGridItem.getOrderId());
+                        //Logger.getInstance().Log("select false = " + vendorGridItem.getOrderId());
                         selectedArrays.remove(vendorGridItem.getOrderId());
                     }
                     mAdapter.notifyDataSetChanged();
                 }else{
                     for (VendorGridItem vendorGridItem : vendorgridItemList) {
                         vendorGridItem.setSelected(true);
-                        Logger.getInstance().Log("select trtue = " + vendorGridItem.getOrderId());
+                        //Logger.getInstance().Log("select trtue = " + vendorGridItem.getOrderId());
                         selectedArrays.add(vendorGridItem.getOrderId());
                     }
-                    Logger.getInstance().Log("select arrays " + selectedArrays);
+                    //Logger.getInstance().Log("select arrays " + selectedArrays);
                     mAdapter.notifyDataSetChanged();
                 }
 
@@ -199,7 +199,7 @@ public class GridViewVendorActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         String JSON=intent.getStringExtra("JSONVENDOR");
-        Logger.getInstance().Log("  JSONgrid" +JSON);
+        //Logger.getInstance().Log("  JSONgrid" +JSON);
         try {
             JSONObject json = new JSONObject(JSON);
             JSONArray jsonArray=json.getJSONArray("View_Order_Info");
@@ -331,15 +331,15 @@ public class GridViewVendorActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response)
             {
-                Logger.getInstance().Log("in response");
+                //Logger.getInstance().Log("in response");
                 hideDialog();
 
                 try {
 //                    JSONObject jObj = new JSONObject(response);
-                    Log.e(TAG, response.toString());
+                    // Log.e(TAG, response.toString());
                     boolean error = response.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response" + error);
+                    //Logger.getInstance().Log("in error response" + error);
                     // Check for error node in json
                     if (!error) {
                         // user successfully logged in
@@ -354,12 +354,12 @@ public class GridViewVendorActivity extends AppCompatActivity {
                     }
 
                     else{
-                        Logger.getInstance().Log("in error ");
+                        //Logger.getInstance().Log("in error ");
                         TastyToast.makeText( getApplicationContext(),"Enter Valid Credentials...",TastyToast.LENGTH_SHORT,TastyToast.ERROR);
                     }
 
                 } catch (JSONException e) {
-                    Logger.getInstance().Log("in stock ");
+                    //Logger.getInstance().Log("in stock ");
                     e.printStackTrace();
                 }
             }
@@ -410,7 +410,7 @@ public class GridViewVendorActivity extends AppCompatActivity {
                 String selectedString = "";
                 selectedOrders.clear();
                 selectedOrders  = selectedArrays;
-                Logger.getInstance().Log("json array2 selectedOrders"+selectedOrders);
+                //Logger.getInstance().Log("json array2 selectedOrders"+selectedOrders);
 
                 for(int i = 0 ; i < selectedOrders.size(); i++ ){
 
@@ -420,7 +420,7 @@ public class GridViewVendorActivity extends AppCompatActivity {
                         selectedString = selectedString + "," + selectedOrders.get(i);
                     }
                 }
-                Logger.getInstance().Log("json array2 selectedString"+selectedString);
+                //Logger.getInstance().Log("json array2 selectedString"+selectedString);
 
                 params.put("Order_Id", selectedString);
                 params.put("Vendor_Id",vendorID);
@@ -433,7 +433,7 @@ public class GridViewVendorActivity extends AppCompatActivity {
                 //Logger.getInstance().Log("json array6"+jsonStr);
                 //Logger.getInstance().Log("json array6"+rawUser);
 
-                Logger.getInstance().Log("json array2"+params);
+                //Logger.getInstance().Log("json array2"+params);
                 return params;
             }
 //            @Override

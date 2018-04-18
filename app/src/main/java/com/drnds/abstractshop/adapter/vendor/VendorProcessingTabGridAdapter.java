@@ -49,7 +49,7 @@ public class VendorProcessingTabGridAdapter  extends BaseAdapter {
         newoRderCount =Integer.parseInt(s.getOrderno()) ;
         TextView orderNo= (TextView) view.findViewById(R.id.vendororderno_prtab);
         TextView title= (TextView) view.findViewById(R.id.vendortitle_prtab);
-        Logger.getInstance().Log("position="+newoRderCount);
+        //Logger.getInstance().Log("position="+newoRderCount);
 
         //BIND
         orderNo.setText(s.getOrderno());

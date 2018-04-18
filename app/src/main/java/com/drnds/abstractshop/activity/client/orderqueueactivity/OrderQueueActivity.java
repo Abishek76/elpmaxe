@@ -152,16 +152,16 @@ public class OrderQueueActivity extends AppCompatActivity {
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(OrderQueueActivity.this,R.style.datepicker,new DatePickerDialog.OnDateSetListener() {
 
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int monthOfYear, int dayOfMonth) {
-                                Calendar newDate = Calendar.getInstance();
-                                newDate.set(year, monthOfYear, dayOfMonth);
-                                inputDate.setText(dateFormatter.format(newDate.getTime()));
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        Calendar newDate = Calendar.getInstance();
+                        newDate.set(year, monthOfYear, dayOfMonth);
+                        inputDate.setText(dateFormatter.format(newDate.getTime()));
 
 
-                            }
-                        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+                    }
+                },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
             }
 
@@ -283,11 +283,11 @@ public class OrderQueueActivity extends AppCompatActivity {
     }
     private void getCounty() {
 
-        Log.e("State_ID", getStateId());
-        Log.e("State", getStateId());
+        // Log.e("State_ID", getStateId());
+        // Log.e("State", getStateId());
 
 
-        Log.e("County_Name", getCountyId());
+        // Log.e("County_Name", getCountyId());
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.COUNTY_URL + getStateId(), null, new Response.Listener<JSONObject>() {
 
             @Override
@@ -490,7 +490,7 @@ public class OrderQueueActivity extends AppCompatActivity {
         String uri = String.format(Config.GETTIRE_URL+"?id="+getStateId()+"&id1="+getCountyId()+"&id2="+getClientId());
 //        String uri = String.format(Config.GETTIRE_URL+"?id=1&id1=1&id2=1");
 
-        Logger.getInstance().Log("Tire type url : "+uri);
+        //Logger.getInstance().Log("Tire type url : "+uri);
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, uri, null, new Response.Listener<JSONObject>() {
 
@@ -505,7 +505,7 @@ public class OrderQueueActivity extends AppCompatActivity {
 
                     spinner8.setSelection(countytype.indexOf(Order_Assign_Type));
                     hideDialog();
-                    Logger.getInstance().Log("Tire type id is : "+Order_Assign_Type);
+                    //Logger.getInstance().Log("Tire type id is : "+Order_Assign_Type);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -537,7 +537,7 @@ public class OrderQueueActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected state id : " + State_ID);
+                //Logger.getInstance().Log("selected state id : " + State_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -567,7 +567,7 @@ public class OrderQueueActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected county id : " + County_ID);
+                //Logger.getInstance().Log("selected county id : " + County_ID);
 
 //                Logger.getInstance().Log("selected county  : " + countyname);
                 //editor.putString("State_Name", State_Name);
@@ -598,7 +598,7 @@ public class OrderQueueActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected product id : " + Order_Type_ID);
+                //Logger.getInstance().Log("selected product id : " + Order_Type_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -631,7 +631,7 @@ public class OrderQueueActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected order task id : " + Order_Status_ID);
+                //Logger.getInstance().Log("selected order task id : " + Order_Status_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -664,7 +664,7 @@ public class OrderQueueActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected status id : " + Order_Progress_Id);
+                //Logger.getInstance().Log("selected status id : " + Order_Progress_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -697,7 +697,7 @@ public class OrderQueueActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected ordered priority id : " + Order_Priority_Id);
+                //Logger.getInstance().Log("selected ordered priority id : " + Order_Priority_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -729,7 +729,7 @@ public class OrderQueueActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected cuctomer id : " + Sub_Client_Id);
+                //Logger.getInstance().Log("selected cuctomer id : " + Sub_Client_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -761,7 +761,7 @@ public class OrderQueueActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected countytype id : " + Order_Assign_Type_Id);
+                //Logger.getInstance().Log("selected countytype id : " + Order_Assign_Type_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -784,7 +784,7 @@ public class OrderQueueActivity extends AppCompatActivity {
     }
     public void  updateOrderinfo(){
 
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
         final String Order_Number = inputOrdernum.getText().toString().trim();
 
@@ -804,12 +804,12 @@ public class OrderQueueActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 hideDialog();
-                Logger.getInstance().Log("sucess string");
+                //Logger.getInstance().Log("sucess string");
                 try {
 
                     boolean  error = response.getBoolean("error");
                     boolean  duplicate=response.getBoolean("duplicate");
-                    Logger.getInstance().Log("in error response"+error);
+                    //Logger.getInstance().Log("in error response"+error);
                     // Check for error node in json
                     if (!error&&!duplicate)
                     {
@@ -852,17 +852,17 @@ public class OrderQueueActivity extends AppCompatActivity {
 
 
                 params.put("Clinet_Id",getClientId());
-                Logger.getInstance().Log("Id .... is"+getClientId());
+                //Logger.getInstance().Log("Id .... is"+getClientId());
                 params.put("Sub_Client_Id",Sub_Client_Id);
                 params.put("State_ID",State_ID);
-                Logger.getInstance().Log("state id is"+getStateId());
+                //Logger.getInstance().Log("state id is"+getStateId());
                 params.put("State",State);
-                Logger.getInstance().Log("state name is is"+State);
+                //Logger.getInstance().Log("state name is is"+State);
                 params.put("County",County);
-                Logger.getInstance().Log("county id is"+getCountyId());
+                //Logger.getInstance().Log("county id is"+getCountyId());
                 params.put("County_ID",County_ID);
                 params.put("Order_Type_ID",Order_Type_ID);
-                Logger.getInstance().Log("Order_Type_ID id is"+Order_Type_ID);
+                //Logger.getInstance().Log("Order_Type_ID id is"+Order_Type_ID);
                 params.put("Product_Type",Order_Type);
                 params.put("Order_Status",Order_Status);
                 params.put("Order_Status_ID",Order_Status_ID);
@@ -870,7 +870,7 @@ public class OrderQueueActivity extends AppCompatActivity {
                 params.put("Progress_Status",Progress_Status);
                 params.put("Order_Priority_Id",Order_Priority_Id);
                 params.put("Order_Priority",Order_Priority);
-                Logger.getInstance().Log("Order_Priority is"+Order_Priority);
+                //Logger.getInstance().Log("Order_Priority is"+Order_Priority);
                 params.put("Order_Assign_Type_Id",Order_Assign_Type_Id);
 
 
@@ -933,7 +933,7 @@ public class OrderQueueActivity extends AppCompatActivity {
 
     private void requestFocus(View view) {
         if (view.requestFocus()) {
-           getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         }
     }
 
@@ -1013,7 +1013,7 @@ public class OrderQueueActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response)
             {
-                Logger.getInstance().Log("in response");
+                //Logger.getInstance().Log("in response");
                 hideDialog();
 
                 try {

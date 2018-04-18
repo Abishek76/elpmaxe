@@ -131,7 +131,7 @@ public class VendorCompletedAdapter extends RecyclerView.Adapter<VendorCompleted
                 SharedPreferences.Editor editor = sp.edit();
 
                 editor.putString("Order_Id", vendorgridItem.getOrderId());
-                Logger.getInstance().Log("orderidadapter " + vendorgridItem.getOrderId());
+                //Logger.getInstance().Log("orderidadapter " + vendorgridItem.getOrderId());
                 editor.putString("Sub_Client_Name", vendorgridItem.getSubclient());
                 editor.putString("Order_Type", vendorgridItem.getProducttype());
                 editor.putString("State_Name", vendorgridItem.getState());
@@ -143,12 +143,12 @@ public class VendorCompletedAdapter extends RecyclerView.Adapter<VendorCompleted
                 editor.putString("Barrower_Name", vendorgridItem.getBarrowername());
                 editor.putString("Order_Number", vendorgridItem.getOderno());
                 editor.putString("Order_Status", vendorgridItem.getOrdertask());
-                Logger.getInstance().Log("Order_Status of " + vendorgridItem.getOrdertask());
+                //Logger.getInstance().Log("Order_Status of " + vendorgridItem.getOrdertask());
 
                 editor.putString("Order_Status", vendorgridItem.getOrdertask());
 
                 editor.commit();
-                Logger.getInstance().Log("status888 " + vendorgridItem.getStatus());
+                //Logger.getInstance().Log("status888 " + vendorgridItem.getStatus());
                 context.startActivity(intent);
             }
         });

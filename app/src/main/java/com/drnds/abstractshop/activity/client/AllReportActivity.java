@@ -33,7 +33,6 @@ import com.drnds.abstractshop.adapter.client.RecyclerCompletedAdapter;
 import com.drnds.abstractshop.model.client.GridItem;
 import com.drnds.abstractshop.util.AppController;
 import com.drnds.abstractshop.util.Config;
-import com.drnds.abstractshop.util.Logger;
 import com.sdsmdg.tastytoast.TastyToast;
 
 import org.json.JSONArray;
@@ -46,7 +45,8 @@ import java.util.Map;
 
 import static com.android.volley.VolleyLog.TAG;
 
-public class CompletedActivity extends AppCompatActivity {
+public class AllReportActivity extends AppCompatActivity {
+
     private ArrayList<GridItem> gridItemList = new ArrayList<>();
     private RecyclerView recyclerView;
     private RecyclerCompletedAdapter mAdapter;
@@ -71,8 +71,8 @@ public class CompletedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_completed);
-        recyclerView = (RecyclerView) findViewById(R.id.recycle_completedgrid);
+        setContentView(R.layout.activity_all_report);
+        recyclerView = (RecyclerView) findViewById(R.id.recycle_allgrid);
         toolbar = (Toolbar) findViewById(R.id.toolbar_gridcompleted);
         toolbarh = (Toolbar) findViewById(R.id.toolbar_hide);
 
@@ -101,7 +101,7 @@ public class CompletedActivity extends AppCompatActivity {
 
 
 
-        Report_Type=intent.getStringExtra("2");
+        Report_Type=intent.getStringExtra("3");
         From_Date=intent.getStringExtra("From_Date1");
         To_Date=intent.getStringExtra("To_Date1");
         Client_Id=intent.getStringExtra("Client_Id1");
@@ -150,7 +150,7 @@ public class CompletedActivity extends AppCompatActivity {
                         int num = 1;
                         if(jsonArray.isNull(0)){
                             stopDialog();
-                            TastyToast.makeText( CompletedActivity.this,"No  Orders Found",TastyToast.LENGTH_SHORT,TastyToast.ERROR);
+                            TastyToast.makeText( AllReportActivity.this,"No  Orders Found",TastyToast.LENGTH_SHORT,TastyToast.ERROR);
                             recyclerView.setVisibility(View.GONE);
                             emptyView.setVisibility(View.VISIBLE);
                             emptyViewimg.setVisibility(View.VISIBLE);
@@ -194,7 +194,7 @@ public class CompletedActivity extends AppCompatActivity {
                     }else
 
                     {
-                        TastyToast.makeText(CompletedActivity.this,"Some thing went wrong",TastyToast.LENGTH_SHORT,TastyToast.ERROR);
+                        TastyToast.makeText(AllReportActivity.this,"Some thing went wrong",TastyToast.LENGTH_SHORT,TastyToast.ERROR);
 
                     }
 
@@ -217,7 +217,7 @@ public class CompletedActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("Client_Id",Client_Id);
-                params.put("Report_Type", "2");
+                params.put("Report_Type", "3");
                 params.put("From_Date", From_Date );
                 params.put("To_Date",To_Date);
                 //Logger.getInstance().Log("Report_Type"+params);
@@ -296,3 +296,4 @@ public class CompletedActivity extends AppCompatActivity {
 
 
 }
+

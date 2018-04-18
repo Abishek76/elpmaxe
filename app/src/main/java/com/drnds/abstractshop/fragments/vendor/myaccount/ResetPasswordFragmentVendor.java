@@ -101,7 +101,7 @@ public class ResetPasswordFragmentVendor extends Fragment {
     }
 
     public void   updatePassword(){
-        Logger.getInstance().Log("in update vendor id");
+        //Logger.getInstance().Log("in update vendor id");
         pDialog.setMessage("Updating ...");
         showDialog();
         final String Current_Password = inputCurrent.getText().toString().trim();
@@ -152,10 +152,10 @@ public class ResetPasswordFragmentVendor extends Fragment {
 
 
                 params.put("Vendor_User_Id", getVendorUserId());
-                Logger.getInstance().Log("Vendor_User_Id : " + getVendorUserId());
-                Logger.getInstance().Log("Current_Password : " + Current_Password);
-                Logger.getInstance().Log("New_Password : " + New_Password);
-                Logger.getInstance().Log("Confirm_NewPassword : " + Confirm_NewPassword);
+                //Logger.getInstance().Log("Vendor_User_Id : " + getVendorUserId());
+                //Logger.getInstance().Log("Current_Password : " + Current_Password);
+                //Logger.getInstance().Log("New_Password : " + New_Password);
+                //Logger.getInstance().Log("Confirm_NewPassword : " + Confirm_NewPassword);
 
 
                 return params;

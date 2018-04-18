@@ -52,7 +52,7 @@ public class EditOrderQueueAdapter extends FragmentPagerAdapter {
                 bundle.putString("Order_Assign_Type", countytype);
                 bundle.putString("Order_Status", ordertask);
                 bundle.putString("Progress_Status", status);
-                Logger.getInstance().Log("countytype in adapter : "+countytype);
+                //Logger.getInstance().Log("countytype in adapter : "+countytype);
                 EditOrderInfoFragment obj = new EditOrderInfoFragment();
                 obj.setArguments(bundle);
                 return obj;

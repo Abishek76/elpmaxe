@@ -180,7 +180,7 @@ public class EditUploadDocFragment extends Fragment implements View.OnClickListe
             public void onResponse(JSONObject response) {
 
                 try {
-                    Log.e("responce : ", "" + response.toString());
+                    // Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("View_Upload_Documents");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
@@ -499,7 +499,7 @@ public class EditUploadDocFragment extends Fragment implements View.OnClickListe
         switch (v.getId()) {
             case R.id.menu_attachment_document:
                 UploadDocument();
-                Logger.getInstance().Log("uploadedclickcase");
+                //Logger.getInstance().Log("uploadedclickcase");
                 break;
 //            case R.id.menu_attachment_camera:
 //                Intent intent=new   Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);

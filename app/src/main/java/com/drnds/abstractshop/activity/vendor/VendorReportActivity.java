@@ -57,18 +57,18 @@ public class VendorReportActivity extends AppCompatActivity {
 
 
 
-        if (reportArrayList.isEmpty()) {
-            recyclerView.setVisibility(View.GONE);
-            emptyView.setVisibility(View.VISIBLE);
-            emptyViewimg.setVisibility(View.VISIBLE);
-
-        }
-        else {
-            recyclerView.setVisibility(View.VISIBLE);
-            emptyView.setVisibility(View.GONE);
-            emptyViewimg.setVisibility(View.GONE);
-
-        }
+//        if (reportArrayList.isEmpty()) {
+//            recyclerView.setVisibility(View.GONE);
+//            emptyView.setVisibility(View.VISIBLE);
+//            emptyViewimg.setVisibility(View.VISIBLE);
+//
+//        }
+//        else {
+//            recyclerView.setVisibility(View.VISIBLE);
+//            emptyView.setVisibility(View.GONE);
+//            emptyViewimg.setVisibility(View.GONE);
+//
+//        }
 
 
 
@@ -77,9 +77,9 @@ public class VendorReportActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-
         String JSON = intent.getStringExtra("JsonReport");
         Logger.getInstance().Log("JSON"+JSON);
+
 
         try {
             JSONObject json = new JSONObject(JSON);

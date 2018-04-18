@@ -185,7 +185,7 @@ public class VendorPiechartActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response)
             {
-                Logger.getInstance().Log("in response");
+                //Logger.getInstance().Log("in response");
 
 
                 try {
@@ -220,16 +220,16 @@ public class VendorPiechartActivity extends AppCompatActivity {
                         textView8.setText(Y.get(2)+"");
                         textView9.setText(Y.get(1)+"");
                         textView10.setText(Y.get(0)+"");
-                        Logger.getInstance().Log("valueof"+Y.get(0));
-                        Logger.getInstance().Log("valueof"+Y.get(1));
-                        Logger.getInstance().Log("valueof"+Y.get(2));
-                        Logger.getInstance().Log("valueof"+Y.get(3));
-                        Logger.getInstance().Log("valueof"+Y.get(4));
-                        Logger.getInstance().Log("valueof"+Y.get(5));
-                        Logger.getInstance().Log("valueof"+Y.get(6));
-                        Logger.getInstance().Log("valueof"+Y.get(7));
-                        Logger.getInstance().Log("valueof"+Y.get(8));
-                        Logger.getInstance().Log("valueof"+Y.get(9));
+                        //Logger.getInstance().Log("valueof"+Y.get(0));
+                        //Logger.getInstance().Log("valueof"+Y.get(1));
+                        //Logger.getInstance().Log("valueof"+Y.get(2));
+                        //Logger.getInstance().Log("valueof"+Y.get(3));
+                        //Logger.getInstance().Log("valueof"+Y.get(4));
+                        //Logger.getInstance().Log("valueof"+Y.get(5));
+                        //Logger.getInstance().Log("valueof"+Y.get(6));
+                        //Logger.getInstance().Log("valueof"+Y.get(7));
+                        //Logger.getInstance().Log("valueof"+Y.get(8));
+                        //Logger.getInstance().Log("valueof"+Y.get(9));
                         PieDataSet dataSet = new PieDataSet(yvalues, "");
                         dataSet.setSelectionShift(5);
 //        dataSet.setSliceSpace(2);

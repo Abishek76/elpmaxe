@@ -63,7 +63,7 @@
 
 
                 <ImageView
-                    android:id="@+id/gridcardmenu"
+                    android:id="@+id/more"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_more_vert"

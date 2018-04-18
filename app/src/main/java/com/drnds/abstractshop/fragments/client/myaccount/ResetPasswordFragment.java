@@ -97,19 +97,19 @@ public class ResetPasswordFragment extends Fragment {
 
         return view;
     }
-   public String getClientUserId() {
+    public String getClientUserId() {
 
         return spreset.getString("Client_User_Id", "");
 
     }
 
     public void   updatePassword(){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         pDialog.setMessage("Updating ...");
         showDialog();
-       final String Current_Password = inputCurrent.getText().toString().trim();
-       final String  New_Password = inputNew.getText().toString().trim();
-       final String  Reenter_NewPassword = inputReenter.getText().toString().trim();
+        final String Current_Password = inputCurrent.getText().toString().trim();
+        final String  New_Password = inputNew.getText().toString().trim();
+        final String  Reenter_NewPassword = inputReenter.getText().toString().trim();
         CustomRequest customRequest = new CustomRequest(Request.Method.POST, Config.PASSWORD_URL+getClientUserId(),null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -155,10 +155,10 @@ public class ResetPasswordFragment extends Fragment {
 
 
                 params.put("Client_User_Id", getClientUserId());
-                Logger.getInstance().Log("Client_User_Id : " + getClientUserId());
-                Logger.getInstance().Log("Current_Password : " + Current_Password);
-                Logger.getInstance().Log("New_Password : " + New_Password);
-                Logger.getInstance().Log("Reenter_NewPassword : " + Reenter_NewPassword);
+                //Logger.getInstance().Log("Client_User_Id : " + getClientUserId());
+                //Logger.getInstance().Log("Current_Password : " + Current_Password);
+                //Logger.getInstance().Log("New_Password : " + New_Password);
+                //Logger.getInstance().Log("Reenter_NewPassword : " + Reenter_NewPassword);
 
 
                 return params;

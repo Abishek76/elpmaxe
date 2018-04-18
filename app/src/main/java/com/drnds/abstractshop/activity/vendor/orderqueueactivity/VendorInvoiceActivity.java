@@ -61,7 +61,6 @@ public class VendorInvoiceActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +97,8 @@ public class VendorInvoiceActivity extends AppCompatActivity {
         pDialog.setCancelable(false);
         sp = getApplicationContext().getSharedPreferences(
                 VENDORORDER, 0);
+        pref = getApplicationContext().getSharedPreferences(
+                "VendorLoginActivity", 0);
 
         Order_Id = sp.getString("Order_Id", "");
 
@@ -179,7 +180,7 @@ public class VendorInvoiceActivity extends AppCompatActivity {
     public String getVendorUserId() {
 //         num3=sp.getString("Client_Id","");
 //        Log.e("Client_Id of num3", num3);
-        return sp.getString("Vendor_User_Id", "");
+        return pref.getString("Vendor_User_Id", "");
 
 
     }
@@ -201,7 +202,7 @@ public class VendorInvoiceActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
                 try {
-                    Log.e("responce : ", "" + response.toString());
+                    // Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("View_Invoice_Details");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
@@ -215,7 +216,7 @@ public class VendorInvoiceActivity extends AppCompatActivity {
                         inputnoofpages.setText(No_Of_Pages);
                         String Invoice_Date=details.getString("Invoice_Date");
                         inputinvoicedate.setText(Invoice_Date);
-                        Logger.getInstance().Log("set Order cost " + Order_Cost);
+
                     }
 
                 } catch (JSONException e) {
@@ -252,12 +253,12 @@ public class VendorInvoiceActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 hideDialog();
 
-                Logger.getInstance().Log("sucess string");
+                //Logger.getInstance().Log("sucess string");
                 try {
 
                     boolean  error = response.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+error);
+                    //Logger.getInstance().Log("in error response"+error);
                     // Check for error node in json
                     if (!error)
                     {
@@ -299,8 +300,17 @@ public class VendorInvoiceActivity extends AppCompatActivity {
                 params.put("Invoice_Date",Invoice_Date);
                 params.put("Vendor_User_Id",getVendorUserId());
                 params.put("Subprocess_ID",getSubprocessId());
-                Logger.getInstance().Log("Id .... is"+getVendorUserId());
-                Logger.getInstance().Log("Id .... is"+getSubprocessId());
+                //Logger.getInstance().Log("Id .... is"+getorderID());
+                //Logger.getInstance().Log("Id .... is"+getVendorUserId());
+                //Logger.getInstance().Log("Id .... is"+Order_Cost);
+                //Logger.getInstance().Log("Id .... is"+Search_Cost);
+                //Logger.getInstance().Log("Id .... is"+Copy_Cost);
+                //Logger.getInstance().Log("Id .... is"+No_Of_Pages);
+                //Logger.getInstance().Log("Id .... is"+Invoice_Date  );
+
+
+
+
 
                 return params;
             }
@@ -388,7 +398,7 @@ public class VendorInvoiceActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Logger.getInstance().Log("calling");
+        //Logger.getInstance().Log("calling");
         toolbar.setVisibility(View.VISIBLE);
 
 //        toolbar.setVisibility(View.VISIBLE);

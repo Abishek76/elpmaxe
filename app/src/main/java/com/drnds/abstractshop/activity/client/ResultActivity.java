@@ -78,7 +78,7 @@ public class ResultActivity extends AppCompatActivity {
         try {
             JSONObject json = new JSONObject(JSON);
             JSONArray jsonArray=json.getJSONArray("Orders");
-            Log.e(TAG, json.toString());
+            // Log.e(TAG, json.toString());
             for(int i=0;i<jsonArray.length();i++){
 
                 JSONObject details = jsonArray.getJSONObject(i);

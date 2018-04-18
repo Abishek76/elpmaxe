@@ -105,11 +105,14 @@ public class VendorRecyclerOrderQueueAdapter extends RecyclerView.Adapter<Vendor
                     VendorOrderQueue vendororderqueue=vendorList.get(position);
                     orderid=vendororderqueue.getOrder_Id();
                     showPopupMenu(cardmenu,getAdapterPosition());
-                    Logger.getInstance().Log("selected order id is : " + vendororderqueue.getOrder_Id());
+                    //Logger.getInstance().Log("selected order id is : " + vendororderqueue.getOrder_Id());
 
 
                 }
             });
+
+
+
 
 
 //            view.setOnLongClickListener(new View.OnLongClickListener() {
@@ -193,7 +196,7 @@ public class VendorRecyclerOrderQueueAdapter extends RecyclerView.Adapter<Vendor
                 editor.putString("Order_Number", vendororderQueue.getOderno());
                 editor.putString("Clinet_Id", vendororderQueue.getClintId());
                 editor.commit();
-                Logger.getInstance().Log("gfdfg"+vendororderQueue.getClintId());
+                //Logger.getInstance().Log("gfdfg"+vendororderQueue.getClintId());
                 ((Activity) ctx).startActivityForResult(intent,1005);
 //                context.startActivity(intent);
 
@@ -252,7 +255,7 @@ public class VendorRecyclerOrderQueueAdapter extends RecyclerView.Adapter<Vendor
 
 
     private void hold(final int position){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
 
         pDialog.setMessage("Updating ...");
@@ -299,7 +302,7 @@ public class VendorRecyclerOrderQueueAdapter extends RecyclerView.Adapter<Vendor
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "5");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -317,7 +320,7 @@ public class VendorRecyclerOrderQueueAdapter extends RecyclerView.Adapter<Vendor
 
 
     private void completed(final int position){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
 
         pDialog.setMessage("Updating ...");
@@ -364,7 +367,7 @@ public class VendorRecyclerOrderQueueAdapter extends RecyclerView.Adapter<Vendor
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "3");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -383,7 +386,7 @@ public class VendorRecyclerOrderQueueAdapter extends RecyclerView.Adapter<Vendor
 
 
     private void workinprogress(final int position){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
 
         pDialog.setMessage("Updating ...");
@@ -430,7 +433,7 @@ public class VendorRecyclerOrderQueueAdapter extends RecyclerView.Adapter<Vendor
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "14");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -451,7 +454,7 @@ public class VendorRecyclerOrderQueueAdapter extends RecyclerView.Adapter<Vendor
 
 
     private void cancelled(final int position) {
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
 
         pDialog.setMessage("Updating ...");
@@ -498,7 +501,7 @@ public class VendorRecyclerOrderQueueAdapter extends RecyclerView.Adapter<Vendor
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "4");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -529,7 +532,7 @@ public class VendorRecyclerOrderQueueAdapter extends RecyclerView.Adapter<Vendor
 
 
     private void clarification(final int position) {
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
 
         pDialog.setMessage("Updating ...");
@@ -576,7 +579,7 @@ public class VendorRecyclerOrderQueueAdapter extends RecyclerView.Adapter<Vendor
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "1");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 

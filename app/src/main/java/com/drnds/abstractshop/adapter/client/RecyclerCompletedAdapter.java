@@ -124,7 +124,7 @@ public class RecyclerCompletedAdapter extends RecyclerView.Adapter< RecyclerComp
                 editor.putString("Barrower_Name", gridItem.getBarrowername());
                 editor.putString("Order_Status", gridItem.getOrdertask());
                 editor.putString("Sub_Client_Id", gridItem.getSubId());
-                Logger.getInstance().Log("subid22 " + gridItem.getSubId());
+                //Logger.getInstance().Log("subid22 " + gridItem.getSubId());
                 editor.commit();
                 context.startActivity(intent);
 //            intent.putExtra("Order_Id",orderQueue.getOrder_Id());

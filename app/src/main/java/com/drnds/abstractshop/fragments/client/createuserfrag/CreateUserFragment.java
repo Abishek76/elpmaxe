@@ -121,12 +121,12 @@ public class CreateUserFragment extends Fragment implements SwipeRefreshLayout.O
             public void onResponse(JSONObject response) {
                 createUserArrayList.clear();
                 try {
-                    Log.e("responce : ", "" + response.toString());
+                    // Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("Users");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
                         value = details.getString("Client_User_Id");
-                        Logger.getInstance().Log("values : " + value);
+                        //Logger.getInstance().Log("values : " + value);
                         String First_Name = details.getString("First_Name");
                         String Last_Name = details.getString("Last_Name");
                         String Email = details.getString("Email");

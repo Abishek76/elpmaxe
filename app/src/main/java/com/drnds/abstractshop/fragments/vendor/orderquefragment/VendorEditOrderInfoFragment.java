@@ -98,7 +98,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
 
         clintlogin= getActivity().getSharedPreferences(
                 "LoginActivity", 0);
-      showDialog();
+        showDialog();
         vendor = getActivity().getSharedPreferences(VENDORORDER, Context.MODE_PRIVATE);
         inputLayoutborrowername = (TextInputLayout) view.findViewById(R.id.vendor_input_layout_editborrowername);
         inputLayoutapn = (TextInputLayout) view.findViewById(R.id.vendor_input_layout_editapn);
@@ -150,7 +150,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
         stringstatus=vendor.getString("Progress_Status","");
         clientname=vendor.getString("Sub_Client_Name","");
 
-        Logger.getInstance().Log("countyiii iiii : "+stringstatus);
+        //Logger.getInstance().Log("countyiii iiii : "+stringstatus);
         submit=(Button)view.findViewById(R.id.vendor_button_editordersubmit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,7 +172,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
 
                 }}
         });
-        Logger.getInstance().Log("hi id....."+getorderID());
+        //Logger.getInstance().Log("hi id....."+getorderID());
         getCustomer();
         getState();
         getProduct();
@@ -309,23 +309,23 @@ public class VendorEditOrderInfoFragment extends Fragment {
     }
     public String getVendorId() {
 //         num3=sp.getString("Client_Id","");
-//        Log.e("Client_Id of num3", num3);
+//       // Log.e("Client_Id of num3", num3);
         return sp.getString("Vendor_Id", "");
 
 
     }
     private void getCounty() {
 
-        Log.e("State_ID", getStateId());
-        Log.e("State", getStateId());
+        // Log.e("State_ID", getStateId());
+        // Log.e("State", getStateId());
 
 
-        Log.e("County_Name", getCountyId());
+        // Log.e("County_Name", getCountyId());
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.COUNTY_URL + State_ID, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
-                Log.e(TAG, response.toString());
+                // Log.e(TAG, response.toString());
                 try {
 
                     JSONArray jsonArray = response.getJSONArray("BescomPoliciesDetails");
@@ -503,7 +503,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
                         countytypeIds.add(details.getString("Order_Assign_Type_Id"));
 
                     }
-                       hideDialog();
+                    hideDialog();
                 } catch (JSONException e) {
                     hideDialog();
                     e.printStackTrace();
@@ -538,7 +538,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected state id : " + State_ID);
+                //Logger.getInstance().Log("selected state id : " + State_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -569,7 +569,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected county id : " + County_ID);
+                //Logger.getInstance().Log("selected county id : " + County_ID);
 
 //                Logger.getInstance().Log("selected county  : " + countyname);
                 //editor.putString("State_Name", State_Name);
@@ -600,7 +600,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected product id : " + Order_Type_ID);
+                //Logger.getInstance().Log("selected product id : " + Order_Type_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -632,7 +632,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected order task id : " + Order_Status_ID);
+                //Logger.getInstance().Log("selected order task id : " + Order_Status_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -665,7 +665,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected status id : " + Order_Progress_Id);
+                //Logger.getInstance().Log("selected status id : " + Order_Progress_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -698,7 +698,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected ordered priority id : " + Order_Priority_Id);
+                //Logger.getInstance().Log("selected ordered priority id : " + Order_Priority_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -729,7 +729,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected cuctomer id : " + Sub_Client_Id);
+                //Logger.getInstance().Log("selected cuctomer id : " + Sub_Client_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -761,7 +761,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected countytype id : " + Order_Assign_Type_Id);
+                //Logger.getInstance().Log("selected countytype id : " + Order_Assign_Type_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -787,7 +787,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
             @Override
             public void onResponse(String response)
             {
-                Logger.getInstance().Log("in response");
+                //Logger.getInstance().Log("in response");
 
 
                 try {
@@ -813,14 +813,14 @@ public class VendorEditOrderInfoFragment extends Fragment {
 
 
     public void  getOrderdetails() {
-        Logger.getInstance().Log("in getorder " );
+        //Logger.getInstance().Log("in getorder " );
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.VENDORORDERDETAILS_URL+getorderID() , null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
                 ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
                 try {
-                    Log.e("responce : ", "" + response.toString());
+                    // Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("View_Order_Info");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
@@ -840,7 +840,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
                         inputBorrowername.setText(Barrower_Name);
                         String APN=details.getString("APN");
                         inputApn.setText(APN);
-                        Logger.getInstance().Log("set order no " + Order_Number);
+                        //Logger.getInstance().Log("set order no " + Order_Number);
                     }
 
                 } catch (JSONException e) {
@@ -877,12 +877,12 @@ public class VendorEditOrderInfoFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 hideDialog();
-                Logger.getInstance().Log("sucess string");
+                //Logger.getInstance().Log("sucess string");
                 try {
 
                     boolean  error = response.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+error);
+                    //Logger.getInstance().Log("in error response"+error);
                     // Check for error node in json
                     if (!error)
                     {
@@ -944,7 +944,7 @@ public class VendorEditOrderInfoFragment extends Fragment {
                 params.put("APN",APN);
                 params.put("Order_Date",Order_Date);
 
-                Logger.getInstance().Log("edit info vendor"+params);
+                //Logger.getInstance().Log("edit info vendor"+params);
 
 
 

@@ -78,7 +78,7 @@ public class UploadDocFragment extends Fragment {
             recyclerView.setVisibility(View.VISIBLE);
             emptyView.setVisibility(View.GONE);
         }
-            viewDocuments();
+        viewDocuments();
         return view;
     }
 
@@ -96,7 +96,7 @@ public class UploadDocFragment extends Fragment {
             public void onResponse(JSONObject response) {
 
                 try {
-                    Log.e("responce : ", "" + response.toString());
+                    // Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("View_Upload_Documents");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);

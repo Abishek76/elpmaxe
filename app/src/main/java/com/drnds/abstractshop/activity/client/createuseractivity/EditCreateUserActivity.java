@@ -126,7 +126,7 @@ public class EditCreateUserActivity extends AppCompatActivity {
 //    }
 
     public void createUserSubmit(){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
         final String First_Name = fname.getText().toString().trim();
         final String Last_Name = lname.getText().toString().trim();
@@ -191,7 +191,7 @@ public class EditCreateUserActivity extends AppCompatActivity {
                     params.put("Duplicate_Check","1");
                 }
 
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 

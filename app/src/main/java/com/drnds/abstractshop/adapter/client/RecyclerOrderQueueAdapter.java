@@ -68,7 +68,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
         private List<OrderQueue> orderQueueList=new ArrayList<OrderQueue>();
         private  ItemClickListener itemClickListener;
         public ImageView cardmenu;
-//        private Button button;
+        //        private Button button;
         Context ctx;
 
         public MyViewHolder(View view, final Context ctx,final List<OrderQueue> orderQueueList) {
@@ -86,32 +86,6 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
             barrowername = (TextView) view.findViewById(R.id.borrowername);
             date=(TextView) view.findViewById(R.id.text_date);
             cardmenu=(ImageView)view.findViewById(R.id.cardmenu);
-//            button=(Button)view.findViewById(R.id.click);
-
-
-//            button.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    AlertDialog.Builder deleteDialog = new AlertDialog.Builder(ctx,R.style.MyAlertDialogStyle);
-//                    deleteDialog.setMessage("Are you sure you want to delete?");
-//                    deleteDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            int position=getAdapterPosition();
-//                            OrderQueue orderqueue=orderQueueList.get(position);
-//                            orderid=orderqueue.getOrder_Id();
-//                            deleteItem(getAdapterPosition());
-//                            Logger.getInstance().Log("selected order id is : " + orderqueue.getOrder_Id());
-//
-//                        }
-//                    })
-//                            .setNegativeButton("No", null)
-//                            .show();
-//
-//
-//                }
-//            });
-
 
             subclient.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
             oderno.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
@@ -124,20 +98,6 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
             view.setOnClickListener(this);
 
 
-            cardmenu.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                            int position=getAdapterPosition();
-                            OrderQueue orderqueue=orderQueueList.get(position);
-                            orderid=orderqueue.getOrder_Id();
-                            showPopupMenu(cardmenu,getAdapterPosition());
-                            Logger.getInstance().Log("selected order id is : " + orderqueue.getOrder_Id());
-
-
-                        }
-                    });
-
-
 //            view.setOnLongClickListener(new View.OnLongClickListener() {
 //                @Override
 //                public boolean onLongClick(View v) {
@@ -145,12 +105,23 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 //                    OrderQueue orderqueue=orderQueueList.get(position);
 //                    orderid=orderqueue.getOrder_Id();
 //                    showPopupMenu(cardmenu,getAdapterPosition());
-//                    Logger.getInstance().Log("selected order id is : " + orderqueue.getOrder_Id());
+//                    //Logger.getInstance().Log("selected order id is : " + orderqueue.getOrder_Id());
 //
 //                    return true;
 //                }
 //            });
 
+            cardmenu.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position=getAdapterPosition();
+                    OrderQueue orderqueue=orderQueueList.get(position);
+                    orderid=orderqueue.getOrder_Id();
+                    showPopupMenu(cardmenu,getAdapterPosition());
+                    //Logger.getInstance().Log("selected order id is : " + orderqueue.getOrder_Id());
+
+                }
+            });
 
 
         }
@@ -224,6 +195,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
                 context.startActivity(intent);
             }
         });
+
 //        holder.cardmenu.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -273,7 +245,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
     }
 
     private void hold(final int position){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
 
         pDialog.setMessage("Updating ...");
@@ -320,7 +292,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "5");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -340,7 +312,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 
 
     private void cancelled(final int position) {
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
 
         pDialog.setMessage("Updating ...");
@@ -387,7 +359,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "4");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -417,7 +389,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 
 
     private void clarification(final int position) {
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
 
         pDialog.setMessage("Updating ...");
@@ -465,7 +437,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "1");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -482,7 +454,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
     }
 
     private void workinprogress(final int position){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
 
         pDialog.setMessage("Updating ...");
@@ -529,7 +501,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "14");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -544,62 +516,6 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         AppController.getInstance().addToRequestQueue(customRequest);
     }
-
-
-
-//    public void deleteItem(final int position){
-//
-//        Logger.getInstance().Log("in update client id");
-//
-//        showDialog();
-//        pDialog.setMessage("Updating ...");
-//
-//
-//
-//        CustomRequest customRequest = new CustomRequest(Request.Method.POST, Config.ORDER_STATUS_CHANGE+orderid+1,null, new Response.Listener<JSONObject>() {
-//            @Override
-//            public void onResponse(JSONObject response) {
-//
-//                try {
-//                    boolean  error = response.getBoolean("error");
-//                    if (!error){
-//                        Toasty.success( ctx,"Deleted Successfully...", Toast.LENGTH_SHORT, true).show();
-//                        orderQueueList.remove(position);
-//                        notifyItemRemoved(position);
-//                        hideDialog();
-//                    }else{
-//                        Toasty.error( ctx,"Not Deleted ...", Toast.LENGTH_SHORT, true).show();
-//                        hideDialog();
-//                    }
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                hideDialog();
-//                // Check for error node in json
-//                Log.d(TAG, response.toString());
-//
-//
-//            }
-//
-//
-//
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//
-//
-//            }
-//        }) ;
-//        AppController.getInstance().addToRequestQueue(customRequest);
-//    }
-
-
-
-
-
-
-
 
 
     @Override

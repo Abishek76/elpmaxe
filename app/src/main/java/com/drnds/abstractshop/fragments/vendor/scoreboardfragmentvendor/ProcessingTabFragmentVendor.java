@@ -66,7 +66,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
     String Order_Task,Order_Status,Vendor_Id;
     public static final String VENDORMY_PREFS_NAME= "Griview";
     SharedPreferences pref;
-//    SwipeRefreshLayout mSwipeRefreshLayout;
+    //    SwipeRefreshLayout mSwipeRefreshLayout;
     private ProgressDialog pDialog;
     private  String NEW_ORDERS,SEARCH_ORDES,SEARCH_QC_ORDERS,TYPING_ORDERS,TYPING_QC_ORDERS,FINAL_REVIEW_ORDERS,TAX_ORDERS,COMPLETED_ORDERS;
     @Override
@@ -83,7 +83,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
         pref = getActivity().getSharedPreferences(VENDORMY_PREFS_NAME, Context.MODE_PRIVATE);
         griddata = new ArrayList<String>();
 
-        Logger.getInstance().Log("vendor scoreboard " +getVendorId());
+        //Logger.getInstance().Log("vendor scoreboard " +getVendorId());
 //        mSwipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.vendorprocessswipe_container);
 //        mSwipeRefreshLayout.setOnRefreshListener(this);
 //        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
@@ -116,7 +116,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
                     case 0:
 //new
 
-                        Logger.getInstance().Log("position="+newoRderCount+position);
+                        //Logger.getInstance().Log("position="+newoRderCount+position);
                         if (NEW_ORDERS != "0") {
                             Order_Task = "0";
                             Order_Status = "0";
@@ -132,7 +132,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
                     case 1:
 //titsera
                         if (SEARCH_ORDES != "0") {
-                            Logger.getInstance().Log("position=" + newoRderCount + position);
+                            //Logger.getInstance().Log("position=" + newoRderCount + position);
                             Order_Task = "2";
                             Order_Status = "0";
                             Order_Filter = "GET_PROCESSING_ORDERS";
@@ -146,7 +146,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
                         break;
 //searchqc
                     case 2:
-                        Logger.getInstance().Log("position="+newoRderCount+position);
+                        //Logger.getInstance().Log("position="+newoRderCount+position);
                         if (SEARCH_QC_ORDERS != "0") {
                             Order_Task ="3";
                             Order_Status = "0";
@@ -161,7 +161,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
                         break;
 //                    typing
                     case 3:
-                        Logger.getInstance().Log("position="+newoRderCount+position);
+                        //Logger.getInstance().Log("position="+newoRderCount+position);
                         if (TYPING_ORDERS != "0") {
                             Order_Task ="4";
                             Order_Status = "0";
@@ -176,7 +176,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
                         break;
 //                    tyqc
                     case 4:
-                        Logger.getInstance().Log("position="+newoRderCount+position);
+                        //Logger.getInstance().Log("position="+newoRderCount+position);
                         if (TYPING_QC_ORDERS != "0") {
                             Order_Task ="7";
                             Order_Status = "0";
@@ -191,7 +191,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
                         break;
 //                    finrev
                     case 5:
-                        Logger.getInstance().Log("position="+newoRderCount+position);
+                        //Logger.getInstance().Log("position="+newoRderCount+position);
                         if (FINAL_REVIEW_ORDERS != "0") {
                             Order_Task ="12";
                             Order_Status = "0";
@@ -206,7 +206,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
                         break;
 //                    tax cert
                     case 6:
-                        Logger.getInstance().Log("position="+newoRderCount+position);
+                        //Logger.getInstance().Log("position="+newoRderCount+position);
                         if (TAX_ORDERS != "0") {
                             Order_Task ="19";
                             Order_Status = "0";
@@ -278,7 +278,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
                         VendorProcessTab process=new VendorProcessTab(jsonObject.getString("NEW_ORDERS"),"New Orders");
                         vendorprocessTablist.add(process);
                         process=new VendorProcessTab(jsonObject.getString("SEARCH_ORDES"),"Title Search");
-                        Logger.getInstance().Log("title search"+process);
+                        //Logger.getInstance().Log("title search"+process);
                         vendorprocessTablist.add(process);
                         process=new VendorProcessTab(jsonObject.getString("SEARCH_QC_ORDERS"),"Title Search  Qc");
                         vendorprocessTablist.add(process);
@@ -294,7 +294,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
 //                        process=new VendorProcessTab(jsonObject.getString("COMPLETED_ORDERS"),"Completed");
 //                        vendorprocessTablist.add(process);
 
-                        Logger.getInstance().Log("search : " + SEARCH_ORDES);
+                        //Logger.getInstance().Log("search : " + SEARCH_ORDES);
 
                         Titlesearch = Integer.parseInt(SEARCH_ORDES);
                         Titlesearchqc=Integer.parseInt(SEARCH_QC_ORDERS);
@@ -337,12 +337,12 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
 
     public void fireEvent(){
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
-               Config.urlJsonObj, new Response.Listener<String>() {
+                Config.urlJsonObj, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
                 Log.d("hiii", response.toString());
-                 hideDialog();
+                hideDialog();
 //                stopDialog();
 
                 try {
@@ -350,7 +350,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
                     Log.d(TAG, response.toString());
                     boolean error = jObj.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response" + response);
+                    //Logger.getInstance().Log("in error response" + response);
                     // Check for error node in json
                     if (!error) {
 
@@ -362,7 +362,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
                         Intent intent = new Intent(getActivity(), GridViewVendorActivity.class);
 
                         intent.putExtra("JSONVENDOR", response.toString());
-                        Logger.getInstance().Log("Json object  : " + response.toString());
+                        //Logger.getInstance().Log("Json object  : " + response.toString());
                         startActivity(intent);
 
 
@@ -395,7 +395,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
                 params.put("Order_Status", Order_Status );
                 params.put("Order_Filter",Order_Filter);
 
-                Logger.getInstance().Log("params " +params);
+                //Logger.getInstance().Log("params " +params);
                 return params;
             }
         };

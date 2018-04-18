@@ -591,7 +591,7 @@ public class GridUploadActivity extends AppCompatActivity implements View.OnClic
             public void onResponse(JSONObject response) {
 
                 try {
-                    Log.e("responce : ", "" + response.toString());
+                    // Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("View_Upload_Documents");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
@@ -604,12 +604,12 @@ public class GridUploadActivity extends AppCompatActivity implements View.OnClic
                         upload.setUploadedDate(details.getString("Inserted_Date"));
                         upload.setDoumentpath(details.getString("Document_Path"));
                         orderdocid=details.getString("Order_Document_Id");
-                        Logger.getInstance().Log("orderdoc id"+orderdocid);
+                        //Logger.getInstance().Log("orderdoc id"+orderdocid);
 
 
                         path = details.getString("Document_Path");
 
-                        Logger.getInstance().Log("checkFile" + path);
+                        //Logger.getInstance().Log("checkFile" + path);
 
 
                         uploadArrayList.add(upload);
@@ -770,7 +770,7 @@ public class GridUploadActivity extends AppCompatActivity implements View.OnClic
 
 
     private void deleteitem() {
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
         pDialog.setMessage("Updating ...");
 
@@ -867,7 +867,7 @@ public class GridUploadActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Logger.getInstance().Log("calling");
+        //Logger.getInstance().Log("calling");
         toolbar.setVisibility(View.VISIBLE);
     }
 

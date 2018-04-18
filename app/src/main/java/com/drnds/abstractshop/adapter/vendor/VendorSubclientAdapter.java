@@ -61,7 +61,7 @@ public class VendorSubclientAdapter extends RecyclerView.Adapter< VendorSubclien
                     intent.putExtra("Invoice_Contact_Name",vendorSubclient.getInvoicename());
                     intent.putExtra("Address",vendorSubclient.getAddress());
                     intent.putExtra("Subclientvendor",vendorSubclient.getSubId());
-                    Logger.getInstance().Log("Subclientvendor"+vendorSubclient.getSubId());
+                    //Logger.getInstance().Log("Subclientvendor"+vendorSubclient.getSubId());
                     ((Activity) ctx).startActivityForResult(intent,1001);
 //                    context.startActivity(intent);
                 }

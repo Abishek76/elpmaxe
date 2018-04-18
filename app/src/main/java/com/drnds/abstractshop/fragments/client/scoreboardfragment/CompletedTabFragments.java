@@ -213,7 +213,7 @@ public class CompletedTabFragments extends Fragment {
 
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, response.toString());
+                // Log.e(TAG, response.toString());
 //                 hideDialog();
                 stopDialog();
 
@@ -222,7 +222,7 @@ public class CompletedTabFragments extends Fragment {
                     Log.d(TAG, response.toString());
                     boolean  error = jObj.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+response);
+                    //Logger.getInstance().Log("in error response"+response);
                     // Check for error node in json
                     if (!error) {
                         JSONArray jsonArray=jObj.getJSONArray("Orders");
@@ -267,7 +267,7 @@ public class CompletedTabFragments extends Fragment {
                 params.put("Report_Type", "2");
                 params.put("From_Date", FromDate );
                 params.put("To_Date",ToDate);
-                Logger.getInstance().Log("Report_Type"+params);
+                //Logger.getInstance().Log("Report_Type"+params);
 
                 return params;
             }

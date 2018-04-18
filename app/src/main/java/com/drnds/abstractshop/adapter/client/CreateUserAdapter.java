@@ -71,7 +71,7 @@ public class CreateUserAdapter extends RecyclerView.Adapter< CreateUserAdapter.M
                     intent.putExtra("Last_Name",createUser.getLname());
                     intent.putExtra("Alternative_Email",createUser.getAltemail());
                     ((Activity) ctx).startActivityForResult(intent,1004);
-                    Logger.getInstance().Log("clientuserId " + createUser.getClientUid());
+                    //Logger.getInstance().Log("clientuserId " + createUser.getClientUid());
 
                 }
             });
@@ -88,7 +88,7 @@ public class CreateUserAdapter extends RecyclerView.Adapter< CreateUserAdapter.M
                             CreateUser createUser=createUserList.get(position);
                             clientuserId=createUser.getClientUid();
                             deleteUser(getAdapterPosition());
-                            Logger.getInstance().Log("clientuserId " + clientuserId);
+                            //Logger.getInstance().Log("clientuserId " + clientuserId);
                         }
                     })
                             .setNegativeButton("No", null)
@@ -184,6 +184,6 @@ public class CreateUserAdapter extends RecyclerView.Adapter< CreateUserAdapter.M
             pDialog.dismiss();
     }
 
-    }
+}
 
 

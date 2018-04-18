@@ -2,6 +2,7 @@ package com.drnds.abstractshop.activity.client.subclientactivity;
 
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.app.ProgressDialog;
@@ -9,6 +10,7 @@ import android.content.SharedPreferences;
 import android.support.design.widget.TextInputLayout;
 
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -64,7 +66,7 @@ public class SubClientActivity extends AppCompatActivity {
     SharedPreferences pref;
     private Toolbar toolbar;
     private static String TAG = SubClientActivity.class.getSimpleName();
-     String  State_ID;
+    String  State_ID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,7 +123,7 @@ public class SubClientActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = pref.edit();
 
-                Logger.getInstance().Log("selected state id : " + State_ID);
+                //Logger.getInstance().Log("selected state id : " + State_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -146,7 +148,7 @@ public class SubClientActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = pref.edit();
 
-                Logger.getInstance().Log("selected county id : " + County_ID);
+                //Logger.getInstance().Log("selected county id : " + County_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -239,13 +241,13 @@ public class SubClientActivity extends AppCompatActivity {
 
 
     private void getCounty() {
-        Log.e("State_ID", getStateId());
-        Log.e("County", getCountyId());
+        // Log.e("State_ID", getStateId());
+        // Log.e("County", getCountyId());
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.COUNTY_URL +getStateId(), null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
-                Log.e(TAG, response.toString());
+                // Log.e(TAG, response.toString());
                 try {
 
                     JSONArray jsonArray = response.getJSONArray("BescomPoliciesDetails");
@@ -280,7 +282,7 @@ public class SubClientActivity extends AppCompatActivity {
         AppController.getInstance().addToRequestQueue(jsonObjReq);
     }
     public void  submitClient(){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
         final String Sub_Client_Name = custname.getText().toString().trim();
         final String  City = city.getText().toString().trim();
@@ -299,23 +301,23 @@ public class SubClientActivity extends AppCompatActivity {
                     boolean  dupliate = response.getBoolean("dupliate");
 
 
-                        if (!error ) {
-                            System.out.println(dupliate + "dsghfjhfd");
-                            if (!dupliate) {
-                                Toasty.success(SubClientActivity.this, "Subclient Created Successfully", Toast.LENGTH_SHORT, true).show();
-                                hideDialog();
-                                goToNavigationActivity();
-                            } else {
-                                Toasty.error(SubClientActivity.this, "Subclient already exists", Toast.LENGTH_SHORT, true).show();
-                            }
-
-
-
-                        }
-                         else {
-                            Toasty.error(SubClientActivity.this, "Subclient Creation Failed", Toast.LENGTH_SHORT, true).show();
+                    if (!error ) {
+                        System.out.println(dupliate + "dsghfjhfd");
+                        if (!dupliate) {
+                            Toasty.success(SubClientActivity.this, "Subclient Created Successfully", Toast.LENGTH_SHORT, true).show();
                             hideDialog();
+                            goToNavigationActivity();
+                        } else {
+                            Toasty.error(SubClientActivity.this, "Subclient already exists", Toast.LENGTH_SHORT, true).show();
                         }
+
+
+
+                    }
+                    else {
+                        Toasty.error(SubClientActivity.this, "Subclient Creation Failed", Toast.LENGTH_SHORT, true).show();
+                        hideDialog();
+                    }
 
 
                 } catch (JSONException e) {
@@ -353,7 +355,7 @@ public class SubClientActivity extends AppCompatActivity {
                 params.put("Email",Email);
                 params.put("Alternative_Email",Alternative_Email );
                 params.put("Duplicate_Check ","0" );
-                Logger.getInstance().Log("paramser"+params);
+                //Logger.getInstance().Log("paramser"+params);
 
 
 
@@ -508,28 +510,28 @@ public class SubClientActivity extends AppCompatActivity {
             pDialog.dismiss();
     }
 
-//    @Override
-//    public void onBackPressed() {
-////        super.onBackPressed();
-//        new AlertDialog.Builder(this,R.style.MyAlertDialogStyle)
-//                .setIcon(android.R.drawable.ic_dialog_alert)
-//                .setTitle("Closing Activity")
-//                .setMessage("Are you sure you want to close this activity?")
-//                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
-//                {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        Intent intent = new Intent(SubClientActivity.this, NavigationActivity.class);
-//                        intent.putExtra("refresh","no");
-//                        intent.putExtra("position",5);
-//                        setResult(1001,intent);
-//                        finish();
-//                    }
-//
-//                })
-//                .setNegativeButton("No", null)
-//                .show();
-//    }
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        new AlertDialog.Builder(this,R.style.MyAlertDialogStyle)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Closing Activity")
+                .setMessage("Are you sure you want to close this activity?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(SubClientActivity.this, NavigationActivity.class);
+                        intent.putExtra("refresh","no");
+                        intent.putExtra("position",5);
+                        setResult(1001,intent);
+                        finish();
+                    }
+
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
 
     public boolean onSupportNavigateUp() {
         onBackPressed();

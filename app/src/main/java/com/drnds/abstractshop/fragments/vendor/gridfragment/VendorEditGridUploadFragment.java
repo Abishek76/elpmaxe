@@ -77,7 +77,7 @@ public class VendorEditGridUploadFragment extends Fragment {
         upload= getActivity().getSharedPreferences(VENDORGRID
                 , 0);
         order_ID = upload.getString("Order_Id", "");
-        Logger.getInstance().Log("in update grid201888"+order_ID);
+        //Logger.getInstance().Log("in update grid201888"+order_ID);
         fab = (FloatingActionButton) view.findViewById(R.id.fab_vendorgridupload);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,7 +104,7 @@ public class VendorEditGridUploadFragment extends Fragment {
             public void onResponse(JSONObject response) {
 
                 try {
-                    Log.e("responce : ", "" + response.toString());
+                    // Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("View_Upload_Documents");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);

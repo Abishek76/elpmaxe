@@ -52,14 +52,14 @@ public class ScoreBoardFragment extends Fragment {
                 scoreboard.setupWithViewPager(viewPager);
             }
         });
-         fab=(FloatingActionButton)x.findViewById(R.id.fab_search);
-         fab.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Intent intent=new Intent(getActivity(), SearchActivity.class);
-                 startActivity(intent);
-             }
-         });
+        fab=(FloatingActionButton)x.findViewById(R.id.fab_search);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
         return x;
 
 

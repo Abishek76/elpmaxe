@@ -96,7 +96,7 @@ public class EditClientVendorActivity extends AppCompatActivity {
 
 
     public void submitClient() {
-        Logger.getInstance().Log("in update vendor id");
+        //Logger.getInstance().Log("in update vendor id");
         showDialog();
         final String Client_Code = clientcode.getText().toString().trim();
 

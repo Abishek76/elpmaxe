@@ -127,7 +127,7 @@ public class CreateSubclientFragment extends Fragment implements SwipeRefreshLay
 
     public void viewSubclient() {
         mSwipeRefreshLayout.setRefreshing(true);
-        Logger.getInstance().Log("client id : " + getClientId());
+        //Logger.getInstance().Log("client id : " + getClientId());
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.SUBCLIENT_URL + getClientId(), null, new Response.Listener<JSONObject>() {
 
@@ -136,7 +136,7 @@ public class CreateSubclientFragment extends Fragment implements SwipeRefreshLay
                 ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
                 try {
                     subclientArrayList = new ArrayList<>();
-                    Log.e("responce : ", "" + response.toString());
+                    // Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("Users");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
@@ -151,8 +151,8 @@ public class CreateSubclientFragment extends Fragment implements SwipeRefreshLay
                         String Address = details.getString("Address");
                         String Zip_Code = details.getString("Zip_Code");
                         String Alternative_Email = details.getString("Alternative_Email");
-                        Logger.getInstance().Log("Alternative_Email : " + Alternative_Email);
-                        Logger.getInstance().Log("Sub_Client_Name : " + Sub_Client_Name);
+                        //Logger.getInstance().Log("Alternative_Email : " + Alternative_Email);
+                        //Logger.getInstance().Log("Sub_Client_Name : " + Sub_Client_Name);
                         Subclient subclient = new Subclient();
                         subclient.setCustname(details.getString("Sub_Client_Name"));
                         subclient.setEmail(details.getString("Email"));

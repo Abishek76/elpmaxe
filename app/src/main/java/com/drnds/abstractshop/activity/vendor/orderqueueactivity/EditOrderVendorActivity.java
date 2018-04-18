@@ -176,7 +176,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
         stringcountytype=vendor.getString("Order_Assign_Type","");
         stringstatus=vendor.getString("Progress_Status","");
         clientname=vendor.getString("Sub_Client_Name","");
-        Logger.getInstance().Log("order info2025   : " + stateid);
+        //Logger.getInstance().Log("order info2025   : " + stateid);
 
         customerlayout.setVisibility(View.GONE);
         inputcustomerlayout.setVisibility(View.VISIBLE);
@@ -214,7 +214,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
 
 
 
-        Logger.getInstance().Log("countyiii iiii : "+stringstatus);
+        //Logger.getInstance().Log("countyiii iiii : "+stringstatus);
         submit=(Button)findViewById(R.id.vendor_button_editordersubmit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -236,7 +236,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
 
                 }}
         });
-        Logger.getInstance().Log("hi id....."+getorderID());
+        //Logger.getInstance().Log("hi id....."+getorderID());
         getCustomer();
         getState();
         getProduct();
@@ -256,16 +256,16 @@ public class EditOrderVendorActivity extends AppCompatActivity {
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(EditOrderVendorActivity.this,R.style.datepicker,new DatePickerDialog.OnDateSetListener() {
 
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int monthOfYear, int dayOfMonth) {
-                                Calendar newDate = Calendar.getInstance();
-                                newDate.set(year, monthOfYear, dayOfMonth);
-                                inputDate.setText(dateFormatter.format(newDate.getTime()));
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        Calendar newDate = Calendar.getInstance();
+                        newDate.set(year, monthOfYear, dayOfMonth);
+                        inputDate.setText(dateFormatter.format(newDate.getTime()));
 
 
-                            }
-                        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+                    }
+                }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
             }
 
@@ -381,16 +381,16 @@ public class EditOrderVendorActivity extends AppCompatActivity {
 
     private void getCounty() {
 
-        Log.e("State_ID", getStateId());
-        Log.e("State", getStateId());
+        // Log.e("State_ID", getStateId());
+        // Log.e("State", getStateId());
 
 
-        Log.e("County_Name", getCountyId());
+        // Log.e("County_Name", getCountyId());
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.COUNTY_URL + State_ID, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
-                Log.e(TAG, response.toString());
+                // Log.e(TAG, response.toString());
                 try {
 
                     JSONArray jsonArray = response.getJSONArray("BescomPoliciesDetails");
@@ -603,7 +603,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected state id : " + State_ID);
+                //Logger.getInstance().Log("selected state id : " + State_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -634,7 +634,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected county id : " + County_ID);
+                //Logger.getInstance().Log("selected county id : " + County_ID);
 
 //                Logger.getInstance().Log("selected county  : " + countyname);
                 //editor.putString("State_Name", State_Name);
@@ -665,7 +665,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected product id : " + Order_Type_ID);
+                //Logger.getInstance().Log("selected product id : " + Order_Type_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -697,7 +697,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected order task id is : " + Order_Status_ID);
+                //Logger.getInstance().Log("selected order task id is : " + Order_Status_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -730,7 +730,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected status id : " + Order_Progress_Id);
+                //Logger.getInstance().Log("selected status id : " + Order_Progress_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -763,7 +763,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected ordered priority id : " + Order_Priority_Id);
+                //Logger.getInstance().Log("selected ordered priority id : " + Order_Priority_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -794,7 +794,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected cuctomer id : " + Sub_Client_Id);
+                //Logger.getInstance().Log("selected cuctomer id : " + Sub_Client_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -826,7 +826,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected countytype id : " + Order_Assign_Type_Id);
+                //Logger.getInstance().Log("selected countytype id : " + Order_Assign_Type_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -852,7 +852,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response)
             {
-                Logger.getInstance().Log("in response");
+                //Logger.getInstance().Log("in response");
 
 
                 try {
@@ -878,14 +878,14 @@ public class EditOrderVendorActivity extends AppCompatActivity {
 
 
     public void  getOrderdetails() {
-        Logger.getInstance().Log("in getorder " );
+        //Logger.getInstance().Log("in getorder " );
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.VENDORORDERDETAILS_URL+getorderID() , null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
                 ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
                 try {
-                    Log.e("responce : ", "" + response.toString());
+                    // Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("View_Order_Info");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
@@ -907,7 +907,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
                         inputBorrowername.setText(Barrower_Name);
                         String APN=details.getString("APN");
                         inputApn.setText(APN);
-                        Logger.getInstance().Log("set order no " + Order_Number);
+                        //Logger.getInstance().Log("set order no " + Order_Number);
                     }
 
                 } catch (JSONException e) {
@@ -944,12 +944,12 @@ public class EditOrderVendorActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 hideDialog();
-                Logger.getInstance().Log("sucess string");
+                //Logger.getInstance().Log("sucess string");
                 try {
 
                     boolean  error = response.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+error);
+                    //Logger.getInstance().Log("in error response"+error);
                     // Check for error node in json
                     if (!error)
                     {
@@ -1011,7 +1011,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
                 params.put("APN",APN);
                 params.put("Order_Date",Order_Date);
 
-                Logger.getInstance().Log("edit info vendor"+params);
+                //Logger.getInstance().Log("edit info vendor"+params);
 
 
 

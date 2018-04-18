@@ -77,7 +77,7 @@ public class RecyclerSubclientAdapter extends RecyclerView.Adapter< RecyclerSubc
                             Subclient subclient=subclientList.get(position);
                             subid=subclient.getSubId();
                             deleteItem(getAdapterPosition());
-                            Logger.getInstance().Log("selected order id is : " + subclient.getSubId());
+                            //Logger.getInstance().Log("selected order id is : " + subclient.getSubId());
 
                         }
                     })
@@ -105,7 +105,7 @@ public class RecyclerSubclientAdapter extends RecyclerView.Adapter< RecyclerSubc
                     intent.putExtra("County",subclient.getCounty());
                     ((Activity) ctx).startActivityForResult(intent,1003);
 //                    context.startActivity(intent);
-                    
+
                 }
             });
 
@@ -146,7 +146,7 @@ public class RecyclerSubclientAdapter extends RecyclerView.Adapter< RecyclerSubc
 
     public void deleteItem(final int position){
 
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
 
         showDialog();
         pDialog.setMessage("Updating ...");

@@ -72,7 +72,7 @@ public class VendorResultRecyclerviewAdapter extends RecyclerView.Adapter<Vendor
         VendorSearch report = searchList.get(position);
 
         holder.subclient.setText(  report .getSubclient());
-        Logger.getInstance().Log("2323232"+report .getSubclient());
+        //Logger.getInstance().Log("2323232"+report .getSubclient());
         holder.oderno.setText(  report .getOderno());
         holder.producttype.setText(  report .getProducttype());
         holder.propertyaddress.setText(  report.getPropertyaddress());

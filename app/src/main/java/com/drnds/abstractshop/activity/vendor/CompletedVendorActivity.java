@@ -77,7 +77,6 @@ public class CompletedVendorActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycle_vencomp);
         toolbar = (Toolbar) findViewById(R.id.toolbar_vendorcomp);
         toolbarh = (Toolbar) findViewById(R.id.toolbar_hide);
-
         emptyView = (TextView) findViewById(R.id.empty_view);
         emptyViewimg = (ImageView) findViewById(R.id.empty_view_image);
         pDialog = new ProgressDialog(this,R.style.MyAlertDialogStyle);
@@ -89,7 +88,7 @@ public class CompletedVendorActivity extends AppCompatActivity {
         sp = getApplicationContext().getSharedPreferences(
                 "VendorLoginActivity", 0);
         vendorID = sp.getString("Vendor_Id","");
-        Logger.getInstance().Log("vendor 22"+vendorID);
+        //Logger.getInstance().Log("vendor 22"+vendorID);
 
         setSupportActionBar(toolbar);
 
@@ -112,7 +111,7 @@ public class CompletedVendorActivity extends AppCompatActivity {
         To_Date=intent.getStringExtra("To_Date");
         Client_Id=intent.getStringExtra("Client_Id");
         Sub_Client_Id=intent.getStringExtra("Sub_Client_Id");
-        Logger.getInstance().Log("date"+To_Date);
+        //Logger.getInstance().Log("date"+To_Date);
         fireEvent();
 
 //        if (vendorgridItemList.isEmpty()) {
@@ -137,7 +136,7 @@ public class CompletedVendorActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
-                Log.e("hiii9", response.toString());
+                // Log.e("hiii9", response.toString());
 //                 hideDialog();
                 stopDialog();
 
@@ -146,8 +145,9 @@ public class CompletedVendorActivity extends AppCompatActivity {
                     Log.d(TAG, response.toString());
                     boolean error = jObj.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response" + response);
+                    //Logger.getInstance().Log("in error response" + response);
                     // Check for error node in json
+
                     if (jObj.has("message"))
                     {
                         String aJsonString = jObj.getString("message");
@@ -172,18 +172,8 @@ public class CompletedVendorActivity extends AppCompatActivity {
                             toolbarh.setVisibility(View.VISIBLE);
                             toolbarh.setTitle("Order Details");
                         }
-
-
-//                        if (jsonArray.length() < 50) {
-//                            num = jsonArray.length();
-//                            TastyToast.makeText( CompletedVendorActivity.this.getApplicationContext(),"No  Orders Found",TastyToast.LENGTH_SHORT,TastyToast.ERROR);
-//                            recyclerView.setVisibility(View.GONE);
-//                            emptyView.setVisibility(View.VISIBLE);
-//                            emptyViewimg.setVisibility(View.VISIBLE);
-//                        }
-
                         else {
-                            num = 50;
+                            num = 5000;
 
                         }
                         for(int i=0;i<num;i++) {
@@ -267,7 +257,7 @@ public class CompletedVendorActivity extends AppCompatActivity {
                 params.put("Sub_Client_Id",Sub_Client_Id);
 
 
-                Logger.getInstance().Log("params " +params);
+                //Logger.getInstance().Log("params " +params);
                 return params;
             }
         };

@@ -371,8 +371,8 @@ public class VendorNavigationActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        super.onActivityResult(requestCode, resultCode, data);
-        Logger.getInstance().Log("requestCode : "+requestCode);
-        Logger.getInstance().Log("resultCode : "+resultCode);
+        //Logger.getInstance().Log("requestCode : "+requestCode);
+        //Logger.getInstance().Log("resultCode : "+resultCode);
 
 
         if(data != null)
@@ -380,8 +380,8 @@ public class VendorNavigationActivity extends AppCompatActivity {
             int position = data.getIntExtra("position",3);
             String refresh = data.getStringExtra("refresh");
 
-            Logger.getInstance().Log("position : "+position);
-            Logger.getInstance().Log("refresh : "+refresh);
+            //Logger.getInstance().Log("position : "+position);
+            //Logger.getInstance().Log("refresh : "+refresh);
 
             if(requestCode == 1001 && refresh.equals("yes"))
             {
@@ -398,8 +398,8 @@ public class VendorNavigationActivity extends AppCompatActivity {
             int position = data.getIntExtra("position",4);
             String refresh = data.getStringExtra("refresh");
 
-            Logger.getInstance().Log("position : "+position);
-            Logger.getInstance().Log("refresh : "+refresh);
+            //Logger.getInstance().Log("position : "+position);
+            //Logger.getInstance().Log("refresh : "+refresh);
 
             if(requestCode == 1009 && refresh.equals("yes"))
             {
@@ -415,8 +415,8 @@ public class VendorNavigationActivity extends AppCompatActivity {
             int position = data.getIntExtra("position",2);
             String refresh = data.getStringExtra("refresh");
 
-            Logger.getInstance().Log("position : "+position);
-            Logger.getInstance().Log("refresh : "+refresh);
+            //Logger.getInstance().Log("position : "+position);
+            //Logger.getInstance().Log("refresh : "+refresh);
 
             if(requestCode == 1010 && refresh.equals("yes"))
             {
@@ -475,7 +475,5 @@ public class VendorNavigationActivity extends AppCompatActivity {
 
 
 }
-
-
 
 

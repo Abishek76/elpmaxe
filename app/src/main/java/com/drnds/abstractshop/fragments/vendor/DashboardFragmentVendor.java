@@ -134,7 +134,7 @@ public class DashboardFragmentVendor extends Fragment {
             @Override
             public void onResponse(String response)
             {
-                Logger.getInstance().Log("in response");
+                //Logger.getInstance().Log("in response");
 
                 pd.show();
 

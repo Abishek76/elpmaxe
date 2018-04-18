@@ -63,6 +63,7 @@ public class GridInvoiceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid_invoice);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         toolbar.setTitleTextColor(Color.WHITE);
@@ -87,11 +88,11 @@ public class GridInvoiceActivity extends AppCompatActivity {
 
 //        submit = (Button) findViewById(R.id.button_gridinvoicesubmit);
         preview = (Button) findViewById(R.id.button_gridinvoicepreview);
+
         inputcopycost.setEnabled(false);
         inputsearchcost.setEnabled(false);
         inputinvoicedate.setEnabled(false);
         inputnoofpages.setEnabled(false);
-
 
         dateFormatter = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
 
@@ -208,7 +209,7 @@ public class GridInvoiceActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
                 try {
-                    Log.e("responce : ", "" + response.toString());
+//                    Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("View_Invoice_Details");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
@@ -222,7 +223,7 @@ public class GridInvoiceActivity extends AppCompatActivity {
                         inputnoofpages.setText(No_Of_Pages);
                         String Invoice_Date=details.getString("Invoice_Date");
                         inputinvoicedate.setText(Invoice_Date);
-                        Logger.getInstance().Log("set Order cost " + Order_Cost);
+                        //Logger.getInstance().Log("set Order cost " + Order_Cost);
                     }
 
                 } catch (JSONException e) {
@@ -259,12 +260,12 @@ public class GridInvoiceActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 hideDialog();
 
-                Logger.getInstance().Log("sucess string");
+                //Logger.getInstance().Log("sucess string");
                 try {
 
                     boolean  error = response.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+error);
+                    //Logger.getInstance().Log("in error response"+error);
                     // Check for error node in json
                     if (!error)
                     {
@@ -298,7 +299,7 @@ public class GridInvoiceActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("Order_Id",getorderID());
                 params.put("Clinet_Id",getClientId());
-//                Logger.getInstance().Log("Id .... is"+getClientId());
+//               //Logger.getInstance().Log("Id .... is"+getClientId());
                 params.put("Order_Cost",Order_Cost);
                 params.put("Search_Cost",Search_Cost);
                 params.put("Copy_Cost",Copy_Cost);
@@ -306,8 +307,8 @@ public class GridInvoiceActivity extends AppCompatActivity {
                 params.put("Invoice_Date",Invoice_Date);
                 params.put("Client_User_Id",getClientUserId());
                 params.put("Subprocess_ID",getSubprocessId());
-                Logger.getInstance().Log("Id .... is"+getClientUserId());
-                Logger.getInstance().Log("Id .... is"+getSubprocessId());
+                //Logger.getInstance().Log("Id .... is"+getClientUserId());
+                //Logger.getInstance().Log("Id .... is"+getSubprocessId());
 
 
 
@@ -399,18 +400,18 @@ public class GridInvoiceActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Logger.getInstance().Log("calling");
+        //Logger.getInstance().Log("calling");
         toolbar.setVisibility(View.VISIBLE);
 
 //        toolbar.setVisibility(View.VISIBLE);
     }
-
 
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
+
 
 }
 

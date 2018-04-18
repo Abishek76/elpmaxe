@@ -79,6 +79,7 @@ public class SearchActivity extends AppCompatActivity {
 
                 else{
                     submitSearch();
+
                 }}
         });
     }
@@ -105,7 +106,7 @@ public class SearchActivity extends AppCompatActivity {
                     Log.d(TAG, response.toString());
                     boolean  error = jObj.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+response);
+                    //Logger.getInstance().Log("in error response"+response);
                     // Check for error node in json
                     if (!error) {
                         JSONArray jsonArray=jObj.getJSONArray("Orders");
@@ -125,6 +126,9 @@ public class SearchActivity extends AppCompatActivity {
                             String Order_Id = jsonObject.getString("Order_Id");
                             String Order_Status = jsonObject.getString("Order_Status");
                             String Barrower_Name = jsonObject.getString("Barrower_Name");
+
+
+
 
                         }
                         Intent intent = new Intent(SearchActivity.this,ResultActivity.class);

@@ -62,13 +62,13 @@ public class ViewVendorFragment extends Fragment {
             public void onResponse(JSONObject response) {
 
                 try {
-                    Log.e("responce : ", "" + response.toString());
+                    // Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("Vendor");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
-                           String vendorname=details.getString("Company_Name");
+                        String vendorname=details.getString("Company_Name");
 
-                        Logger.getInstance().Log("vendor name : "+vendorname);
+                        //Logger.getInstance().Log("vendor name : "+vendorname);
 
 
                         Vendor vendor = new Vendor();

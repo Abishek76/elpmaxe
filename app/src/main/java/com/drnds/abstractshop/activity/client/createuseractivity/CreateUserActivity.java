@@ -192,7 +192,7 @@ public class CreateUserActivity extends AppCompatActivity {
         return;
     }
     public void   submitCreateUser(){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
         final String  Email = email.getText().toString().trim();
         final String  Alternative_Email = altemail.getText().toString().trim();
@@ -212,7 +212,7 @@ public class CreateUserActivity extends AppCompatActivity {
                     boolean  error = response.getBoolean("error");
                     boolean  duplicate=response.getBoolean("duplicate");
 
-                    Logger.getInstance().Log("in error response"+error);
+                    //Logger.getInstance().Log("in error response"+error);
                     // Check for error node in json
                     if (!error&&!duplicate)
                     {
@@ -264,8 +264,8 @@ public class CreateUserActivity extends AppCompatActivity {
                 params.put("CnfPassword",CnfPassword);
 
 
-                Logger.getInstance().Log("in update email"+Email);
-                Logger.getInstance().Log("in update alemail"+Alternative_Email);
+                //Logger.getInstance().Log("in update email"+Email);
+                //Logger.getInstance().Log("in update alemail"+Alternative_Email);
 
 
                 return params;
@@ -530,7 +530,7 @@ public class CreateUserActivity extends AppCompatActivity {
 //        intent.putExtra("position",6);
 //        setResult(1002,intent);
 //        finish();
-}
+    }
 
 
 }

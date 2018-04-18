@@ -104,10 +104,10 @@ public class PendingTabFragment extends Fragment implements SwipeRefreshLayout.O
                 switch (position){
                     case 0:
                         if (HOLD != "0") {
-                        Pass_Order_Task_Id = "0";
-                        Pass_Order_Status_Id = "5";
-                        Pass_Order_Filter = "GET_PENDING_ORDERS";
-                        firePending();
+                            Pass_Order_Task_Id = "0";
+                            Pass_Order_Status_Id = "5";
+                            Pass_Order_Filter = "GET_PENDING_ORDERS";
+                            firePending();
                         }
                         else{
                             hideDialog();
@@ -116,10 +116,10 @@ public class PendingTabFragment extends Fragment implements SwipeRefreshLayout.O
                         break;
                     case 1:
                         if (CLARIFICATION != "0") {
-                        Pass_Order_Task_Id = "0";
-                        Pass_Order_Status_Id = "1";
-                        Pass_Order_Filter = "GET_PENDING_ORDERS";
-                        firePending();
+                            Pass_Order_Task_Id = "0";
+                            Pass_Order_Status_Id = "1";
+                            Pass_Order_Filter = "GET_PENDING_ORDERS";
+                            firePending();
                         }
                         else{
                             hideDialog();
@@ -128,10 +128,10 @@ public class PendingTabFragment extends Fragment implements SwipeRefreshLayout.O
                         break;
                     case 2:
                         if (CANCELLED != "0") {
-                        Pass_Order_Task_Id = "0";
-                        Pass_Order_Status_Id = "4";
-                        Pass_Order_Filter = "GET_PENDING_ORDERS";
-                        firePending();
+                            Pass_Order_Task_Id = "0";
+                            Pass_Order_Status_Id = "4";
+                            Pass_Order_Filter = "GET_PENDING_ORDERS";
+                            firePending();
                         }
                         else{
                             hideDialog();
@@ -227,7 +227,7 @@ public class PendingTabFragment extends Fragment implements SwipeRefreshLayout.O
                     Log.d(TAG, response.toString());
                     boolean  error = jObj.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+response);
+                    //Logger.getInstance().Log("in error response"+response);
                     // Check for error node in json
                     if (!error) {
                         JSONArray jsonArray=jObj.getJSONArray("View_Order_Info");

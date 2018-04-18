@@ -107,7 +107,7 @@ public class CompanyInfoTabFragment extends Fragment {
                             stateIt.add(data.getString("State_Name"));
                             statesedit.add(data.getString("State"));
                             countyedit.add(data.getString("County"));
-                            Logger.getInstance().Log("County : "+County);
+                            //Logger.getInstance().Log("County : "+County);
 
                             // states.add(data.getString("State_Name"));
                             inputCompanydefaultemail.setText(Company_Email);
@@ -117,8 +117,8 @@ public class CompanyInfoTabFragment extends Fragment {
                             inputaFaxno.setText(Fax_No);
                             inputCompanyname.setText(Company_Name);
 
-                            Logger.getInstance().Log("getting county name : "+Company_Name);
-                            Logger.getInstance().Log("getting state name : "+state);
+                            //Logger.getInstance().Log("getting county name : "+Company_Name);
+                            //Logger.getInstance().Log("getting state name : "+state);
 
                         }
 
@@ -215,9 +215,9 @@ public class CompanyInfoTabFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected county id : " + County_ID);
+                //Logger.getInstance().Log("selected county id : " + County_ID);
 
-                Logger.getInstance().Log("selected county  : " + countyname);
+                //Logger.getInstance().Log("selected county  : " + countyname);
                 //editor.putString("State_Name", State_Name);
                 editor.putString("County_ID",County_ID);
 
@@ -284,16 +284,16 @@ public class CompanyInfoTabFragment extends Fragment {
     }
     private void getCounty() {
 
-        Log.e("State_ID", getStateId());
-        Log.e("State", getStateId());
+        // Log.e("State_ID", getStateId());
+        // Log.e("State", getStateId());
 
 
-        Log.e("County_Name", getCountyId());
+        // Log.e("County_Name", getCountyId());
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.COUNTY_URL + getStateId(), null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
-                Log.e(TAG, response.toString());
+                // Log.e(TAG, response.toString());
                 try {
 
                     JSONArray jsonArray = response.getJSONArray("BescomPoliciesDetails");
@@ -327,7 +327,7 @@ public class CompanyInfoTabFragment extends Fragment {
     }
 
     public void updateClient(){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
         final String Company_Name = inputCompanyname.getText().toString().trim();
         final String  Company_Email = inputCompanydefaultemail.getText().toString().trim();
@@ -352,12 +352,12 @@ public class CompanyInfoTabFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 hideDialog();
-                Logger.getInstance().Log("sucess string");
+                //Logger.getInstance().Log("sucess string");
                 try {
 
                     boolean  error = response.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+error);
+                    //Logger.getInstance().Log("in error response"+error);
                     // Check for error node in json
                     if (!error)
                     {
@@ -484,7 +484,7 @@ public class CompanyInfoTabFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected state id : " + State_ID);
+                //Logger.getInstance().Log("selected state id : " + State_ID);
 
 
                 //editor.putString("State_Name", State_Name);

@@ -5,16 +5,19 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -124,6 +127,7 @@ public class OrderUploadActivity extends AppCompatActivity implements View.OnCli
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Upload Document");
+
 
         alertDialogHelper =new AlertDialogHelper(this);
 
@@ -398,7 +402,19 @@ public class OrderUploadActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void showError() {
-        Toast.makeText(this, "Allow external storage reading", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Allow external storage reading", Toast.LENGTH_SHORT).show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Turn on app permissions")
+                .setCancelable(false)
+                .setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                        intent.setData(Uri.parse("package:" + getPackageName()));
+                        startActivity(intent);
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     @Override
@@ -616,7 +632,7 @@ public class OrderUploadActivity extends AppCompatActivity implements View.OnCli
             public void onResponse(JSONObject response) {
 
                 try {
-                    Log.e("responce : ", "" + response.toString());
+                    // Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("View_Upload_Documents");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
@@ -629,11 +645,11 @@ public class OrderUploadActivity extends AppCompatActivity implements View.OnCli
                         upload.setUploadedDate(details.getString("Inserted_Date"));
                         upload.setDoumentpath(details.getString("Document_Path"));
                         orderdocid=details.getString("Order_Document_Id");
-                        Logger.getInstance().Log("orderdoc id"+orderdocid);
+                        //Logger.getInstance().Log("orderdoc id"+orderdocid);
 
                         path = details.getString("Document_Path");
 
-                        Logger.getInstance().Log("checkFile" + path);
+                        //Logger.getInstance().Log("checkFile" + path);
 
 
                         uploadArrayList.add(upload);
@@ -797,7 +813,7 @@ public class OrderUploadActivity extends AppCompatActivity implements View.OnCli
     };
 
     private void deleteitem() {
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
         pDialog.setMessage("Updating ...");
 
@@ -892,10 +908,12 @@ public class OrderUploadActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Logger.getInstance().Log("calling");
+        //Logger.getInstance().Log("calling");
         toolbar.setVisibility(View.VISIBLE);
 
 //        toolbar.setVisibility(View.VISIBLE);
     }
+
+
 
 }

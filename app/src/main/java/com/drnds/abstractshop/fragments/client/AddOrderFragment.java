@@ -145,16 +145,16 @@ public class AddOrderFragment extends Fragment {
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),R.style.datepicker,new DatePickerDialog.OnDateSetListener() {
 
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int monthOfYear, int dayOfMonth) {
-                                Calendar newDate = Calendar.getInstance();
-                                newDate.set(year, monthOfYear, dayOfMonth);
-                                inputDate.setText(dateFormatter.format(newDate.getTime()));
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        Calendar newDate = Calendar.getInstance();
+                        newDate.set(year, monthOfYear, dayOfMonth);
+                        inputDate.setText(dateFormatter.format(newDate.getTime()));
 
 
-                            }
-                        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+                    }
+                },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
             }
 
@@ -277,11 +277,11 @@ public class AddOrderFragment extends Fragment {
     }
     private void getCounty() {
 
-        Log.e("State_ID", getStateId());
-        Log.e("State", getStateId());
+        // Log.e("State_ID", getStateId());
+        // Log.e("State", getStateId());
 
 
-        Log.e("County_Name", getCountyId());
+        // Log.e("County_Name", getCountyId());
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.COUNTY_URL + getStateId(), null, new Response.Listener<JSONObject>() {
 
             @Override
@@ -488,7 +488,7 @@ public class AddOrderFragment extends Fragment {
         String uri = String.format(Config.GETTIRE_URL+"?id="+getStateId()+"&id1="+getCountyId()+"&id2="+getClientId());
 //        String uri = String.format(Config.GETTIRE_URL+"?id=1&id1=1&id2=1");
 
-        Logger.getInstance().Log("Tire type url : "+uri);
+        //Logger.getInstance().Log("Tire type url : "+uri);
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, uri, null, new Response.Listener<JSONObject>() {
 
@@ -503,7 +503,7 @@ public class AddOrderFragment extends Fragment {
 
                     spinner8.setSelection(countytype.indexOf(Order_Assign_Type));
                     hideDialog();
-                    Logger.getInstance().Log("Tire type id is : "+Order_Assign_Type);
+                    //Logger.getInstance().Log("Tire type id is : "+Order_Assign_Type);
                 } catch (JSONException e) {
                     hideDialog();
                     e.printStackTrace();
@@ -536,7 +536,7 @@ public class AddOrderFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected state id : " + State_ID);
+                //Logger.getInstance().Log("selected state id : " + State_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -566,7 +566,7 @@ public class AddOrderFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected county id : " + County_ID);
+                //Logger.getInstance().Log("selected county id : " + County_ID);
 
 //                Logger.getInstance().Log("selected county  : " + countyname);
                 //editor.putString("State_Name", State_Name);
@@ -597,7 +597,7 @@ public class AddOrderFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected product id : " + Order_Type_ID);
+                //Logger.getInstance().Log("selected product id : " + Order_Type_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -630,7 +630,7 @@ public class AddOrderFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected order task id : " + Order_Status_ID);
+                //Logger.getInstance().Log("selected order task id : " + Order_Status_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -663,7 +663,7 @@ public class AddOrderFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected status id : " + Order_Progress_Id);
+                //Logger.getInstance().Log("selected status id : " + Order_Progress_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -696,7 +696,7 @@ public class AddOrderFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected ordered priority id : " + Order_Priority_Id);
+                //Logger.getInstance().Log("selected ordered priority id : " + Order_Priority_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -728,7 +728,7 @@ public class AddOrderFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected cuctomer id : " + Sub_Client_Id);
+                //Logger.getInstance().Log("selected cuctomer id : " + Sub_Client_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -760,7 +760,7 @@ public class AddOrderFragment extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected countytype id : " + Order_Assign_Type_Id);
+                //Logger.getInstance().Log("selected countytype id : " + Order_Assign_Type_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -783,7 +783,7 @@ public class AddOrderFragment extends Fragment {
     }
     public void  updateOrderinfo(){
 
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
         final String Order_Number = inputOrdernum.getText().toString().trim();
 
@@ -803,13 +803,13 @@ public class AddOrderFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
 
-                Logger.getInstance().Log("sucess string");
+                //Logger.getInstance().Log("sucess string");
                 try {
 
                     boolean  error = response.getBoolean("error");
                     boolean  duplicate=response.getBoolean("duplicate");
 
-                    Logger.getInstance().Log("in error response"+error);
+                    //Logger.getInstance().Log("in error response"+error);
                     // Check for error node in json
                     if (!error&&!duplicate)
                     {
@@ -819,9 +819,10 @@ public class AddOrderFragment extends Fragment {
                         hideDialog();
                     }else if (!error&&duplicate)
                     {
-                        Toasty.warning(getActivity().getApplicationContext(), "This order already exist", Toast.LENGTH_SHORT, true).show();
+                        Toasty.warning(getActivity().getApplicationContext(), "This order already exist ", Toast.LENGTH_SHORT, true).show();
                         hideDialog();
-                    }else {
+                    }
+                    else {
                         Toasty.error(getActivity().getApplicationContext(), "Order Creation Failed", Toast.LENGTH_SHORT, true).show();
                         Toasty.warning(getActivity().getApplicationContext(), "This order already exist", Toast.LENGTH_SHORT, true).show();
                         hideDialog();
@@ -881,7 +882,7 @@ public class AddOrderFragment extends Fragment {
                 params.put("Barrower_Name",Barrower_Name);
                 params.put("APN",APN);
                 params.put("Order_Date",Order_Date);
-                Logger.getInstance().Log("params"+params);
+                //Logger.getInstance().Log("params"+params);
                 return params;
 
             }
@@ -1014,7 +1015,7 @@ public class AddOrderFragment extends Fragment {
             @Override
             public void onResponse(String response)
             {
-                Logger.getInstance().Log("in response");
+                //Logger.getInstance().Log("in response");
 
 
                 try {

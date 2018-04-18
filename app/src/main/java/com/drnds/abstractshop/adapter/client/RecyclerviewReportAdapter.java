@@ -20,42 +20,42 @@ import java.util.List;
  */
 
 public class RecyclerviewReportAdapter extends RecyclerView.Adapter<RecyclerviewReportAdapter.MyViewHolder> {
-private List<Report>reportList;
-private Activity activity;
-private Context ctx;
-//    private int lastPosition = -1;
-public class MyViewHolder extends RecyclerView.ViewHolder {
-    private TextView subclient,oderno,propertyaddress,producttype,state,county,status,borrowername;
-    private List<Report> reportList=new ArrayList<Report>();
-    Context ctx;
-    public MyViewHolder(View view, Context ctx, List<Report> reportList) {
-        super(view);
-        this.reportList=reportList;
-        this.ctx=ctx;
+    private List<Report>reportList;
+    private Activity activity;
+    private Context ctx;
+    //    private int lastPosition = -1;
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        private TextView subclient,oderno,propertyaddress,producttype,state,county,status,borrowername;
+        private List<Report> reportList=new ArrayList<Report>();
+        Context ctx;
+        public MyViewHolder(View view, Context ctx, List<Report> reportList) {
+            super(view);
+            this.reportList=reportList;
+            this.ctx=ctx;
 
-        subclient = (TextView) view.findViewById(R.id.report_subclient);
-        oderno = (TextView) view.findViewById(R.id.report_orderno);
-        producttype = (TextView) view.findViewById(R.id.report_producttype);
-        state = (TextView) view.findViewById(R.id.report_state);
-        county = (TextView) view.findViewById(R.id.report_county);
-        propertyaddress = (TextView) view.findViewById(R.id.report_address);
-        status = (TextView) view.findViewById(R.id.report_status);
-        borrowername = (TextView) view.findViewById(R.id.report_borrowername);
+            subclient = (TextView) view.findViewById(R.id.report_subclient);
+            oderno = (TextView) view.findViewById(R.id.report_orderno);
+            producttype = (TextView) view.findViewById(R.id.report_producttype);
+            state = (TextView) view.findViewById(R.id.report_state);
+            county = (TextView) view.findViewById(R.id.report_county);
+            propertyaddress = (TextView) view.findViewById(R.id.report_address);
+            status = (TextView) view.findViewById(R.id.report_status);
+            borrowername = (TextView) view.findViewById(R.id.report_borrowername);
 
 
-        subclient.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
-        oderno.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
-        producttype.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
-        state.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
-        county.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
-        propertyaddress.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
-        status.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
-        borrowername.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+            subclient.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+            oderno.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+            producttype.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+            state.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+            county.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+            propertyaddress.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+            status.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+            borrowername.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
 
+
+        }
 
     }
-
-}
     public RecyclerviewReportAdapter(List<Report>reportList) {
         this. reportList=   reportList;
         this.ctx=ctx;

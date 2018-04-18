@@ -80,7 +80,7 @@ public class ResultRecyclerviewAdapter extends RecyclerView.Adapter<ResultRecycl
         holder.county.setText(  report .getCounty());
         holder.status.setText(  report .getStatus());
         holder.borrowername.setText(  report .getBarrowername());
-        Logger.getInstance().Log("2323232"+report .getBarrowername());
+        //Logger.getInstance().Log("2323232"+report .getBarrowername());
 
 //        setAnimation(holder.itemView, position);
 

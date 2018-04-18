@@ -58,9 +58,9 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
     public static final String MY_PREFS_NAME= "Griview";
     SharedPreferences pref;
     private ProgressDialog pDialog;
-//    SwipeRefreshLayout mSwipeRefreshLayout;
+    //    SwipeRefreshLayout mSwipeRefreshLayout;
     private int newoRderCount,Titlesearch,Titlesearchqc,Propertytyping,Propertytypingqc,Finalreview,
-    Taxcerificate,Completedorders=0;
+            Taxcerificate,Completedorders=0;
     private  String NEW_ORDERS,SEARCH_ORDES,SEARCH_QC_ORDERS,TYPING_ORDERS,TYPING_QC_ORDERS,FINAL_REVIEW_ORDERS,TAX_ORDERS,COMPLETED_ORDERS;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -107,10 +107,10 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
                 switch (position) {
                     case 0:
                         if (NEW_ORDERS != "0") {
-                        Pass_Order_Task_Id = "0";
-                        Pass_Order_Status_Id = "13";
-                                Pass_Order_Filter = "NEW_ORDERS";
-                        fireEvent();
+                            Pass_Order_Task_Id = "0";
+                            Pass_Order_Status_Id = "13";
+                            Pass_Order_Filter = "NEW_ORDERS";
+                            fireEvent();
                         }else{
                             hideDialog();
                             TastyToast.makeText( getActivity().getApplicationContext(),"No New Orders Found",TastyToast.LENGTH_SHORT,TastyToast.ERROR);
@@ -119,10 +119,10 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
                         break;
                     case 1:
                         if (SEARCH_ORDES != "0") {
-                        Pass_Order_Task_Id = "2";
-                        Pass_Order_Status_Id = "0";
-                        Pass_Order_Filter = "GET_PROCESSING_ORDERS";
-                        fireEvent();
+                            Pass_Order_Task_Id = "2";
+                            Pass_Order_Status_Id = "0";
+                            Pass_Order_Filter = "GET_PROCESSING_ORDERS";
+                            fireEvent();
                         }else{
                             hideDialog();
                             TastyToast.makeText( getActivity().getApplicationContext(),"No  Orders Found",TastyToast.LENGTH_SHORT,TastyToast.ERROR);
@@ -131,10 +131,10 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
 
                     case 2:
                         if (SEARCH_QC_ORDERS != "0") {
-                        Pass_Order_Task_Id = "3";
-                        Pass_Order_Status_Id = "0";
-                        Pass_Order_Filter = "GET_PROCESSING_ORDERS";
-                        fireEvent();
+                            Pass_Order_Task_Id = "3";
+                            Pass_Order_Status_Id = "0";
+                            Pass_Order_Filter = "GET_PROCESSING_ORDERS";
+                            fireEvent();
                         }
                         else{
                             hideDialog();
@@ -144,10 +144,10 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
                         break;
                     case 3:
                         if (TYPING_ORDERS != "0") {
-                        Pass_Order_Task_Id = "4";
-                        Pass_Order_Status_Id = "0";
-                        Pass_Order_Filter = "GET_PROCESSING_ORDERS";
-                        fireEvent();
+                            Pass_Order_Task_Id = "4";
+                            Pass_Order_Status_Id = "0";
+                            Pass_Order_Filter = "GET_PROCESSING_ORDERS";
+                            fireEvent();
                         }
                         else{
                             hideDialog();
@@ -156,10 +156,10 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
                         break;
                     case 4:
                         if (TYPING_QC_ORDERS != "0") {
-                        Pass_Order_Task_Id = "7";
-                        Pass_Order_Status_Id = "0";
-                        Pass_Order_Filter = "GET_PROCESSING_ORDERS";
-                        fireEvent();
+                            Pass_Order_Task_Id = "7";
+                            Pass_Order_Status_Id = "0";
+                            Pass_Order_Filter = "GET_PROCESSING_ORDERS";
+                            fireEvent();
                         }
                         else{
                             hideDialog();
@@ -168,10 +168,10 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
                         break;
                     case 5:
                         if (FINAL_REVIEW_ORDERS != "0") {
-                        Pass_Order_Task_Id = "19";
-                        Pass_Order_Status_Id = "0";
-                        Pass_Order_Filter = "GET_PROCESSING_ORDERS";
-                        fireEvent();
+                            Pass_Order_Task_Id = "19";
+                            Pass_Order_Status_Id = "0";
+                            Pass_Order_Filter = "GET_PROCESSING_ORDERS";
+                            fireEvent();
                         }
                         else{
                             hideDialog();
@@ -180,10 +180,10 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
                         break;
                     case 6:
                         if (TAX_ORDERS != "0") {
-                        Pass_Order_Task_Id = "12";
-                        Pass_Order_Status_Id = "0";
-                        Pass_Order_Filter = "GET_PROCESSING_ORDERS";
-                        fireEvent();
+                            Pass_Order_Task_Id = "12";
+                            Pass_Order_Status_Id = "0";
+                            Pass_Order_Filter = "GET_PROCESSING_ORDERS";
+                            fireEvent();
                         }
                         else{
                             hideDialog();
@@ -233,7 +233,7 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
                     System.out.println("er0");
                     JSONArray jsonArray=response.getJSONArray("ScoreBoard");
 //                    if(jsonArray.isNull(0)){
-                    Logger.getInstance().Log("response"+jsonArray);
+                    //Logger.getInstance().Log("response"+jsonArray);
 //                        Toasty.error(getActivity(), "No orders found", Toast.LENGTH_SHORT, true).show();
 //                    }
                     for(int i=0;i<jsonArray.length();i++){
@@ -265,7 +265,7 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
 //                        process=new ProcessTab(jsonObject.getString("COMPLETED_ORDERS"),"Completed");
 //                        processTablist.add(process);
 
-                        Logger.getInstance().Log("COMPLETED_ORDERS is : " + COMPLETED_ORDERS);
+                        //Logger.getInstance().Log("COMPLETED_ORDERS is : " + COMPLETED_ORDERS);
                         newoRderCount=Integer.parseInt(NEW_ORDERS);
                         Titlesearch = Integer.parseInt(SEARCH_ORDES);
                         Titlesearchqc=Integer.parseInt(SEARCH_QC_ORDERS);
@@ -286,7 +286,7 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
                     }
 
                 } catch (JSONException e) {
-                  System.out.println("er1");
+                    System.out.println("er1");
                     e.printStackTrace();
                 }
 //                mSwipeRefreshLayout.setRefreshing(false);
@@ -317,15 +317,15 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, response.toString());
-                 hideDialog();
+                hideDialog();
 
 
                 try {
                     JSONObject jObj = new JSONObject(response);
-                    Log.e("response", response.toString());
+                    // Log.e("response", response.toString());
                     boolean  error = jObj.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+response);
+                    //Logger.getInstance().Log("in error response"+response);
                     // Check for error node in json
                     if (!error) {
                         JSONArray jsonArray=jObj.getJSONArray("View_Order_Info");
@@ -387,7 +387,7 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
                 params.put("Order_Status_Id", Pass_Order_Status_Id );
                 params.put("Order_Filter",Pass_Order_Filter);
 
-               Logger.getInstance().Log("profrag"+params);
+                //Logger.getInstance().Log("profrag"+params);
                 return params;
             }
         };

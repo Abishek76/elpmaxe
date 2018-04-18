@@ -89,7 +89,7 @@ public class VendorRecyclerGridUploadAdapter extends RecyclerView.Adapter< Vendo
 
 
 
-                    Logger.getInstance().Log("url   : " + url);
+                    //Logger.getInstance().Log("url   : " + url);
 //                    File_DownloadId = DownloadData(file_uri, v);
                     downloadManager=(DownloadManager)ctx.getSystemService(ctx.DOWNLOAD_SERVICE);
 //                    Uri file_uri = Uri.parse("http://maven.apache.org/archives/maven-1.x/maven.pdf");
@@ -131,7 +131,7 @@ public class VendorRecyclerGridUploadAdapter extends RecyclerView.Adapter< Vendo
         holder.date.setText( upload .getUploadedDate());
 
 
-        Logger.getInstance().Log("uploauri"+uploadUri);
+        //Logger.getInstance().Log("uploauri"+uploadUri);
 
         if(selected_usersList.contains(uploadList.get(position)))
             holder.ll_listitem.setBackgroundColor(ContextCompat.getColor(ctx, R.color.list_item_selected_state));

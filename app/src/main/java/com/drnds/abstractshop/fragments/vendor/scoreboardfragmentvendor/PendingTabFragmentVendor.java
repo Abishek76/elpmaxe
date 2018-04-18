@@ -58,7 +58,7 @@ public class PendingTabFragmentVendor extends Fragment implements SwipeRefreshLa
     String Order_Task,Order_Status,Vendor_Id,Order_Filter;
     private ProgressDialog pDialog;
     SwipeRefreshLayout mSwipeRefreshLayout;
-   private String HOLD,CLARIFICATION,CANCELLED;
+    private String HOLD,CLARIFICATION,CANCELLED;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -104,10 +104,10 @@ public class PendingTabFragmentVendor extends Fragment implements SwipeRefreshLa
                 switch (position){
                     case 0:
                         if (HOLD != "0") {
-                        Order_Task = "0";
-                        Order_Status= "5";
-                        Order_Filter = "GET_PENDING_ORDERS";
-                        firePending();
+                            Order_Task = "0";
+                            Order_Status= "5";
+                            Order_Filter = "GET_PENDING_ORDERS";
+                            firePending();
                         }
                         else{
                             hideDialog();
@@ -117,10 +117,10 @@ public class PendingTabFragmentVendor extends Fragment implements SwipeRefreshLa
                         break;
                     case 1:
                         if (CLARIFICATION != "0") {
-                        Order_Task = "0";
-                        Order_Status= "1";
-                        Order_Filter = "GET_PENDING_ORDERS";
-                        firePending();
+                            Order_Task = "0";
+                            Order_Status= "1";
+                            Order_Filter = "GET_PENDING_ORDERS";
+                            firePending();
                         }
                         else{
                             hideDialog();
@@ -129,10 +129,10 @@ public class PendingTabFragmentVendor extends Fragment implements SwipeRefreshLa
                         break;
                     case 2:
                         if (CANCELLED != "0") {
-                        Order_Task = "0";
-                        Order_Status = "4";
-                        Order_Filter = "GET_PENDING_ORDERS";
-                        firePending();
+                            Order_Task = "0";
+                            Order_Status = "4";
+                            Order_Filter = "GET_PENDING_ORDERS";
+                            firePending();
                         }
                         else{
                             hideDialog();
@@ -218,7 +218,7 @@ public class PendingTabFragmentVendor extends Fragment implements SwipeRefreshLa
 
     public void  firePending(){
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
-               Config.urlJsonObj, new Response.Listener<String>() {
+                Config.urlJsonObj, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -232,7 +232,7 @@ public class PendingTabFragmentVendor extends Fragment implements SwipeRefreshLa
                     Log.d(TAG, response.toString());
                     boolean  error = jObj.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+response);
+                    //Logger.getInstance().Log("in error response"+response);
                     // Check for error node in json
                     if (!error) {
                         JSONArray jsonArray=jObj.getJSONArray("View_Order_Info");
@@ -251,7 +251,7 @@ public class PendingTabFragmentVendor extends Fragment implements SwipeRefreshLa
                         Intent intent = new Intent(getActivity(),GridViewVendorActivity.class);
 
                         intent.putExtra("JSONVENDOR", response.toString());
-                        Logger.getInstance().Log("pending object  : " +response.toString());
+                        //Logger.getInstance().Log("pending object  : " +response.toString());
                         startActivity(intent);
 
                     }
@@ -277,7 +277,7 @@ public class PendingTabFragmentVendor extends Fragment implements SwipeRefreshLa
                 params.put("Order_Task",Order_Task);
                 params.put("Order_Status", Order_Status);
                 params.put("Order_Filter",Order_Filter);
-               Logger.getInstance().Log("params12"+params);
+                //Logger.getInstance().Log("params12"+params);
 
                 return params;
             }

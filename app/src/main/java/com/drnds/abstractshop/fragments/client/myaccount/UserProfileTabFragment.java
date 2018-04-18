@@ -59,7 +59,7 @@ public class UserProfileTabFragment extends Fragment {
     private ProgressDialog pDialog;
     private Button buttonSaveuser;
     AlertDialog.Builder builder;
-  String Email,Alternative_Email,First_Name,Last_Name;
+    String Email,Alternative_Email,First_Name,Last_Name;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -181,7 +181,7 @@ public class UserProfileTabFragment extends Fragment {
         AppController.getInstance().addToRequestQueue(jsonObjReq);
     }
     public void   updateUserInfo(){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
 
 
 
@@ -192,12 +192,12 @@ public class UserProfileTabFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 hideDialog();
-                Logger.getInstance().Log("sucess string");
+                //Logger.getInstance().Log("sucess string");
                 try {
                     JSONObject jObj = new JSONObject(response);
                     boolean  error = jObj.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+error);
+                    //Logger.getInstance().Log("in error response"+error);
                     // Check for error node in json
                     if (!error)
                     {
@@ -228,7 +228,7 @@ public class UserProfileTabFragment extends Fragment {
                 params.put("First_Name",First_Name);
                 params.put("Last_Name",Last_Name);
 
-                Logger.getInstance().Log("Email : " +Email);
+                //Logger.getInstance().Log("Email : " +Email);
 
 
 

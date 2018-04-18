@@ -229,7 +229,6 @@ public class NavigationActivity extends AppCompatActivity {
                 return reportFragment;
 
 
-
             default:
                 return new ScoreBoardFragment();
         }
@@ -293,6 +292,7 @@ public class NavigationActivity extends AppCompatActivity {
                         navItemIndex = 7;
                         CURRENT_TAG = TAG_Report;
                         break;
+
                     default:
                         navItemIndex = 0;
                 }
@@ -399,8 +399,8 @@ public class NavigationActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        super.onActivityResult(requestCode, resultCode, data);
-        Logger.getInstance().Log("requestCode : "+requestCode);
-        Logger.getInstance().Log("resultCode : "+resultCode);
+        //Logger.getInstance().Log("requestCode : "+requestCode);
+        //Logger.getInstance().Log("resultCode : "+resultCode);
 
 
         if(data != null)
@@ -408,8 +408,8 @@ public class NavigationActivity extends AppCompatActivity {
             int position = data.getIntExtra("position",0);
             String refresh = data.getStringExtra("refresh");
 
-            Logger.getInstance().Log("position : "+position);
-            Logger.getInstance().Log("refresh : "+refresh);
+            //Logger.getInstance().Log("position : "+position);
+            //Logger.getInstance().Log("refresh : "+refresh);
 
             if(requestCode == 1001 && refresh.equals("yes"))
             {
@@ -432,8 +432,8 @@ public class NavigationActivity extends AppCompatActivity {
             int position = data.getIntExtra("position",1);
             String refresh = data.getStringExtra("refresh");
 
-            Logger.getInstance().Log("position : "+position);
-            Logger.getInstance().Log("refresh : "+refresh);
+            //Logger.getInstance().Log("position : "+position);
+            //Logger.getInstance().Log("refresh : "+refresh);
 
             if(requestCode == 1002 && refresh.equals("yes"))
             {
@@ -456,8 +456,8 @@ public class NavigationActivity extends AppCompatActivity {
             int position = data.getIntExtra("position",2);
             String refresh = data.getStringExtra("refresh");
 
-            Logger.getInstance().Log("position : "+position);
-            Logger.getInstance().Log("refresh : "+refresh);
+            //Logger.getInstance().Log("position : "+position);
+            //Logger.getInstance().Log("refresh : "+refresh);
 
             if(requestCode == 1006 && refresh.equals("yes"))
             {

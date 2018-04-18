@@ -104,15 +104,15 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(String response)
                         {
-                            Logger.getInstance().Log("in response");
+                            //Logger.getInstance().Log("in response");
                             hideDialog();
 
                             try {
                                 JSONObject jObj = new JSONObject(response);
-                                Log.e(TAG, response.toString());
-                               boolean  error = jObj.getBoolean("error");
+                                // Log.e(TAG, response.toString());
+                                boolean  error = jObj.getBoolean("error");
 
-                                Logger.getInstance().Log("in error response"+error);
+                                //Logger.getInstance().Log("in error response"+error);
                                 // Check for error node in json
                                 if (!error)
                                 {
@@ -126,8 +126,6 @@ public class LoginActivity extends AppCompatActivity {
                                         String Password = jsonObject.getString("Password");
                                         String Client_User_Id = jsonObject.getString("Client_User_Id");
                                         String Client_Id = jsonObject.getString("Client_Id");
-
-
 
                                         sp = getApplicationContext().getSharedPreferences(
                                                 "LoginActivity", 0); // 0 for private mode
@@ -154,7 +152,7 @@ public class LoginActivity extends AppCompatActivity {
 //                                                  finish();
 
                                 }else{
-                                    Logger.getInstance().Log("in error ");
+                                    //Logger.getInstance().Log("in error ");
                                     TastyToast.makeText( LoginActivity.this,"Enter Valid Credentials...",TastyToast.LENGTH_SHORT,TastyToast.ERROR);
                                 }
 
@@ -175,9 +173,9 @@ public class LoginActivity extends AppCompatActivity {
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String,String>params= new HashMap<String, String>();
                             params.put("Email",Email);
-                           params.put("Password",Password);
+                            params.put("Password",Password);
 
-                            Logger.getInstance().Log("login details"+params);
+                            //Logger.getInstance().Log("login details"+params);
 
                             return params;
                         }
@@ -193,7 +191,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
 
-//       email validation
+            //       email validation
             private boolean validateEmail() {
                 String inemail = userEmail.getText().toString().trim();
 
@@ -211,7 +209,7 @@ public class LoginActivity extends AppCompatActivity {
                 return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
             }
 
-//       password validation
+            //       password validation
             private boolean validatePassword() {
                 if (password.getText().toString().trim().isEmpty()) {
                     inputLayoutPassword.setError(getString(R.string.err_msg_password));
@@ -232,7 +230,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
 
-//         check internet connection
+            //         check internet connection
             private boolean checkInternetConnection() {
                 // get Connectivity Manager object to check connection
                 ConnectivityManager connec
@@ -281,7 +279,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 userEmail.setText("");
-               password.setText("");
+                password.setText("");
             }
         });
         AlertDialog alertDialog=builder.create();

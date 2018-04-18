@@ -25,7 +25,6 @@
                 android:layout_height="100dp"
                 android:layout_marginLeft="20dp"
                 android:text="PendingOrders"
-                android:checked="true"
                 android:textSize="25sp"
                 />
 
@@ -139,13 +138,42 @@
             android:layout_weight="1"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:id="@+id/submitreport"
+            android:id="@+id/submitpen"
             android:theme="@style/MyButton"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             android:layout_height="100dp"
             android:text="Submit"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:visibility="gone"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/submitcom"
+            android:theme="@style/MyButton"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_height="100dp"
+            android:text="Submit"
+            android:textSize="30sp"
+            android:visibility="gone"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/submitall"
+            android:theme="@style/MyButton"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_height="100dp"
+            android:text="Submit"
+            android:textSize="30sp"
+            android:visibility="gone"/>
 
     </LinearLayout>
 

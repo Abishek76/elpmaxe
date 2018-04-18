@@ -108,13 +108,13 @@ public class EditSubclientActivity extends AppCompatActivity {
         statname = intent.getStringExtra("State");
         countname = intent.getStringExtra("County");
         name = intent.getStringExtra("Sub_Client_Name");
-        Logger.getInstance().Log("name of client"+name);
+        //Logger.getInstance().Log("name of client"+name);
         cityu = intent.getStringExtra("City");
         zipu = intent.getStringExtra("Zip_Code");
         addressu = intent.getStringExtra("Address");
         emailu = intent.getStringExtra("Email");
         altu = intent.getStringExtra("Alternative_Email");
-        Logger.getInstance().Log("name of client"+altu);
+        //Logger.getInstance().Log("name of client"+altu);
 
 //       set values
         custname.setText(name);
@@ -264,7 +264,7 @@ public class EditSubclientActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(JSONObject response) {
-                Log.e(TAG, response.toString());
+                // Log.e(TAG, response.toString());
                 try {
 
                     JSONArray jsonArray = response.getJSONArray("BescomPoliciesDetails");
@@ -299,7 +299,7 @@ public class EditSubclientActivity extends AppCompatActivity {
     }
 
     public void submitClient() {
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
         final String Sub_Client_Name = custname.getText().toString().trim();
         final String City = city.getText().toString().trim();
@@ -362,9 +362,9 @@ public class EditSubclientActivity extends AppCompatActivity {
                 params.put("Zip_Code", Zip_Code);
                 params.put("Email", Email);
                 params.put("Alternative_Email", Alternative_Email);
-                Logger.getInstance().Log("params454: " + params);
-                Logger.getInstance().Log("name Check: " + Sub_Client_Name);
-                Logger.getInstance().Log("name Check 2: " + custname.getText().toString());
+                //Logger.getInstance().Log("params454: " + params);
+                //Logger.getInstance().Log("name Check: " + Sub_Client_Name);
+                //Logger.getInstance().Log("name Check 2: " + custname.getText().toString());
                 final String NAME_check = custname.getText().toString();
                 if (name.equals(NAME_check))
                 {
@@ -373,7 +373,7 @@ public class EditSubclientActivity extends AppCompatActivity {
                     params.put("Duplicate_Check","1");
                 }
 
-                Logger.getInstance().Log("Alternative_Email :" +params);
+                //Logger.getInstance().Log("Alternative_Email :" +params);
 
 
                 return params;
@@ -522,7 +522,7 @@ public class EditSubclientActivity extends AppCompatActivity {
     }
 
     public void deleteEmployee() {
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
         showDialog();
 
 
@@ -531,12 +531,12 @@ public class EditSubclientActivity extends AppCompatActivity {
         CustomRequest customRequest = new CustomRequest(Request.Method.POST, Config.DLTSUBCLIENT_URL + getSubClientId(), null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Logger.getInstance().Log("sucess string");
+                //Logger.getInstance().Log("sucess string");
                 try {
 
                     boolean  error = response.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+error);
+                    //Logger.getInstance().Log("in error response"+error);
                     // Check for error node in json
                     if (!error)
                     {
@@ -641,8 +641,9 @@ public class EditSubclientActivity extends AppCompatActivity {
                 .show();
     }
 
-}
 
+
+}
 
 
 

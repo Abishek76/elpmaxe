@@ -73,7 +73,7 @@ public class EditSubclientVendorActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        Logger.getInstance().Log("in Id...."+getSubClientId());
+        //Logger.getInstance().Log("in Id...."+getSubClientId());
         subclientcodeu = intent.getStringExtra("Sub_Process_Code");
         invoicecontactnameu = intent.getStringExtra("Invoice_Contact_Name");
         addressu = intent.getStringExtra("Address");
@@ -112,7 +112,7 @@ public class EditSubclientVendorActivity extends AppCompatActivity {
     }
 
     public void  submitVClient(){
-        Logger.getInstance().Log("in update vendor id");
+        //Logger.getInstance().Log("in update vendor id");
         showDialog();
         final String Sub_Process_Code = subclientcode.getText().toString().trim();
         final String Address = address.getText().toString().trim();
@@ -158,14 +158,14 @@ public class EditSubclientVendorActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
 
                 params.put("Sub_Client_Id", getSubClientId());
-                Logger.getInstance().Log("Sub_Client_Id : " + getSubClientId());
+                //Logger.getInstance().Log("Sub_Client_Id : " + getSubClientId());
                 params.put("Sub_Process_Code", Sub_Process_Code);
                 params.put("Address", Address);
                 params.put("Invoice_Contact_Name", Invoice_Contact_Name);
 
 //                Logger.getInstance().Log("Sub_Process_Code : " + Sub_Process_Code);
-                Logger.getInstance().Log("Address :" + Address);
-                Logger.getInstance().Log("Invoice_Contact_Name :" + Invoice_Contact_Name);
+                //Logger.getInstance().Log("Address :" + Address);
+                //Logger.getInstance().Log("Invoice_Contact_Name :" + Invoice_Contact_Name);
 
 
                 return params;

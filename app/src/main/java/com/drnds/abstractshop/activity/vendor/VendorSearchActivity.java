@@ -102,7 +102,7 @@ public class VendorSearchActivity extends AppCompatActivity {
                     Log.d(TAG, response.toString());
                     boolean  error = jObj.getBoolean("error");
 
-                    Logger.getInstance().Log("search111"+response);
+                    //Logger.getInstance().Log("search111"+response);
                     // Check for error node in json
                     if (!error) {
                         JSONArray jsonArray=jObj.getJSONArray("Orders");

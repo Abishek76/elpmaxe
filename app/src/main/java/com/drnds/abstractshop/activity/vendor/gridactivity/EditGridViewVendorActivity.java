@@ -173,7 +173,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
         stringordertask=pref.getString("Order_Status","");
         stringorderno=pref.getString("Order_Number","");
 
-        Logger.getInstance().Log("status3333: "+stringstatus);
+        //Logger.getInstance().Log("status3333: "+stringstatus);
 
 
         customerlayout.setVisibility(View.GONE);
@@ -183,7 +183,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
         inputOrdernum.addTextChangedListener(new MyTextWatcher(inputOrdernum));
         inputApn.addTextChangedListener(new MyTextWatcher(inputApn));
         checkInternetConnection();
-        Logger.getInstance().Log("order info2025   : " + getInfo());
+        //Logger.getInstance().Log("order info2025   : " + getInfo());
 
         upload=(Button)findViewById(R.id.vendor_button_gridupload);
         upload.setOnClickListener(new View.OnClickListener() {
@@ -254,16 +254,16 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(EditGridViewVendorActivity.this,R.style.datepicker,new DatePickerDialog.OnDateSetListener() {
 
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int monthOfYear, int dayOfMonth) {
-                                Calendar newDate = Calendar.getInstance();
-                                newDate.set(year, monthOfYear, dayOfMonth);
-                                inputDate.setText(dateFormatter.format(newDate.getTime()));
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        Calendar newDate = Calendar.getInstance();
+                        newDate.set(year, monthOfYear, dayOfMonth);
+                        inputDate.setText(dateFormatter.format(newDate.getTime()));
 
 
-                            }
-                        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+                    }
+                },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
             }
 
@@ -377,16 +377,16 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
 
     private void getCounty() {
 
-        Log.e("State_ID", getStateId());
-        Log.e("State", getStateId());
+        // Log.e("State_ID", getStateId());
+        // Log.e("State", getStateId());
 
 
-        Log.e("County_Name", getCountyId());
+        // Log.e("County_Name", getCountyId());
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.COUNTY_URL +State_ID, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
-                Log.e(TAG, response.toString());
+                // Log.e(TAG, response.toString());
                 try {
 
                     JSONArray jsonArray = response.getJSONArray("BescomPoliciesDetails");
@@ -602,7 +602,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected state id : " + State_ID);
+                //Logger.getInstance().Log("selected state id : " + State_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -634,7 +634,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected county id : " + County_ID);
+                //Logger.getInstance().Log("selected county id : " + County_ID);
 
 //                Logger.getInstance().Log("selected county  : " + countyname);
                 //editor.putString("State_Name", State_Name);
@@ -666,7 +666,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected product id : " + Order_Type_ID);
+                //Logger.getInstance().Log("selected product id : " + Order_Type_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -699,7 +699,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected order task id : " + Order_Status_ID);
+                //Logger.getInstance().Log("selected order task id : " + Order_Status_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -733,7 +733,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected status id : " + Order_Progress_Id);
+                //Logger.getInstance().Log("selected status id : " + Order_Progress_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -767,7 +767,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected ordered priority id : " + Order_Priority_Id);
+                //Logger.getInstance().Log("selected ordered priority id : " + Order_Priority_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -799,7 +799,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected cuctomer id : " + Sub_Client_Id);
+                //Logger.getInstance().Log("selected cuctomer id : " + Sub_Client_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -832,7 +832,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected countytype id : " + Order_Assign_Type_Id);
+                //Logger.getInstance().Log("selected countytype id : " + Order_Assign_Type_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -861,7 +861,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response)
             {
-                Logger.getInstance().Log("in response");
+                //Logger.getInstance().Log("in response");
 
 
                 try {
@@ -893,7 +893,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
                 try {
-                    Log.e("responce of edit ", "" + response.toString());
+                    // Log.e("responce of edit ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("View_Order_Info");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
@@ -912,10 +912,10 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
 
                         order_task=details.getString("Order_Task_Status");
 
-                        Logger.getInstance().Log("orderstaus yenu " + order_task);
+                        //Logger.getInstance().Log("orderstaus yenu " + order_task);
 
-                        Logger.getInstance().Log("orderpriority yenu " + Order_Priority);
-                        Logger.getInstance().Log("orderassigntype yenu " + county_type);
+                        //Logger.getInstance().Log("orderpriority yenu " + Order_Priority);
+                        //Logger.getInstance().Log("orderassigntype yenu " + county_type);
                         County_Name=details.getString("County_Name");
                         inputOrdernum.setText(Order_Number);
                         String Order_Date=details.getString("Order_Date");
@@ -930,7 +930,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
                         inputBorrowername.setText(Barrower_Name);
                         String APN=details.getString("APN");
                         inputApn.setText(APN);
-                        Logger.getInstance().Log("state yenu " + stateid);
+                        //Logger.getInstance().Log("state yenu " + stateid);
                     }
 
                 } catch (JSONException e) {
@@ -966,12 +966,12 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 hideDialog();
-                Logger.getInstance().Log("sucess string");
+                //Logger.getInstance().Log("sucess string");
                 try {
 
                     boolean  error = response.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+error);
+                    //Logger.getInstance().Log("in error response"+error);
                     // Check for error node in json
                     if (!error)
                     {
@@ -981,6 +981,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
                         Intent intent = new Intent(EditGridViewVendorActivity.this, VendorNavigationActivity.class);
                         startActivity(intent);
                         finish();
+
                     }else {
                         Toasty.success(EditGridViewVendorActivity.this.getApplicationContext(),"Not updated...",Toast.LENGTH_SHORT).show();
                         hideDialog();
@@ -1009,7 +1010,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
                 params.put("Vendor_Id",getVendorId());
 
                 params.put("Sub_Client_Id",getSubclientid());
-                Logger.getInstance().Log("subclient id "+getSubclientid());
+                //Logger.getInstance().Log("subclient id "+getSubclientid());
 
                 params.put("State",State_ID);
 
@@ -1163,6 +1164,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+
 
     @Override
     public void onBackPressed() {

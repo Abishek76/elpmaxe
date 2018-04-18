@@ -127,13 +127,26 @@ public class VendorRecyclegridviewAdapter extends RecyclerView.Adapter< VendorRe
                     VendorGridItem vendorgriditem=vendorgridItemList.get(position);
                     orderid= vendorgriditem.getOrderId();
                     showPopupMenu(cardmenu,getAdapterPosition());
-                    Logger.getInstance().Log("selected order id is : " +  vendorgriditem.getOrderId());
+                    //Logger.getInstance().Log("selected order id is : " +  vendorgriditem.getOrderId());
 
 
                 }
             });
 
-
+//            cardmenu.setOnLongClickListener(new View.OnLongClickListener() {
+//                @Override
+//                public boolean onLongClick(View v) {
+//                    int position=getAdapterPosition();
+//                    VendorGridItem vendorgriditem=vendorgridItemList.get(position);
+//                    orderid= vendorgriditem.getOrderId();
+//                    showPopupMenu(cardmenu,getAdapterPosition());
+//                    Logger.getInstance().Log("selected order id is : " +  vendorgriditem.getOrderId());
+//
+//                    return true;
+//                }
+//            });
+//
+//
 //            view.setOnLongClickListener(new View.OnLongClickListener() {
 //                @Override
 //                public boolean onLongClick(View v) {
@@ -259,7 +272,7 @@ public class VendorRecyclegridviewAdapter extends RecyclerView.Adapter< VendorRe
                 SharedPreferences.Editor editor = sp.edit();
 
                 editor.putString("Order_Id",vendorgridItem.getOrderId());
-                Logger.getInstance().Log("orderidadapter "+vendorgridItem.getOrderId());
+                //Logger.getInstance().Log("orderidadapter "+vendorgridItem.getOrderId());
                 editor.putString("Sub_Client_Name", vendorgridItem.getSubclient());
                 editor.putString("Order_Type", vendorgridItem.getProducttype());
                 editor.putString("State_Name", vendorgridItem.getState());
@@ -271,13 +284,13 @@ public class VendorRecyclegridviewAdapter extends RecyclerView.Adapter< VendorRe
                 editor.putString("Barrower_Name", vendorgridItem.getBarrowername());
                 editor.putString("Order_Number", vendorgridItem.getOderno());
                 editor.putString("Order_Status", vendorgridItem.getOrdertask());
-                Logger.getInstance().Log("Order_Status of " + vendorgridItem.getOrdertask());
+                //Logger.getInstance().Log("Order_Status of " + vendorgridItem.getOrdertask());
                 editor.putString("Sub_Client_Id", vendorgridItem.getSubclientid());
 
                 editor.putString("Order_Status", vendorgridItem.getOrdertask());
 
                 editor.commit();
-                Logger.getInstance().Log("status888 " + vendorgridItem.getStatus());
+                //Logger.getInstance().Log("status888 " + vendorgridItem.getStatus());
                 context.startActivity(intent);
             }
         });
@@ -337,7 +350,7 @@ public class VendorRecyclegridviewAdapter extends RecyclerView.Adapter< VendorRe
 
 
     private void hold(final int position){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
 //        showDialog();
 
 //        pDialog.setMessage("Updating ...");
@@ -384,7 +397,7 @@ public class VendorRecyclegridviewAdapter extends RecyclerView.Adapter< VendorRe
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "5");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -402,7 +415,7 @@ public class VendorRecyclegridviewAdapter extends RecyclerView.Adapter< VendorRe
 
 
     private void workinprogress(final int position){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
 //        showDialog();
 
 //        pDialog.setMessage("Updating ...");
@@ -449,7 +462,7 @@ public class VendorRecyclegridviewAdapter extends RecyclerView.Adapter< VendorRe
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "14");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -468,7 +481,7 @@ public class VendorRecyclegridviewAdapter extends RecyclerView.Adapter< VendorRe
 
 
     private void completed(final int position){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
 //        showDialog();
 
 //        pDialog.setMessage("Updating ...");
@@ -515,7 +528,7 @@ public class VendorRecyclegridviewAdapter extends RecyclerView.Adapter< VendorRe
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "3");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -535,7 +548,7 @@ public class VendorRecyclegridviewAdapter extends RecyclerView.Adapter< VendorRe
 
 
     private void cancelled(final int position) {
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
 //        showDialog();
 
 //        pDialog.setMessage("Updating ...");
@@ -582,7 +595,7 @@ public class VendorRecyclegridviewAdapter extends RecyclerView.Adapter< VendorRe
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "4");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -600,7 +613,7 @@ public class VendorRecyclegridviewAdapter extends RecyclerView.Adapter< VendorRe
 
 
     private void clarification(final int position) {
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
 //        showDialog();
 
 //        pDialog.setMessage("Updating ...");
@@ -647,7 +660,7 @@ public class VendorRecyclegridviewAdapter extends RecyclerView.Adapter< VendorRe
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "1");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 

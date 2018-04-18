@@ -76,7 +76,7 @@ public class VendorEditUploadFragment extends Fragment {
                 "VendorLoginActivity", 0);
         pref=getActivity().getSharedPreferences(VENDORORDER, Context.MODE_PRIVATE);
         Order_Id = pref.getString("Order_Id","");
-        Logger.getInstance().Log("idd"+getVendorId());
+        //Logger.getInstance().Log("idd"+getVendorId());
         fab = (FloatingActionButton) view.findViewById(R.id.fab_vendorupload);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +106,7 @@ public class VendorEditUploadFragment extends Fragment {
             public void onResponse(JSONObject response) {
 
                 try {
-                    Log.e("responce : ", "" + response.toString());
+                    // Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("View_Upload_Documents");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);

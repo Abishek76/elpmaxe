@@ -111,7 +111,7 @@ public class VendorLoginActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(String response)
                         {
-                            Logger.getInstance().Log("in response");
+                            //Logger.getInstance().Log("in response");
                             hideDialog();
 
                             try {
@@ -119,7 +119,7 @@ public class VendorLoginActivity extends AppCompatActivity {
                                 Log.d(TAG, response.toString());
                                 boolean  error = jObj.getBoolean("error");
 
-                                Logger.getInstance().Log("in error response"+error);
+                                //Logger.getInstance().Log("in error response"+error);
                                 // Check for error node in json
                                 if (!error)
                                 {
@@ -136,7 +136,7 @@ public class VendorLoginActivity extends AppCompatActivity {
 //                                        String Client_Id = jsonObject.getString("Client_Id");
 
 
-                                        Logger.getInstance().Log("vendor id login"+Vendor_Id);
+                                        //Logger.getInstance().Log("vendor id login"+Vendor_Id);
                                         sp = getApplicationContext().getSharedPreferences(
                                                 "VendorLoginActivity", 0); // 0 for private mode
 
@@ -146,7 +146,7 @@ public class VendorLoginActivity extends AppCompatActivity {
                                         editor.putString("Email", Email);
 //                                        editor.putString("Client_Id",Client_Id);
                                         editor.commit();
-//                                        Logger.getInstance().Log("vendor id login"+Client_Id);
+                                        //Logger.getInstance().Log("vendor id"+Vendor_User_Id);
 
                                     }
                                     // Inserting row in users table
@@ -159,7 +159,7 @@ public class VendorLoginActivity extends AppCompatActivity {
                                     finish();
 
                                 }else{
-                                    Logger.getInstance().Log("in error ");
+                                    //Logger.getInstance().Log("in error ");
                                     TastyToast.makeText( VendorLoginActivity.this,"Enter Valid Credentials...",TastyToast.LENGTH_SHORT,TastyToast.ERROR);
                                 }
 
@@ -181,7 +181,7 @@ public class VendorLoginActivity extends AppCompatActivity {
                             Map<String,String>params= new HashMap<String, String>();
                             params.put("Email",Email);
                             params.put("Password",Password);
-                            Logger.getInstance().Log("vendor id login"+params);
+                            //Logger.getInstance().Log("vendor id login"+params);
 
                             return params;
                         }

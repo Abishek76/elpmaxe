@@ -74,7 +74,7 @@ public class VendorOrderQueueFragment extends Fragment {
 
 
 
-                // Fetching data from server
+        // Fetching data from server
 //                prepareProcessingOrder();
 
 
@@ -119,7 +119,7 @@ public class VendorOrderQueueFragment extends Fragment {
                     JSONArray jsonArray = response.getJSONArray("ScoreBoard");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        Logger.getInstance().Log("object is....: " + jsonObject);
+                        //Logger.getInstance().Log("object is....: " + jsonObject);
                         String Order_Id = jsonObject.getString("Order_Id");
                         String subname = jsonObject.getString("Sub_Client_Name");
                         String orderno = jsonObject.getString("Order_Number");
@@ -154,8 +154,8 @@ public class VendorOrderQueueFragment extends Fragment {
                         vendororderQueue.setSubId(subId);
                         vendororderQueue.setDate(date);
                         vendororderQueue.setClintId(clintId);
-                        Logger.getInstance().Log("orderno: " + orderno);
-                        Logger.getInstance().Log("client: " + clintId);
+                        //Logger.getInstance().Log("orderno: " + orderno);
+                        //Logger.getInstance().Log("client: " + clintId);
 
 
 
@@ -194,6 +194,8 @@ public class VendorOrderQueueFragment extends Fragment {
 
         AppController.getInstance().addToRequestQueue(jsonObjReq);
     }
+
+
 
     public String getVendorId() {
 
@@ -265,7 +267,6 @@ public class VendorOrderQueueFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 pDialog.dismiss();
-
             }
         }, 500);}
 

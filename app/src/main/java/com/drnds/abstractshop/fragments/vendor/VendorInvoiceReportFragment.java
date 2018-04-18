@@ -106,7 +106,6 @@ public class VendorInvoiceReportFragment extends Fragment {
             public void onClick(View v) {
                 Calendar newCalendar = Calendar.getInstance();
 
-
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),R.style.datepicker, new DatePickerDialog.OnDateSetListener() {
 
 
@@ -142,7 +141,7 @@ public class VendorInvoiceReportFragment extends Fragment {
         pDialog = new ProgressDialog(getActivity(), R.style.MyAlertDialogStyle);
         pDialog.setCancelable(false);
         submit=(Button)view.findViewById(R.id.invoicecom_vensubmittab);
-        Logger.getInstance().Log("venid"+getVendorId());
+        //Logger.getInstance().Log("venid"+getVendorId());
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,7 +167,7 @@ public class VendorInvoiceReportFragment extends Fragment {
                     intent.putExtra("To_Date", ToDate);
                     intent.putExtra("Client_Id",Client_ID);
                     intent.putExtra("Sub_Client_Id",SubClient_ID);
-                    Logger.getInstance().Log("datein"+ToDate);
+                    //Logger.getInstance().Log("datein"+ToDate);
                     startActivity(intent);
                     hideDialog();
                 }
@@ -372,7 +371,7 @@ public class VendorInvoiceReportFragment extends Fragment {
                 try {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
-                    Logger.getInstance().Log("in error response" + response);
+                    //Logger.getInstance().Log("in error response" + response);
                     stopDialog();
 
                     if(jObj.has("error")){
@@ -383,16 +382,16 @@ public class VendorInvoiceReportFragment extends Fragment {
                     if (!error) {
 
                         JSONArray jsonArray = jObj.getJSONArray("Orders");
-                        Logger.getInstance().Log("11" + jsonArray.length());
+                        //Logger.getInstance().Log("11" + jsonArray.length());
                         if (jsonArray.length() > 0) {
                             Intent intent = new Intent(getActivity(), VendorInvoiceReportActivity.class);
                             intent.putExtra("JsonReport", response.toString());
                             startActivity(intent);
-                            Logger.getInstance().Log("Report5555" + response.toString());
+                            //Logger.getInstance().Log("Report5555" + response.toString());
                             stopDialog();
                         } else {
                             stopDialog();
-                            Logger.getInstance().Log("ghxgfd" + jsonArray.length());
+                            //Logger.getInstance().Log("ghxgfd" + jsonArray.length());
                             TastyToast.makeText(getActivity(), "No orders found", TastyToast.LENGTH_SHORT, TastyToast.INFO);
                         }
 //                        hideDialog();
@@ -428,7 +427,7 @@ public class VendorInvoiceReportFragment extends Fragment {
                 params.put("To_Date", ToDate);
                 params.put("Client_Id",Client_ID);
                 params.put("Sub_Client_Id",SubClient_ID);
-                Logger.getInstance().Log("params...." +params);
+                //Logger.getInstance().Log("params...." +params);
 
                 return params;
             }

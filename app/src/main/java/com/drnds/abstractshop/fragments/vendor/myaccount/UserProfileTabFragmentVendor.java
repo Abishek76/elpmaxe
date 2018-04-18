@@ -168,7 +168,7 @@ public class UserProfileTabFragmentVendor extends Fragment {
         AppController.getInstance().addToRequestQueue(jsonObjReq);
     }
     public void   updateUserInfo(){
-        Logger.getInstance().Log("in update vendor id");
+        //Logger.getInstance().Log("in update vendor id");
 
 
 
@@ -179,12 +179,12 @@ public class UserProfileTabFragmentVendor extends Fragment {
             @Override
             public void onResponse(String response) {
                 hideDialog();
-                Logger.getInstance().Log("sucess string");
+                //Logger.getInstance().Log("sucess string");
                 try {
                     JSONObject jObj = new JSONObject(response);
                     boolean  error = jObj.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+error);
+                    //Logger.getInstance().Log("in error response"+error);
                     // Check for error node in json
                     if (!error)
                     {
@@ -215,7 +215,7 @@ public class UserProfileTabFragmentVendor extends Fragment {
                 params.put("First_Name",First_Name);
                 params.put("Last_Name",Last_Name);
 
-                Logger.getInstance().Log("Email : " +Email);
+                //Logger.getInstance().Log("Email : " +Email);
 
 
 
@@ -258,9 +258,9 @@ public class UserProfileTabFragmentVendor extends Fragment {
             requestFocus(inputAlternateemail);
             return false;
         }
-       else {
+        else {
             inputLayoutAlternateemail.setErrorEnabled(false);
-        return true;
+            return true;
         }
     }
 

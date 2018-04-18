@@ -41,15 +41,15 @@ public class PiechartActivity extends AppCompatActivity {
     private RelativeLayout mainLayout;
     private PieChart mChart;
     SharedPreferences sp;
-//    private PieChart chartContainer;
+    //    private PieChart chartContainer;
     private FrameLayout chartContainer;
     //we are going to display the pie chart for smartphone market shares
     private Toolbar toolbar;
     TextView textView1,textView2,textView3,textView4,textView5,
-    textView6,textView7,textView8,textView9,textView10;
+            textView6,textView7,textView8,textView9,textView10;
     ArrayList<String> xVals = new ArrayList<String>();
     ImageView imageView1,imageView2,imageView3,imageView4,imageView5,
-    imageView6,imageView7,imageView8,imageView9,imageView10,imageViewchart;
+            imageView6,imageView7,imageView8,imageView9,imageView10,imageViewchart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +73,7 @@ public class PiechartActivity extends AppCompatActivity {
         mChart.setDrawHoleEnabled(true);
         mChart.setHoleColor(Color.WHITE);
         mChart.animateXY(2000,2000);
-       textView1=(TextView)findViewById(R.id.text1);
+        textView1=(TextView)findViewById(R.id.text1);
         textView2=(TextView)findViewById(R.id.text2);
         textView3=(TextView)findViewById(R.id.text3);
         textView4=(TextView)findViewById(R.id.text4);
@@ -178,7 +178,7 @@ public class PiechartActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response)
             {
-                Logger.getInstance().Log("in response");
+                //Logger.getInstance().Log("in response");
 
 
                 try {
@@ -192,7 +192,7 @@ public class PiechartActivity extends AppCompatActivity {
                         int Value=0;
                         for(int i=0;i<jsonArray.length();i++) {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
-                             Value = jsonObject.getInt("Value");
+                            Value = jsonObject.getInt("Value");
 
                             String No_Of_Orders = jsonObject.getString("No_Of_Orders");
                             yvalues.add(new Entry(Value, i));
@@ -213,16 +213,16 @@ public class PiechartActivity extends AppCompatActivity {
                         textView8.setText(Y.get(2)+"");
                         textView9.setText(Y.get(1)+"");
                         textView10.setText(Y.get(0)+"");
-                        Logger.getInstance().Log("valueof"+Y.get(0));
-                        Logger.getInstance().Log("valueof"+Y.get(1));
-                        Logger.getInstance().Log("valueof"+Y.get(2));
-                        Logger.getInstance().Log("valueof"+Y.get(3));
-                        Logger.getInstance().Log("valueof"+Y.get(4));
-                        Logger.getInstance().Log("valueof"+Y.get(5));
-                        Logger.getInstance().Log("valueof"+Y.get(6));
-                        Logger.getInstance().Log("valueof"+Y.get(7));
-                        Logger.getInstance().Log("valueof"+Y.get(8));
-                        Logger.getInstance().Log("valueof"+Y.get(9));
+                        //Logger.getInstance().Log("valueof"+Y.get(0));
+                        //Logger.getInstance().Log("valueof"+Y.get(1));
+                        //Logger.getInstance().Log("valueof"+Y.get(2));
+                        //Logger.getInstance().Log("valueof"+Y.get(3));
+                        //Logger.getInstance().Log("valueof"+Y.get(4));
+                        //Logger.getInstance().Log("valueof"+Y.get(5));
+                        //Logger.getInstance().Log("valueof"+Y.get(6));
+                        //Logger.getInstance().Log("valueof"+Y.get(7));
+                        //Logger.getInstance().Log("valueof"+Y.get(8));
+                        //Logger.getInstance().Log("valueof"+Y.get(9));
                         PieDataSet dataSet = new PieDataSet(yvalues, "");
                         dataSet.setSelectionShift(5);
 //        dataSet.setSliceSpace(2);

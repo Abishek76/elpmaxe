@@ -94,7 +94,7 @@ public class CompanyInfoTabFragmentVendor extends Fragment {
 
                         for (int i = 0; i < users.length(); i++) {
                             JSONObject data = users.getJSONObject(i);
-                            Logger.getInstance().Log("data1111 : "+data);
+                            //Logger.getInstance().Log("data1111 : "+data);
                             String Company_Name = data.getString("Company_Name");
 
                             String Company_Email=data.getString("Company_Email");
@@ -111,7 +111,7 @@ public class CompanyInfoTabFragmentVendor extends Fragment {
                             stateIt.add(data.getString("State_Name"));
                             statesedit.add(data.getString("State"));
                             countyedit.add(data.getString("County"));
-                            Logger.getInstance().Log("County : "+County);
+                            //Logger.getInstance().Log("County : "+County);
 
 
                             // states.add(data.getString("State_Name"));
@@ -123,8 +123,8 @@ public class CompanyInfoTabFragmentVendor extends Fragment {
                             inputaFaxno.setText(Fax_No);
 
 
-                            Logger.getInstance().Log("getting county name : "+countyname);
-                            Logger.getInstance().Log("getting state name : "+state);
+                            //Logger.getInstance().Log("getting county name : "+countyname);
+                            //Logger.getInstance().Log("getting state name : "+state);
 
                         }
 
@@ -224,9 +224,9 @@ public class CompanyInfoTabFragmentVendor extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected county id : " + County_ID);
+                //Logger.getInstance().Log("selected county id : " + County_ID);
 
-                Logger.getInstance().Log("selected county  : " + countyname);
+                //Logger.getInstance().Log("selected county  : " + countyname);
                 //editor.putString("State_Name", State_Name);
                 editor.putString("County_ID",County_ID);
 
@@ -246,7 +246,7 @@ public class CompanyInfoTabFragmentVendor extends Fragment {
         getVendorData();
         getState();
         String vendor=sp.getString("Vendor_Id","");
-        Log.e("vendor detail",vendor);
+        // Log.e("vendor detail",vendor);
         return view;
 
     }
@@ -296,18 +296,18 @@ public class CompanyInfoTabFragmentVendor extends Fragment {
     }
     private void getCounty() {
 
-        Log.e("State_ID", getStateId());
-        Log.e("State", getStateId());
+        // Log.e("State_ID", getStateId());
+        // Log.e("State", getStateId());
 
 
-        Log.e("County_Name", getCountyId());
+        // Log.e("County_Name", getCountyId());
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.COUNTY_URL + getStateId(), null,
 
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e(TAG, response.toString());
+                        // Log.e(TAG, response.toString());
                         try {
 
                             JSONArray jsonArray = response.getJSONArray("BescomPoliciesDetails");
@@ -341,7 +341,7 @@ public class CompanyInfoTabFragmentVendor extends Fragment {
     }
 
     public void updateVendor(){
-        Logger.getInstance().Log("in update vendor id");
+        //Logger.getInstance().Log("in update vendor id");
         showDialog();
         final String Company_Name = inputCompanyname.getText().toString().trim();
         final String  Company_Email = inputCompanydefaultemail.getText().toString().trim();
@@ -366,12 +366,12 @@ public class CompanyInfoTabFragmentVendor extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 hideDialog();
-                Logger.getInstance().Log("sucess string");
+                //Logger.getInstance().Log("sucess string");
                 try {
 
                     boolean  error = response.getBoolean("error");
 
-                    Logger.getInstance().Log("in error response"+error);
+                    //Logger.getInstance().Log("in error response"+error);
                     // Check for error node in json
                     if (!error)
                     {
@@ -501,7 +501,7 @@ public class CompanyInfoTabFragmentVendor extends Fragment {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                Logger.getInstance().Log("selected state id : " + State_ID);
+                //Logger.getInstance().Log("selected state id : " + State_ID);
 
 
                 //editor.putString("State_Name", State_Name);

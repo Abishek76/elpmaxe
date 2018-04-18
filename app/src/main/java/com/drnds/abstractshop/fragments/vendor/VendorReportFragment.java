@@ -36,6 +36,10 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.drnds.abstractshop.R;
+import com.drnds.abstractshop.activity.client.CompletedActivity;
+import com.drnds.abstractshop.activity.vendor.CompletedVendorActivity;
+import com.drnds.abstractshop.activity.vendor.VendorAllReportActivity;
+import com.drnds.abstractshop.activity.vendor.VendorPendingReportActivity;
 import com.drnds.abstractshop.activity.vendor.VendorReportActivity;
 import com.drnds.abstractshop.util.AppController;
 import com.drnds.abstractshop.util.Config;
@@ -67,8 +71,8 @@ public class VendorReportFragment extends Fragment {
     RadioGroup radioGroup;
     RadioButton pendingorder, completedorder, allorder;
     private TextInputLayout inputLayoutFromdate, inputLayoutTodate;
-    Button submit;
-    String Report_Type,Client,SubClient_ID,SubClient;
+    Button pending,complete,all;
+    String Report_Type,Client,SubClient_ID,SubClient,FromDate,ToDate;
     public String Client_ID1;
     SharedPreferences sp, sp1;
     private ProgressDialog pDialog;
@@ -158,16 +162,16 @@ public class VendorReportFragment extends Fragment {
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),R.style.datepicker,new DatePickerDialog.OnDateSetListener() {
 
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int monthOfYear, int dayOfMonth) {
-                                Calendar newDate = Calendar.getInstance();
-                                newDate.set(year, monthOfYear, dayOfMonth);
-                                frmDate.setText(dateFormatter.format(newDate.getTime()));
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        Calendar newDate = Calendar.getInstance();
+                        newDate.set(year, monthOfYear, dayOfMonth);
+                        frmDate.setText(dateFormatter.format(newDate.getTime()));
 
 
-                            }
-                        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+                    }
+                }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
             }
 
@@ -182,18 +186,18 @@ public class VendorReportFragment extends Fragment {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),R.style.datepicker,new DatePickerDialog.OnDateSetListener() {
 
 
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int monthOfYear, int dayOfMonth) {
-                                Calendar newDate = Calendar.getInstance();
-                                newDate.set(year, monthOfYear, dayOfMonth);
-                                toDate.setText(dateFormatter.format(newDate.getTime()));
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        Calendar newDate = Calendar.getInstance();
+                        newDate.set(year, monthOfYear, dayOfMonth);
+                        toDate.setText(dateFormatter.format(newDate.getTime()));
 
 
-                            }
+                    }
 
 
-                        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+                }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
 
 
@@ -206,38 +210,175 @@ public class VendorReportFragment extends Fragment {
         pendingorder = (RadioButton) view.findViewById(R.id.vendor_pendingorder);
         completedorder = (RadioButton) view.findViewById(R.id.vendor_completedorder);
         allorder = (RadioButton) view.findViewById(R.id.vendor_allorder);
-        submit = (Button) view.findViewById(R.id.vendor_submitreport);
+//        submit = (Button) view.findViewById(R.id.vendor_submitreport);
+        pending = (Button) view.findViewById(R.id.pendingcheck);
+        complete = (Button) view.findViewById(R.id.completecheck);
+        all= (Button) view.findViewById(R.id.allcheck);
 
 
-        submit.setOnClickListener(new View.OnClickListener() {
+        completedorder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                checkInternetConnection();   // checking internet connection
-
-                int selectedId = radioGroup.getCheckedRadioButtonId();
-
-                // find the radiobutton by returned id
-                if (!validateFromdate() || !validateTodate()) {
-                    Toasty.error(getActivity(), "Please select Dates!", Toast.LENGTH_SHORT, true).show();
-                    return;
-                } else if (selectedId == R.id.vendor_pendingorder) {
-
-                    Report_Type = "1";
-                    fireReport();
-                } else if (selectedId == R.id.vendor_completedorder) {
-                    Report_Type = "2";
-                    fireReport();
-
-                } else if (selectedId == R.id.vendor_allorder) {
-                    Report_Type = "3";
-                    fireReport();
-
-                }
-
+                complete.setVisibility(View.VISIBLE);
+                pending.setVisibility(View.GONE);
+                all.setVisibility(View.GONE);
 
             }
         });
+
+        pendingorder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pending.setVisibility(View.VISIBLE);
+                complete.setVisibility(View.GONE);
+                all.setVisibility(View.GONE);
+            }
+        });
+
+        allorder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                all.setVisibility(View.VISIBLE);
+                pending.setVisibility(View.GONE);
+                complete.setVisibility(View.GONE);
+
+            }
+        });
+
+
+
+//        submit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                checkInternetConnection();   // checking internet connection
+//
+//                int selectedId = radioGroup.getCheckedRadioButtonId();
+//
+//                // find the radiobutton by returned id
+//                if (!validateFromdate() || !validateTodate()) {
+//                    Toasty.error(getActivity(), "Please select Dates!", Toast.LENGTH_SHORT, true).show();
+//                    return;
+//                } else if (selectedId == R.id.vendor_pendingorder) {
+//
+//                    Report_Type = "1";
+//                    fireReport();
+//                } else if (selectedId == R.id.vendor_completedorder) {
+//                    Report_Type = "2";
+//                    fireReport();
+//
+//                } else if (selectedId == R.id.vendor_allorder) {
+//                    Report_Type = "3";
+//                    fireReport();
+//
+//                }
+//
+//
+//            }
+//        });
+
+        all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+                // checking internet connection
+
+                FromDate = frmDate.getText().toString().trim();
+                ToDate = toDate.getText().toString().trim();
+
+                // find the radiobutton by returned id
+                if (!validateFromdate() || !validateTodate())
+                {
+                    stopDialog();
+                    Toasty.error(getActivity(), "Please select Dates!", Toast.LENGTH_SHORT,true).show();
+                    return;
+                }
+                else {
+                    Intent intent = new Intent(getActivity(), VendorAllReportActivity.class);
+                    intent.putExtra("Vendor_Id", getVendorId());
+                    intent.putExtra("Report_Type", "3");
+                    intent.putExtra("From_Date", FromDate);
+                    intent.putExtra("To_Date", ToDate);
+                    intent.putExtra("Client_Id",Client_ID1);
+                    intent.putExtra("Sub_Client_Id",SubClient_ID);
+                    Logger.getInstance().Log("datein"+ToDate);
+                    startActivity(intent);
+                    hideDialog();
+                }
+                // print the value of selected super star
+
+            }
+        });
+
+
+        pending.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+                // checking internet connection
+
+                FromDate = frmDate.getText().toString().trim();
+                ToDate = toDate.getText().toString().trim();
+
+                // find the radiobutton by returned id
+                if (!validateFromdate() || !validateTodate())
+                {
+                    stopDialog();
+                    Toasty.error(getActivity(), "Please select Dates!", Toast.LENGTH_SHORT,true).show();
+                    return;
+                }
+                else {
+                    Intent intent = new Intent(getActivity(), VendorPendingReportActivity.class);
+                    intent.putExtra("Vendor_Id", getVendorId());
+                    intent.putExtra("Report_Type", "1");
+                    intent.putExtra("From_Date", FromDate);
+                    intent.putExtra("To_Date", ToDate);
+                    intent.putExtra("Client_Id",Client_ID1);
+                    intent.putExtra("Sub_Client_Id",SubClient_ID);
+                    Logger.getInstance().Log("datein"+ToDate);
+                    startActivity(intent);
+                    hideDialog();
+                }
+                // print the value of selected super star
+
+            }
+        });
+
+
+        complete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+                // checking internet connection
+
+                FromDate = frmDate.getText().toString().trim();
+                ToDate = toDate.getText().toString().trim();
+
+                // find the radiobutton by returned id
+                if (!validateFromdate() || !validateTodate())
+                {
+                    stopDialog();
+                    Toasty.error(getActivity(), "Please select Dates!", Toast.LENGTH_SHORT,true).show();
+                    return;
+                }
+                else {
+                    Intent intent = new Intent(getActivity(), CompletedVendorActivity.class);
+                    intent.putExtra("Vendor_Id", getVendorId());
+                    intent.putExtra("Report_Type", "2");
+                    intent.putExtra("From_Date", FromDate);
+                    intent.putExtra("To_Date", ToDate);
+                    intent.putExtra("Client_Id",Client_ID1);
+                    intent.putExtra("Sub_Client_Id",SubClient_ID);
+                    Logger.getInstance().Log("datein"+ToDate);
+                    startActivity(intent);
+                    hideDialog();
+                }
+                // print the value of selected super star
+
+            }
+        });
+
+
 
 
         return view;
@@ -283,7 +424,7 @@ public class VendorReportFragment extends Fragment {
 
             @Override
             public void onResponse(JSONObject response) {
-                Log.e(TAG, response.toString());
+                // Log.e(TAG, response.toString());
                 try {
 
                     JSONArray jsonArray = response.getJSONArray("Client_master");
@@ -344,7 +485,6 @@ public class VendorReportFragment extends Fragment {
                     }
                     // Check for error node in json
                     if (!error) {
-
                         JSONArray jsonArray = jObj.getJSONArray("Orders");
                         Logger.getInstance().Log("11" + jsonArray.length());
                         if (jsonArray.length() > 0) {
@@ -355,11 +495,14 @@ public class VendorReportFragment extends Fragment {
                             stopDialog();
                         }
 
+
                         else {
                             stopDialog();
                             Logger.getInstance().Log("ghxgfd" + jsonArray.length());
                             TastyToast.makeText(getActivity().getApplicationContext(), "No orders found", TastyToast.LENGTH_SHORT, TastyToast.ERROR);
                         }
+
+
 //                        hideDialog();
 
 

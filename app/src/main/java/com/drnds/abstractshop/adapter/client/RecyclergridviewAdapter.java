@@ -58,7 +58,7 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
     SharedPreferences sharedpreferences;
     public static final String GRID = "gridadpter";
     RecyclerView mRecyclerView;
-//    private ProgressDialog pDialog;
+    //    private ProgressDialog pDialog;
     String orderid,orderstatuscheck;
     String orderstatus = "CANCELLED";
 
@@ -68,7 +68,7 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
         private List<GridItem> gridItemList=new ArrayList<GridItem>();
         private   ItemClickListener itemClickListener;
 
-        public ImageView cardmenu;
+        public ImageView cardmenu,circle;
         //        private Button button;
         Context ctx;
 
@@ -86,7 +86,9 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
             status = (TextView) view.findViewById(R.id.grid_status);
             barrowername = (TextView) view.findViewById(R.id.gridview_borrowername);
             date= (TextView) view.findViewById(R.id.text_gdate);
-            cardmenu=(ImageView)view.findViewById(R.id.gridcardmenu);
+//            cardmenu=(ImageView)view.findViewById(R.id.gridcardmenu);
+            circle=(ImageView)view.findViewById(R.id.more);
+
 
             subclient.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
             oderno.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
@@ -100,20 +102,34 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
             view.setOnClickListener(this);
 
 
-            cardmenu.setOnClickListener(new View.OnClickListener() {
+//            cardmenu.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    int position=getAdapterPosition();
+//                    GridItem gridItem=gridItemList.get(position);
+//                    orderid= gridItem.getOrderId();
+//                    showPopupMenu(cardmenu,getAdapterPosition());
+//                    Logger.getInstance().Log("selected order id is : " +  gridItem.getOrderId());
+//
+//
+//                }
+//            });
+
+            circle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position=getAdapterPosition();
                     GridItem gridItem=gridItemList.get(position);
                     orderid= gridItem.getOrderId();
-                    showPopupMenu(cardmenu,getAdapterPosition());
-                    Logger.getInstance().Log("selected order id is : " +  gridItem.getOrderId());
+                    showPopupMenu(circle,getAdapterPosition());
+                    //Logger.getInstance().Log("selected order id is : " +  gridItem.getOrderId());
 
 
                 }
             });
 
 
+//
 //            view.setOnLongClickListener(new View.OnLongClickListener() {
 //                @Override
 //                public boolean onLongClick(View v) {
@@ -202,7 +218,7 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
                 editor.putString("Barrower_Name", gridItem.getBarrowername());
                 editor.putString("Order_Status", gridItem.getOrdertask());
                 editor.putString("Sub_Client_Id", gridItem.getSubId());
-                Logger.getInstance().Log("subid22 " + gridItem.getSubId());
+                //Logger.getInstance().Log("subid22 " + gridItem.getSubId());
                 editor.commit();
                 context.startActivity(intent);
 //            intent.putExtra("Order_Id",orderQueue.getOrder_Id());
@@ -276,7 +292,7 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
 
 
     private void hold(final int position){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
 //        showDialog();
 
 //        pDialog.setMessage("Updating ...");
@@ -323,7 +339,7 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "5");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -341,7 +357,7 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
 
 
     private void workinprogress(final int position){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
 //        showDialog();
 
 //        pDialog.setMessage("Updating ...");
@@ -388,7 +404,7 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "14");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -407,7 +423,7 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
 
 
     private void completed(final int position){
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
 //        showDialog();
 
 //        pDialog.setMessage("Updating ...");
@@ -454,7 +470,7 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "3");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -474,7 +490,7 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
 
 
     private void cancelled(final int position) {
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
 //        showDialog();
 
 //        pDialog.setMessage("Updating ...");
@@ -521,7 +537,7 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "4");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -552,7 +568,7 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
 
 
     private void clarification(final int position) {
-        Logger.getInstance().Log("in update client id");
+        //Logger.getInstance().Log("in update client id");
 //        showDialog();
 
 //        pDialog.setMessage("Updating ...");
@@ -599,7 +615,7 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "1");
-                Logger.getInstance().Log("parabola: " + params);
+                //Logger.getInstance().Log("parabola: " + params);
 
 
 
