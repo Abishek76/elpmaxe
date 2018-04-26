@@ -2,11 +2,13 @@ package com.drnds.abstractshop.fragments.client;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -999,16 +1001,19 @@ public class AddOrderFragment extends Fragment {
 
 
 
-
     private void showDialog() {
         if (!pDialog.isShowing())
             pDialog.show();
+            pDialog.setCancelable(true);
+
     }
 
     private void hideDialog() {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+
+
 
     public void getDate(){
         StringRequest stringRequest=new StringRequest(Request.Method.GET, Config.DATE_URL, new Response.Listener<String>() {

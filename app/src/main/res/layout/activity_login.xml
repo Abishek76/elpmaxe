@@ -39,7 +39,6 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:hint="Email *"
-            android:text="client@test.com"
             android:drawableLeft="@drawable/ic_mail"
             android:drawablePadding="8dp"/>
 
@@ -65,7 +64,6 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:hint="Password *"
-            android:text="123"
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="7dp"/>
     </android.support.design.widget.TextInputLayout>
