@@ -194,11 +194,21 @@
             android:name=".activity.vendor.gridactivity.VendorGridInvoiceActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".activity.vendor.VendorInvoiceReportActivity" />
-        <activity android:name=".activity.vendor.VendorPendingReportActivity" />
-        <activity android:name=".activity.vendor.VendorAllReportActivity" />
-        <activity android:name=".activity.client.PendingReportActivity" />
-        <activity android:name=".activity.client.AllReportActivity"></activity>
+        <activity android:name=".activity.vendor.VendorInvoiceReportActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".activity.vendor.VendorPendingReportActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".activity.vendor.VendorAllReportActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".activity.client.PendingReportActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".activity.client.AllReportActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"></activity>
     </application>
 
 </manifest>

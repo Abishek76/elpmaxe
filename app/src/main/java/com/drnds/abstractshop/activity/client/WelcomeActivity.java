@@ -161,6 +161,7 @@ public class WelcomeActivity extends AppCompatActivity {
         indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
+
             public void onPageSelected(int position) {
                 currentPage = position;
 
