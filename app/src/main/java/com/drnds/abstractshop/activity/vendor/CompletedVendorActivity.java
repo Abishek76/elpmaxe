@@ -112,6 +112,8 @@ public class CompletedVendorActivity extends AppCompatActivity {
         Client_Id=intent.getStringExtra("Client_Id");
         Sub_Client_Id=intent.getStringExtra("Sub_Client_Id");
         //Logger.getInstance().Log("date"+To_Date);
+        showDialog();
+
         fireEvent();
 
 //        if (vendorgridItemList.isEmpty()) {
@@ -130,6 +132,8 @@ public class CompletedVendorActivity extends AppCompatActivity {
 
     public void fireEvent(){
         pDialog.setMessage("Fetching Data ...");
+        showDialog();
+
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
                 Config.VENDORREPORT_URL, new Response.Listener<String>() {

@@ -146,6 +146,8 @@ public class VendorInvoiceReportFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showDialog();
+                pDialog.setMessage("Fetching Data ...");
+
                 // checking internet connection
 
                 FromDate = frmDate.getText().toString().trim();

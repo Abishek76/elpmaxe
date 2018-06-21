@@ -19,15 +19,11 @@
         android:visibility="gone"
 
         />
-    <android.support.v4.widget.SwipeRefreshLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/gridview_container"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/toolbar_vendorcomp"
-        android:layout_height="match_parent">
+
         <android.support.v7.widget.RecyclerView
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/recycle_vencomp"
+            android:layout_below="@+id/toolbar_vendorcomp"
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -36,7 +32,6 @@
             android:paddingTop="16dp"
             android:scrollbars="vertical"
             />
-    </android.support.v4.widget.SwipeRefreshLayout>
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

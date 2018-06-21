@@ -81,6 +81,7 @@ public class PendingReportActivity extends AppCompatActivity {
         emptyViewimg = (ImageView) findViewById(R.id.empty_view_image);
         pDialog = new ProgressDialog(this,R.style.MyAlertDialogStyle);
         pDialog.setCancelable(false);
+        showDialog();
 
         setSupportActionBar(toolbar);
 
@@ -106,6 +107,7 @@ public class PendingReportActivity extends AppCompatActivity {
         From_Date=intent.getStringExtra("From_Date1");
         To_Date=intent.getStringExtra("To_Date1");
         Client_Id=intent.getStringExtra("Client_Id1");
+        showDialog();
 
 
         //Logger.getInstance().Log("date"+To_Date);
@@ -127,6 +129,7 @@ public class PendingReportActivity extends AppCompatActivity {
     }
     public void   fireEvent(){
         pDialog.setMessage("Fetching Data ...");
+        showDialog();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
                 Config.REPORT_URL, new Response.Listener<String>() {

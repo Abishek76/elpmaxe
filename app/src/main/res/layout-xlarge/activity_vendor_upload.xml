@@ -38,7 +38,7 @@
     <io.codetail.widget.RevealFrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/spinnerlay"
+        android:layout_above="@+id/vendor_spinnerlay"
         android:layout_marginTop="0dp"
         >
 
@@ -67,13 +67,6 @@
             android:layout_marginRight="18dp"
             app:backgroundTint="#C9C9C9"
             android:layout_weight="6" />
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:id="@+id/vendor_scanner_attach"
-            android:src="@drawable/ic_scan"
-            android:layout_weight="0.5"
-            android:layout_gravity="center"/>
 
 
         <ImageView

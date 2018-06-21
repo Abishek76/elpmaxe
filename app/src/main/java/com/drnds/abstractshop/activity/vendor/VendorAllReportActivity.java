@@ -110,6 +110,8 @@ public class VendorAllReportActivity extends AppCompatActivity {
         To_Date=intent.getStringExtra("To_Date");
         Client_Id=intent.getStringExtra("Client_Id");
         Sub_Client_Id=intent.getStringExtra("Sub_Client_Id");
+        showDialog();
+
         //Logger.getInstance().Log("date"+To_Date);
         fireEvent();
 
@@ -129,6 +131,8 @@ public class VendorAllReportActivity extends AppCompatActivity {
 
     public void fireEvent(){
         pDialog.setMessage("Fetching Data ...");
+        showDialog();
+
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
                 Config.VENDORREPORT_URL, new Response.Listener<String>() {
