@@ -26,9 +26,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:hintTextAppearance="@style/TextLabel"
                 app:errorTextAppearance="@style/error">
 
@@ -57,34 +57,34 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="State *"
-                android:layout_marginLeft="22dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="10dp"
                 android:textSize="25sp" />
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/stateupdate_spinner"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:backgroundTint="#C9C9C9"
                 android:textSize="25sp"
                 android:theme="@style/Spinner"/>
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="22dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
                 android:text="County *"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="10dp"
                 android:textSize="25sp"/>
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/countyupdate_spinner"
                 android:layout_width="fill_parent"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 android:layout_height="50dp"
                 app:backgroundTint="#C9C9C9"
                 android:textSize="25sp"
@@ -104,9 +104,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:hintTextAppearance="@style/TextLabel"
                 app:errorTextAppearance="@style/error">
 
@@ -128,9 +128,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:hintTextAppearance="@style/TextLabel"
                 app:errorTextAppearance="@style/error">
 
@@ -151,9 +151,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:hintTextAppearance="@style/TextLabel"
                 app:errorTextAppearance="@style/error">
 
@@ -174,9 +174,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:hintTextAppearance="@style/TextLabel"
                 app:errorTextAppearance="@style/error">
 
@@ -196,9 +196,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:hintTextAppearance="@style/TextLabel"
                 app:errorTextAppearance="@style/error">
 
@@ -225,8 +225,8 @@
             <Button
                 android:id="@+id/button_updatesubclient"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 android:layout_height="100dp"
                 android:theme="@style/MyButton"
                 android:gravity="center"

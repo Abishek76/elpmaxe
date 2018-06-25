@@ -35,7 +35,7 @@
                 android:textStyle="bold"
                 android:gravity="start"
                 android:textColor="#444444"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vendor_result_subclient"
@@ -46,7 +46,7 @@
                 android:textStyle="bold"
                 android:gravity="start"
                 android:textColor="#444444"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
             <TextView
                 android:text="123456789"
                 android:textColor="#444444"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vendor_result_orderno"
@@ -77,7 +77,7 @@
                 android:textStyle="bold"
                 android:gravity="start"
                 android:textColor="#444444"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vendor_result1_status"
@@ -89,7 +89,7 @@
             <TextView
                 android:text="Upload Cancelled"
                 android:textColor="#444444"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -115,7 +115,7 @@
             <TextView
                 android:text="Current Owner Seaarch"
                 android:textColor="@color/fontcolor"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vendor_result_producttype"
@@ -140,7 +140,7 @@
             <TextView
                 android:text="Michael C. Irish"
                 android:textColor="@color/fontcolor"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vendor_result_borrowername"
@@ -165,7 +165,7 @@
             <TextView
                 android:text="Oklahama"
                 android:textColor="@color/fontcolor"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vendor_result_state"
@@ -175,7 +175,7 @@
             <TextView
                 android:text=","
                 android:textColor="@color/fontcolor"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vendor_result_comma1" />
@@ -184,7 +184,7 @@
             <TextView
                 android:text="Mcinthosh"
                 android:textColor="@color/fontcolor"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vendor_result_county"
@@ -205,7 +205,7 @@
 
             <TextView
                 android:text="16 Rcgdggg"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textColor="@color/fontcolor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

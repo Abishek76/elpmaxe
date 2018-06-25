@@ -607,7 +607,7 @@ public class EditOrderActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                //Logger.getInstance().Log("selected state id : " + State_ID);
+                Logger.getInstance().Log("selected state id : " + State_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -638,9 +638,9 @@ public class EditOrderActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                //Logger.getInstance().Log("selected county id : " + County_ID);
+                Logger.getInstance().Log("selected county id : " + County_ID);
 
-//                Logger.getInstance().Log("selected county  : " + countyname);
+                Logger.getInstance().Log("selected county  : " + countyname);
                 //editor.putString("State_Name", State_Name);
                 editor.putString("County_ID",County_ID);
 
@@ -669,7 +669,7 @@ public class EditOrderActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                //Logger.getInstance().Log("selected product id : " + Order_Type_ID);
+                Logger.getInstance().Log("selected product id : " + Order_Type_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -701,7 +701,7 @@ public class EditOrderActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                //Logger.getInstance().Log("selected order task id : " + Order_Status_ID);
+                Logger.getInstance().Log("selected order task id : " + Order_Status_ID);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -734,7 +734,7 @@ public class EditOrderActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                //Logger.getInstance().Log("selected status id : " + Order_Progress_Id);
+                Logger.getInstance().Log("selected status id : " + Order_Progress_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -767,7 +767,7 @@ public class EditOrderActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                //Logger.getInstance().Log("selected ordered priority id : " + Order_Priority_Id);
+                Logger.getInstance().Log("selected ordered priority id : " + Order_Priority_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -798,7 +798,7 @@ public class EditOrderActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                //Logger.getInstance().Log("selected cuctomer id : " + Sub_Client_Id);
+                Logger.getInstance().Log("selected cuctomer id : " + Sub_Client_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -830,7 +830,7 @@ public class EditOrderActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = sp.edit();
 
-                //Logger.getInstance().Log("selected countytype id : " + Order_Assign_Type_Id);
+                Logger.getInstance().Log("selected countytype id : " + Order_Assign_Type_Id);
 
 
                 //editor.putString("State_Name", State_Name);
@@ -859,7 +859,7 @@ public class EditOrderActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response)
             {
-                //Logger.getInstance().Log("in response");
+                Logger.getInstance().Log("in response");
 
 
                 try {
@@ -912,14 +912,14 @@ public class EditOrderActivity extends AppCompatActivity {
                         String Property_Address=details.getString("Property_Address");
                         inputAddress.setText(Property_Address);
                         String Barrower_Name=details.getString("Barrower_Name");
-                        //Logger.getInstance().Log("set barr no " + Barrower_Name);
-                        //Logger.getInstance().Log("selected product id : " + Order_Type_ID);
+                        Logger.getInstance().Log("set barr no " + Barrower_Name);
+                        Logger.getInstance().Log("selected product id : " + Order_Type_ID);
                         inputBorrowername.setText(Barrower_Name);
                         String APN=details.getString("APN");
-                        //Logger.getInstance().Log("set apn no " + APN);
+                        Logger.getInstance().Log("set apn no " + APN);
 
                         inputApn.setText(APN);
-                        //Logger.getInstance().Log("set order no " + Order_Number);
+                        Logger.getInstance().Log("set order no " + Order_Number);
                     }
 
                 } catch (JSONException e) {
@@ -956,12 +956,12 @@ public class EditOrderActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 hideDialog();
-                //Logger.getInstance().Log("sucess string");
+                Logger.getInstance().Log("sucess string");
                 try {
 
                     boolean  error = response.getBoolean("error");
                     boolean  duplicate = response.getBoolean("duplicate");
-                    //Logger.getInstance().Log("in error response"+error);
+                    Logger.getInstance().Log("in error response"+error);
                     // Check for error node in json
                     if (!error&&!duplicate)
                     {
@@ -996,17 +996,17 @@ public class EditOrderActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("Order_Id",getorderID());
                 params.put("Clinet_Id",getClientId());
-                //Logger.getInstance().Log("Id .... is"+getClientId());
+                Logger.getInstance().Log("Id .... is"+getClientId());
                 params.put("Sub_Client_Id",getSub_Client_Id());
                 params.put("State_ID",State_ID);
-                //Logger.getInstance().Log("state id is"+getStateId());
+                Logger.getInstance().Log("state id is"+getStateId());
                 params.put("State",State);
-                //Logger.getInstance().Log("state name is is"+State);
+                Logger.getInstance().Log("state name is is"+State);
                 params.put("County",County);
-                //Logger.getInstance().Log("county id is"+getCountyId());
+                Logger.getInstance().Log("county id is"+getCountyId());
                 params.put("County_ID",County_ID);
                 params.put("Order_Type_ID",Order_Type_ID);
-                //Logger.getInstance().Log("Order_Type_ID id is"+Order_Type_ID);
+                Logger.getInstance().Log("Order_Type_ID id is"+Order_Type_ID);
                 params.put("Order_Type",Order_Type);
                 params.put("Order_Status",Order_Status);
                 params.put("Order_Status_ID",Order_Status_ID);
@@ -1030,7 +1030,7 @@ public class EditOrderActivity extends AppCompatActivity {
                     params.put("Duplicate_Check","1");
                 }
 
-                //Logger.getInstance().Log("para222"+params);
+                Logger.getInstance().Log("para222"+params);
 
 
 

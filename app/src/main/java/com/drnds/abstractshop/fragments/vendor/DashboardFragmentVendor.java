@@ -65,6 +65,7 @@ public class DashboardFragmentVendor extends Fragment {
 
         pd = new ProgressDialog(getActivity(),R.style.MyAlertDialogStyle);
         pd.setMessage("loading");
+        showDialog();
 
         sp = getActivity().getApplicationContext().getSharedPreferences(
                 "VendorLoginActivity", 0);
@@ -216,12 +217,13 @@ public class DashboardFragmentVendor extends Fragment {
                 chart.animateXY(3000, 3000);
                 chart.invalidate();
                 barDataSet1.setValueTextSize(12f);
-                pd.hide();
+                hideDialog();
             }
         }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {
+                hideDialog();
 
                 error.printStackTrace();
 
@@ -263,6 +265,15 @@ public class DashboardFragmentVendor extends Fragment {
             return false;
         }
         return false;
+    }
+    private void showDialog() {
+        if (!pd.isShowing())
+            pd.show();
+    }
+
+    private void hideDialog() {
+        if (pd.isShowing())
+            pd.dismiss();
     }
 
 }

@@ -281,9 +281,9 @@ public  class RecyclergridviewAdapter extends RecyclerView.Adapter< Recyclergrid
                 case R.id.gridmenu3:
                     clarification(1);
                     return true;
-                case R.id.gridmenu4:
-                    workinprogress(1);
-                    return true;
+//                case R.id.gridmenu4:
+//                    workinprogress(1);
+//                    return true;
                 default:
             }
             return false;

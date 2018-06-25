@@ -26,9 +26,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:hintTextAppearance="@style/TextLabel"
                 app:errorTextAppearance="@style/error">
 
@@ -60,8 +60,8 @@
             <Button
                 android:id="@+id/button_updatesubclientvendor"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 android:layout_height="100dp"
                 android:theme="@style/MyButton"
                 android:gravity="center"

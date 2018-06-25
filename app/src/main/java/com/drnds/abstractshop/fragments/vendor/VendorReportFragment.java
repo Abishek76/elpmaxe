@@ -435,7 +435,8 @@ public class VendorReportFragment extends Fragment {
 
                     JSONArray jsonArray = response.getJSONArray("Client_master");
 
-
+                    subclient.clear();
+                    subclientIds.clear();
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 

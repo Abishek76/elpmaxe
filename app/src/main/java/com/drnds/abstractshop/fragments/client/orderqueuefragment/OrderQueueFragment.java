@@ -136,7 +136,7 @@ public class OrderQueueFragment extends Fragment implements SwipeRefreshLayout.O
             public void onResponse(JSONObject response) {
                 orderQueueList.clear();
 
-                // Log.e("order12", response.toString());
+                 Log.e("order12", response.toString());
 
                 try {
                     // Parsing json object response
@@ -145,14 +145,14 @@ public class OrderQueueFragment extends Fragment implements SwipeRefreshLayout.O
                     JSONArray jsonArray = response.getJSONArray("View_Order_Info");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        //Logger.getInstance().Log("sub id"+jsonObject);
+                        Logger.getInstance().Log("sub id"+jsonObject);
 
                         String Order_Id = jsonObject.getString("Order_Id");
                         String Ordder_num = jsonObject.getString("Order_Number");
                         String Subclient = jsonObject.getString("Sub_Client_Name");
 
 
-                        //Logger.getInstance().Log("yestusala"+Ordder_num);
+                        Logger.getInstance().Log("yestusala"+Ordder_num);
                         OrderQueue orderQueue = new OrderQueue();
                         orderQueue.setSubclient(jsonObject.getString("Sub_Client_Name"));
                         orderQueue.setOderno(jsonObject.getString("Order_Number"));
@@ -181,10 +181,10 @@ public class OrderQueueFragment extends Fragment implements SwipeRefreshLayout.O
 //                        SharedPreferences pref = getActivity().getSharedPreferences(ORDERPREFS_NAME, Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sp.edit();
                         editor.putString("Sub_Client_Name", Subclient);
-//                        Logger.getInstance().Log("selected order id is : " + Subclient);
+                        Logger.getInstance().Log("selected order id is : " + Subclient);
 
                         editor.putString("Order_Id", Order_Id);
-                        //Logger.getInstance().Log("selected order id is : " + Order_Id);
+                        Logger.getInstance().Log("selected order id is : " + Order_Id);
                         editor.commit();
                         hideDialog();
                     }

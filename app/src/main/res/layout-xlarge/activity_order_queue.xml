@@ -21,18 +21,18 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="15dip"
+                android:layout_marginTop="30dip"
                 android:text="Customer Name *"
-                android:layout_marginLeft="22dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="10dp"
                 android:textSize="25sp"/>
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/acustomer_spinner"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:backgroundTint="#C9C9C9"
                 android:textSize="25sp"
                 style="@style/Widget.AppCompat.Spinner.Underlined"
@@ -46,9 +46,9 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:id="@+id/input_layout_aordernumber"
@@ -73,9 +73,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 android:id="@+id/input_layout_aorderdate"
                 app:hintTextAppearance="@style/TextLabel"
                 app:errorTextAppearance="@style/error">
@@ -107,18 +107,18 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="15dip"
+                android:layout_marginTop="30dip"
                 android:text="Product Type *"
-                android:layout_marginLeft="22dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="10dp"
                 android:textSize="25sp" />
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/aproduct_spinner"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:backgroundTint="#C9C9C9"
                 android:textSize="25sp"
                 style="@style/Widget.AppCompat.Spinner.Underlined"
@@ -134,18 +134,18 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dip"
+                android:layout_marginTop="20dip"
                 android:text="State *"
-                android:layout_marginLeft="22dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="10dp"
                 android:textSize="25sp"/>
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/astate_spinner"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:backgroundTint="#C9C9C9"
                 android:textSize="25sp"
                 style="@style/Widget.AppCompat.Spinner.Underlined"
@@ -161,18 +161,18 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dip"
+                android:layout_marginTop="20dip"
                 android:text="County *"
-                android:layout_marginLeft="22dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="10dp"
                 android:textSize="25sp"/>
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/acounty_spinner"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:backgroundTint="#C9C9C9"
                 android:textSize="25sp"
                 style="@style/Widget.AppCompat.Spinner.Underlined"
@@ -187,9 +187,9 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:id="@+id/ainput_layout_city"
@@ -210,9 +210,9 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:id="@+id/ainput_layout_zip"
@@ -232,9 +232,9 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:id="@+id/ainput_layout_address"
@@ -255,7 +255,7 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:id="@+id/ainput_layout_borrowername"
@@ -270,16 +270,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:inputType="text"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginRight="18dp"
+                    android:layout_marginLeft="36dp"
+                    android:layout_marginRight="36dp"
                     android:hint="@string/hint_borrowername" />
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 android:layout_alignParentLeft="true"
                 android:id="@+id/ainput_layout_apn"
                 app:hintTextAppearance="@style/TextLabel"
@@ -307,18 +307,18 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="15dip"
+                android:layout_marginTop="30dip"
                 android:text="Order Task *"
-                android:layout_marginLeft="22dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="10dp"
                 android:textSize="25sp"/>
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/aordertask_spinner"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:backgroundTint="#C9C9C9"
                 android:textSize="25sp"
                 style="@style/Widget.AppCompat.Spinner.Underlined"/>
@@ -333,18 +333,18 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dip"
+                android:layout_marginTop="20dip"
                 android:text="Status *"
-                android:layout_marginLeft="22dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="10dp"
                 android:textSize="25sp"/>
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/astatus_spinner"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:backgroundTint="#C9C9C9"
                 android:textSize="25sp"
                 style="@style/Widget.AppCompat.Spinner.Underlined"/>
@@ -359,18 +359,18 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="15dip"
+                android:layout_marginTop="30dip"
                 android:text="Order Priority *"
-                android:layout_marginLeft="22dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="10dp"
                 android:textSize="25sp"/>
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/aorderpriority_spinner"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:backgroundTint="#C9C9C9"
                 android:textSize="25sp"
                 style="@style/Widget.AppCompat.Spinner.Underlined"/>
@@ -385,18 +385,18 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="15dip"
+                android:layout_marginTop="30dip"
                 android:text="County Type *"
-                android:layout_marginLeft="22dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="10dp"
                 android:textSize="25sp"/>
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/acountytype_spinner"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
                 app:backgroundTint="#C9C9C9"
                 android:textSize="25sp"
                 style="@style/Widget.AppCompat.Spinner.Underlined"/>
@@ -417,8 +417,8 @@
                 android:theme="@style/MyButton"
                 android:gravity="center"
                 android:id="@+id/abutton_ordersubmit"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 android:textSize="30sp"/>
 
         </LinearLayout>

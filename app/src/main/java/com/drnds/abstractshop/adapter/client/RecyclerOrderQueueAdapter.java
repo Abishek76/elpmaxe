@@ -118,7 +118,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
                     OrderQueue orderqueue=orderQueueList.get(position);
                     orderid=orderqueue.getOrder_Id();
                     showPopupMenu(cardmenu,getAdapterPosition());
-                    //Logger.getInstance().Log("selected order id is : " + orderqueue.getOrder_Id());
+                    Logger.getInstance().Log("selected order id is : " + orderqueue.getOrder_Id());
 
                 }
             });
@@ -177,7 +177,8 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 
                 editor.putString("Order_Id",orderQueue.getOrder_Id());
                 editor.putString("Sub_Client_Name",orderQueue.getSubclient());
-//                Logger.getInstance().Log("selected client is : " + orderQueue.getSubclient());
+                Logger.getInstance().Log("selected client is : " + orderQueue.getSubclient());
+                Logger.getInstance().Log("selected client is : " + orderQueue.getProducttype());
 
                 editor.putString("Order_Number",orderQueue.getOderno());
                 editor.putString("State",orderQueue.getState());
@@ -245,7 +246,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
     }
 
     private void hold(final int position){
-        //Logger.getInstance().Log("in update client id");
+        Logger.getInstance().Log("in update client id");
         showDialog();
 
         pDialog.setMessage("Updating ...");
@@ -292,7 +293,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "5");
-                //Logger.getInstance().Log("parabola: " + params);
+                Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -312,7 +313,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 
 
     private void cancelled(final int position) {
-        //Logger.getInstance().Log("in update client id");
+        Logger.getInstance().Log("in update client id");
         showDialog();
 
         pDialog.setMessage("Updating ...");
@@ -359,7 +360,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "4");
-                //Logger.getInstance().Log("parabola: " + params);
+                Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -389,7 +390,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 
 
     private void clarification(final int position) {
-        //Logger.getInstance().Log("in update client id");
+        Logger.getInstance().Log("in update client id");
         showDialog();
 
         pDialog.setMessage("Updating ...");
@@ -437,7 +438,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "1");
-                //Logger.getInstance().Log("parabola: " + params);
+                Logger.getInstance().Log("parabola: " + params);
 
 
 
@@ -454,7 +455,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
     }
 
     private void workinprogress(final int position){
-        //Logger.getInstance().Log("in update client id");
+        Logger.getInstance().Log("in update client id");
         showDialog();
 
         pDialog.setMessage("Updating ...");
@@ -501,7 +502,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 
                 params.put("Order_Id", orderid);
                 params.put("Order_Progress_Id", "14");
-                //Logger.getInstance().Log("parabola: " + params);
+                Logger.getInstance().Log("parabola: " + params);
 
 
 

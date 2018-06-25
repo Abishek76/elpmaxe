@@ -909,6 +909,7 @@ public class AddOrderFragment extends Fragment {
 
         return true;
     }
+
     private boolean validateOrdernum() {
         if (inputOrdernum.getText().toString().trim().isEmpty()) {
             inputLayoutordernum.setError(getString(R.string.err_msg_orderno));

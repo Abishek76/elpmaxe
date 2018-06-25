@@ -26,8 +26,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="60dp"
         android:id="@+id/input_layout_email_vendor"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
         app:hintTextAppearance="@style/TextLabel"
         app:errorTextAppearance="@style/error">
 
@@ -54,8 +54,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="40dp"
         android:id="@+id/input_layout_password_vendor"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
         app:passwordToggleEnabled="true"
         app:hintTextAppearance="@style/TextLabel"
         app:errorTextAppearance="@style/error">
@@ -79,8 +79,8 @@
         android:layout_height="100dp"
         android:theme="@style/MyButton"
         android:text="@string/btn_login"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
         android:textStyle="bold"
         android:textSize="35sp"
         android:textAllCaps="false"

@@ -224,6 +224,8 @@ public class CompletedTabFragmentVendor extends Fragment {
                 try {
 
                     JSONArray jsonArray = response.getJSONArray("Client_master");
+                    subclient.clear();
+                    subclientIds.clear();
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
                         subclient.add(details.getString("Sub_Client_Name"));

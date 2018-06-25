@@ -17,10 +17,10 @@
         android:orderInCategory="101"
         android:title="CLARIFICATION"/>
 
-    <item
-        android:id="@+id/gridmenu4"
-        android:orderInCategory="101"
-        android:title="WORK IN PROGRESS"/>
+    <!--<item-->
+        <!--android:id="@+id/gridmenu4"-->
+        <!--android:orderInCategory="101"-->
+        <!--android:title="WORK IN PROGRESS"/>-->
 
 
 
