@@ -45,6 +45,7 @@ public class PiechartActivity extends AppCompatActivity {
     private FrameLayout chartContainer;
     //we are going to display the pie chart for smartphone market shares
     private Toolbar toolbar;
+
     TextView textView1,textView2,textView3,textView4,textView5,
             textView6,textView7,textView8,textView9,textView10;
     ArrayList<String> xVals = new ArrayList<String>();
@@ -129,6 +130,9 @@ public class PiechartActivity extends AppCompatActivity {
         mChart.setHoleColor(Color.WHITE);
         mChart.setTransparentCircleRadius(5);
         mChart.setBackgroundColor(Color.WHITE);
+
+        mChart.setDescription(null);
+
 
         // enable rotation of the chart by touch
         mChart.setRotation(0);

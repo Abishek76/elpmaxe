@@ -2,9 +2,11 @@ package com.drnds.abstractshop.activity.client.orderqueueactivity;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -51,7 +53,7 @@ public class InvoiceActivity extends AppCompatActivity {
 
     private EditText inputsearchcost, inputcopycost, inputnoofpages, inputinvoicedate;
     private TextInputLayout inputlayoutsearchcost,inputlayoutcopycost;
-    Button submit, preview,clk;
+    Button submit, preview,path;
     SharedPreferences sp, pref;
     private String Order_Id;
     private ProgressDialog pDialog;
@@ -88,6 +90,7 @@ public class InvoiceActivity extends AppCompatActivity {
         inputinvoicedate = (EditText) findViewById(R.id.input_invoicedate);
 
 //        submit = (Button) findViewById(R.id.button_orderinvoicesubmit);
+        path = (Button) findViewById(R.id.pathva);
         preview = (Button) findViewById(R.id.button_orderinvoicepreview);
 
         inputcopycost.setEnabled(false);
@@ -107,6 +110,30 @@ public class InvoiceActivity extends AppCompatActivity {
 
 
         getOrderdetails();
+        getPreviewdeatails();
+
+
+        preview.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v){
+                checkInternetConnection();   // checking internet connection
+                if (!validatesearchcost()) {
+                    return;
+                }
+
+                if (!validatecopycost()) {
+                    return;
+                }
+
+                else{
+                    Uri uri = Uri.parse(path.getText().toString());
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }}
+
+        });
+
+
 
 //        submit.setOnClickListener(new View.OnClickListener() {
 //
@@ -235,7 +262,7 @@ public class InvoiceActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
                 try {
-                    // Log.e("responce : ", "" + response.toString());
+                     Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("View_Invoice_Details");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
@@ -250,6 +277,44 @@ public class InvoiceActivity extends AppCompatActivity {
                         String Invoice_Date=details.getString("Invoice_Date");
                         inputinvoicedate.setText(Invoice_Date);
                         //Logger.getInstance().Log("set Order cost " + Order_Cost);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+            }
+        });
+
+
+        AppController.getInstance().addToRequestQueue(jsonObjReq);
+    }
+
+
+
+    public void  getPreviewdeatails() {
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.INVOIC_PREVIEW_URL +getorderID(), null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+                try {
+                    Log.e("responce : ", "" + response.toString());
+                    JSONArray jsonArray = response.getJSONArray("View_Invoice_Details");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject details = jsonArray.getJSONObject(i);
+                        String Document_Path=details.getString("Document_Path");
+//                        preview.setText(Document_Path);
+                        path.setText(Document_Path);
+                        Logger.getInstance().Log("set Order cost " + Document_Path);
                     }
 
                 } catch (JSONException e) {

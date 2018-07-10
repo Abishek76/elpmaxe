@@ -66,7 +66,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
     String Order_Task,Order_Status,Vendor_Id;
     public static final String VENDORMY_PREFS_NAME= "Griview";
     SharedPreferences pref;
-    //    SwipeRefreshLayout mSwipeRefreshLayout;
+        SwipeRefreshLayout mSwipeRefreshLayout;
     private ProgressDialog pDialog;
     private  String NEW_ORDERS,SEARCH_ORDES,SEARCH_QC_ORDERS,TYPING_ORDERS,TYPING_QC_ORDERS,FINAL_REVIEW_ORDERS,TAX_ORDERS,COMPLETED_ORDERS;
     @Override
@@ -84,22 +84,22 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
         griddata = new ArrayList<String>();
 
         //Logger.getInstance().Log("vendor scoreboard " +getVendorId());
-//        mSwipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.vendorprocessswipe_container);
-//        mSwipeRefreshLayout.setOnRefreshListener(this);
-//        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
-//                R.color.colorPrimary, R.color.colorPrimary, R.color.colorPrimary);
+        mSwipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.vendorprocessswipe_container);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
+                R.color.colorPrimary, R.color.colorPrimary, R.color.colorPrimary);
         vendorprocessTablist.clear();
         mAdapter.notifyDataSetChanged();
-//        mSwipeRefreshLayout.post(new Runnable() {
-//
-//            @Override
-//            public void run() {
-//
-//                mSwipeRefreshLayout.setRefreshing(true);
-//
-//                // Fetching data from server
-//            }
-//        });
+        mSwipeRefreshLayout.post(new Runnable() {
+
+            @Override
+            public void run() {
+
+                mSwipeRefreshLayout.setRefreshing(true);
+
+                // Fetching data from server
+            }
+        });
         checkInternetConnection();
 
         vendorprepareProcessingOrder();
@@ -248,7 +248,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
     }
 
     public void  vendorprepareProcessingOrder() {
-//        mSwipeRefreshLayout.setRefreshing(true);
+        mSwipeRefreshLayout.setRefreshing(true);
         showDialog();
         pDialog.setMessage("Loading ...");
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.VENDORSCOREBOARD_URL+getVendorId() , null, new Response.Listener<JSONObject>() {
@@ -316,7 +316,7 @@ public class ProcessingTabFragmentVendor extends Fragment implements SwipeRefres
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-//                mSwipeRefreshLayout.setRefreshing(false);
+                mSwipeRefreshLayout.setRefreshing(false);
 
 
             }

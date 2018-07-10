@@ -177,8 +177,7 @@ public class RecyclerOrderQueueAdapter extends RecyclerView.Adapter<RecyclerOrde
 
                 editor.putString("Order_Id",orderQueue.getOrder_Id());
                 editor.putString("Sub_Client_Name",orderQueue.getSubclient());
-                Logger.getInstance().Log("selected client is : " + orderQueue.getSubclient());
-                Logger.getInstance().Log("selected client is : " + orderQueue.getProducttype());
+                Logger.getInstance().Log("selected product is : " + orderQueue.getProducttype());
 
                 editor.putString("Order_Number",orderQueue.getOderno());
                 editor.putString("State",orderQueue.getState());

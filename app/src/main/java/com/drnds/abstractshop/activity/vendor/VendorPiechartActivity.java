@@ -75,6 +75,8 @@ public class VendorPiechartActivity extends AppCompatActivity {
         mChart.setDrawHoleEnabled(true);
         mChart.setHoleColor(Color.WHITE);
         mChart.animateXY(2000,2000);
+        mChart.setDescription(null);
+
         textView1=(TextView)findViewById(R.id.text1);
         textView2=(TextView)findViewById(R.id.text2);
         textView3=(TextView)findViewById(R.id.text3);

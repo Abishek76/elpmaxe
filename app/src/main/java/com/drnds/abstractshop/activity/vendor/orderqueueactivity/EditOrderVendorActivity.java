@@ -956,7 +956,7 @@ public class EditOrderVendorActivity extends AppCompatActivity {
 //                        goToNavigationActivity();
                         Toasty.success(EditOrderVendorActivity.this.getApplicationContext(),"Updated  Sucessfully...",Toast.LENGTH_SHORT).show();
                         hideDialog();
-                        onBackPressed();
+                        goToNavigationActivity();
                     }else {
                         Toasty.success(EditOrderVendorActivity.this.getApplicationContext(),"Not updated...",Toast.LENGTH_SHORT).show();
                         hideDialog();
@@ -1199,6 +1199,15 @@ public class EditOrderVendorActivity extends AppCompatActivity {
         alert.show();
     }
 
+
+    private void goToNavigationActivity()
+    {
+        Intent intent = new Intent(EditOrderVendorActivity.this, VendorNavigationActivity.class);
+        intent.putExtra("refresh","yes");
+        intent.putExtra("position",2);
+        setResult(1010,intent);
+        finish();
+    }
 
 }
 

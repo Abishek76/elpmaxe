@@ -210,7 +210,7 @@ public class EditGridViewVendorActivity extends AppCompatActivity {
         invoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(EditGridViewVendorActivity.this, VendorInvoiceActivity.class);
+                Intent intent = new Intent(EditGridViewVendorActivity.this, VendorGridInvoiceActivity.class);
                 startActivity(intent);
             }
         });

@@ -18,7 +18,7 @@
     <TextView
         android:id="@+id/navigationtext"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="match_parent"
         android:textSize="35sp"
         android:text="abc@gmail.com"
         android:textColor="#444444"

@@ -826,7 +826,7 @@ public class AddOrderFragment extends Fragment {
                     }
                     else {
                         Toasty.error(getActivity().getApplicationContext(), "Order Creation Failed", Toast.LENGTH_SHORT, true).show();
-                        Toasty.warning(getActivity().getApplicationContext(), "This order already exist", Toast.LENGTH_SHORT, true).show();
+//                        Toasty.warning(getActivity().getApplicationContext(), "This order already exist", Toast.LENGTH_SHORT, true).show();
                         hideDialog();
                     }
 

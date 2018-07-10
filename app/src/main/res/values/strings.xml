@@ -131,7 +131,7 @@
     <string name="nav_report_vendor">Report</string>
     <string name="nav_invoicereport_vendor">Invoice Report</string>
     <string name="nav_myaccount_vendor">MyAccount</string>
-    <string name="hint_subclient_code">Sub Client Code</string>
+    <string name="hint_subclient_code">Client Code</string>
     <string name="hint_invoice_contact_name">Invoice Contact Name</string>
     <string name="hint_address_vendor">Address</string>
     <string name="deselect_all">Deselect All</string>

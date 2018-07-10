@@ -4,7 +4,11 @@
     android:layout_height="match_parent"
     android:background="#f1f1f1">
 
-
+        <android.support.v4.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/vendorprocessswipe_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <GridView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/vendorgridview_proceesingtab"
@@ -18,5 +22,6 @@
             android:gravity="left"
             />
 
+        </android.support.v4.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

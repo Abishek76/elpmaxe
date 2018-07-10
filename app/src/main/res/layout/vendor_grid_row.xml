@@ -28,7 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:paddingTop="10dp">
+            android:paddingTop="10dp"
+            android:paddingBottom="4dp">
 
 
             <TextView
@@ -62,24 +63,6 @@
                 android:layout_marginLeft="5dp"
                 android:id="@+id/vendor_grid_orderno" />
 
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-
-                <ImageView
-                    android:id="@+id/vendorgridcardmenu"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_more_vert"
-                    android:background="@null"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:paddingLeft="50dp"/>
-            </RelativeLayout>
 
         </LinearLayout>
         <LinearLayout
@@ -125,49 +108,7 @@
                 android:layout_weight="1"/>
 
         </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            >
-            <TextView
-                android:text="Date"
-                android:textStyle="bold"
-                android:gravity="start"
-                android:textColor="#444444"
-                android:textSize="13sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
 
-                />
-
-
-            <TextView
-                android:text="-"
-                android:textColor="#444444"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="13sp"
-                android:layout_marginLeft="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                />
-
-
-            <TextView
-                android:text="123456789"
-                android:textColor="#444444"
-                android:textSize="13sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/text_vgdate"
-                android:layout_marginLeft="5dp"
-                />
-
-
-        </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
@@ -186,7 +127,7 @@
             <TextView
                 android:text="Current Owner Seaarch"
                 android:textColor="@color/fontcolor"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vendor_gridview_producttype"
@@ -200,7 +141,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-          >
+            android:layout_marginTop="2dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -213,7 +154,7 @@
             <TextView
                 android:text="Michael C. Irish"
                 android:textColor="@color/fontcolor"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vendor_gridview_borrowername"
@@ -227,7 +168,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            >
+            android:layout_marginTop="2dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -241,7 +182,7 @@
             <TextView
                 android:text="Oklahama"
                 android:textColor="@color/fontcolor"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vendor_gridview_state"
@@ -252,7 +193,7 @@
             <TextView
                 android:text=","
                 android:textColor="@color/fontcolor"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vendor_gridview_comma"
@@ -262,7 +203,7 @@
             <TextView
                 android:text="Mcinthosh"
                 android:textColor="@color/fontcolor"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vendor_gridview_county"
@@ -278,20 +219,66 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:paddingBottom="10dp"
             >
 
 
 
             <TextView
                 android:text="16 Rcgdggg"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:textColor="@color/fontcolor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/vendor_gridview_address"
                 android:layout_marginLeft="53dp"
                 />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="2dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_da"
+                android:tint="@color/icongrey"
+                android:layout_marginLeft="10dp"
+                />
+
+
+
+
+
+            <TextView
+                android:text="123456789"
+                android:textColor="@color/fontcolor"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_vgdate"
+                android:layout_marginLeft="30dp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/vendorgridcardmenu"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_more_vert"
+                    android:background="@null"
+                    android:layout_alignParentRight="true"
+                    android:paddingLeft="50dp"
+                    />
+            </RelativeLayout>
 
         </LinearLayout>
 

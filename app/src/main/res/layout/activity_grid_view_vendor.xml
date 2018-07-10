@@ -41,7 +41,7 @@
             android:layout_weight="1"
             android:paddingRight="20dp"
             android:drawableRight="@drawable/check"
-            />
+            android:drawableTint="#f00109"/>
     </LinearLayout>
 
 

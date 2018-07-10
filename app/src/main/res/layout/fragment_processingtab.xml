@@ -8,6 +8,12 @@
     tools:context="com.drnds.abstractshop.fragments.client.scoreboardfragment.ProcessingTabFragment">
 
 
+        <android.support.v4.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/processingswipe_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
 
         <GridView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/gridview_proceesingtab"
@@ -22,6 +28,7 @@
             android:gravity="left"
             />
 
+        </android.support.v4.widget.SwipeRefreshLayout>
 
 
 </RelativeLayout>

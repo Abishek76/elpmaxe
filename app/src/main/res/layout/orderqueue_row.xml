@@ -27,7 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:paddingTop="10dp">
+            android:paddingTop="10dp"
+            android:paddingBottom="4dp">
 
 
             <TextView
@@ -63,21 +64,7 @@
                 android:id="@+id/text_orderno"
                 android:layout_marginLeft="5dp" />
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
 
-
-            <ImageView
-                android:id="@+id/cardmenu"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_more_vert"
-                android:background="@null"
-                android:layout_alignParentRight="true"
-                android:paddingLeft="50dp"
-                />
-            </RelativeLayout>
 
         </LinearLayout>
         <LinearLayout
@@ -129,40 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         >
-        <TextView
-            android:text="DATE"
-            android:textStyle="bold"
-            android:gravity="start"
-            android:textColor="#444444"
-            android:textSize="13sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-            />
-
-
-        <TextView
-            android:text="-"
-            android:textColor="#444444"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textSize="13sp"
-            android:layout_marginLeft="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            />
-
-
-        <TextView
-            android:text="123456789"
-            android:textColor="#444444"
-            android:textSize="13sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/text_date"
-            android:layout_marginLeft="5dp"
-            />
 
 
     </LinearLayout>
@@ -184,9 +138,9 @@
             <TextView
                 android:text="Current Owner Seaarch"
                 android:textColor="@color/fontcolor"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/producttype"
                 android:layout_marginLeft="30dp"
                 />
@@ -198,7 +152,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            >
+            android:layout_marginTop="2dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -211,9 +165,9 @@
             <TextView
                 android:text="Michael C. Irish"
                 android:textColor="@color/fontcolor"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/borrowername"
                 android:layout_marginLeft="30dp"
                />
@@ -225,7 +179,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            >
+            android:layout_marginTop="2dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -238,9 +192,9 @@
             <TextView
                 android:text="Oklahama"
                 android:textColor="@color/fontcolor"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/statename"
                 android:layout_marginLeft="30dp"
                 />
@@ -249,7 +203,7 @@
             <TextView
                 android:text=","
                 android:textColor="@color/fontcolor"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/comma"
@@ -258,9 +212,9 @@
             <TextView
                 android:text="Mcinthosh"
                 android:textColor="@color/fontcolor"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/countyname"
                 android:layout_marginLeft="2dp"
                 />
@@ -273,21 +227,67 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:paddingBottom="10dp"
            >
 
 
 
             <TextView
                 android:text="16 Rcgdggg"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:textColor="@color/fontcolor"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/property_address"
                 android:layout_marginLeft="53dp"
                 />
         </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="2dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_da"
+            android:tint="@color/icongrey"
+            android:layout_marginLeft="10dp"
+            />
+
+
+
+
+
+        <TextView
+            android:text="123456789"
+            android:textColor="@color/fontcolor"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_date"
+            android:layout_marginLeft="30dp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/cardmenu"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_more_vert"
+                android:background="@null"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="50dp"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
 
     </LinearLayout>
 </android.support.v7.widget.CardView>

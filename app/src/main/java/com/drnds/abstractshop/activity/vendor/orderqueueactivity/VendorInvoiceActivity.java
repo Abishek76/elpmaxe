@@ -2,9 +2,11 @@ package com.drnds.abstractshop.activity.vendor.orderqueueactivity;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -50,7 +52,7 @@ public class VendorInvoiceActivity extends AppCompatActivity {
 
 
     private EditText inputsearchcost, inputcopycost, inputnoofpages, inputinvoicedate;
-    Button submit,preview;
+    Button submit,preview,path;
     SharedPreferences sp, pref;
     private String Order_Id;
     private ProgressDialog pDialog;
@@ -88,6 +90,7 @@ public class VendorInvoiceActivity extends AppCompatActivity {
 
         submit = (Button) findViewById(R.id.button_venorderinvoicesubmit);
         preview = (Button) findViewById(R.id.button_venorderinvoicepreview);
+        path = (Button) findViewById(R.id.pathven);
 
         dateFormatter = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
 
@@ -103,6 +106,27 @@ public class VendorInvoiceActivity extends AppCompatActivity {
         Order_Id = sp.getString("Order_Id", "");
 
         getOrderdetails();
+        getPreviewdeatails();
+
+        preview.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                checkInternetConnection();   // checking internet connection
+                if (!validatesearchcost()) {
+                    return;
+                }
+
+                if (!validatecopycost()) {
+                    return;
+                }
+                else {
+                    Uri uri = Uri.parse(path.getText().toString());
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
+            }
+        });
+
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,6 +189,7 @@ public class VendorInvoiceActivity extends AppCompatActivity {
 
 
         return sp.getString("Order_Id", "");
+
     }
 
 
@@ -202,7 +227,7 @@ public class VendorInvoiceActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
                 try {
-                    // Log.e("responce : ", "" + response.toString());
+                     Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("View_Invoice_Details");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
@@ -216,7 +241,46 @@ public class VendorInvoiceActivity extends AppCompatActivity {
                         inputnoofpages.setText(No_Of_Pages);
                         String Invoice_Date=details.getString("Invoice_Date");
                         inputinvoicedate.setText(Invoice_Date);
+                        Logger.getInstance().Log("Id .... is"+getorderID());
 
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+            }
+        });
+
+
+        AppController.getInstance().addToRequestQueue(jsonObjReq);
+    }
+
+
+
+    public void  getPreviewdeatails() {
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.INVOIC_PREVIEW_URL +getorderID(), null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+                try {
+                    Log.e("responce : ", "" + response.toString());
+                    JSONArray jsonArray = response.getJSONArray("View_Invoice_Details");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject details = jsonArray.getJSONObject(i);
+                        String Document_Path=details.getString("Document_Path");
+//                        preview.setText(Document_Path);
+                        path.setText(Document_Path);
+                        Logger.getInstance().Log("set Order cost " + Document_Path);
                     }
 
                 } catch (JSONException e) {
@@ -292,7 +356,7 @@ public class VendorInvoiceActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("Order_Id",getorderID());
                 params.put("Clinet_Id",getClientId());
-//                Logger.getInstance().Log("Id .... is"+getClientId());
+                Logger.getInstance().Log("Id .... is"+getClientId());
                 params.put("Order_Cost",Order_Cost);
                 params.put("Search_Cost",Search_Cost);
                 params.put("Copy_Cost",Copy_Cost);
@@ -300,13 +364,13 @@ public class VendorInvoiceActivity extends AppCompatActivity {
                 params.put("Invoice_Date",Invoice_Date);
                 params.put("Vendor_User_Id",getVendorUserId());
                 params.put("Subprocess_ID",getSubprocessId());
-                //Logger.getInstance().Log("Id .... is"+getorderID());
-                //Logger.getInstance().Log("Id .... is"+getVendorUserId());
-                //Logger.getInstance().Log("Id .... is"+Order_Cost);
-                //Logger.getInstance().Log("Id .... is"+Search_Cost);
-                //Logger.getInstance().Log("Id .... is"+Copy_Cost);
-                //Logger.getInstance().Log("Id .... is"+No_Of_Pages);
-                //Logger.getInstance().Log("Id .... is"+Invoice_Date  );
+                Logger.getInstance().Log("Id .... is"+getorderID());
+                Logger.getInstance().Log("Id .... is"+getVendorUserId());
+                Logger.getInstance().Log("Id .... is"+Order_Cost);
+                Logger.getInstance().Log("Id .... is"+Search_Cost);
+                Logger.getInstance().Log("Id .... is"+Copy_Cost);
+                Logger.getInstance().Log("Id .... is"+No_Of_Pages);
+                Logger.getInstance().Log("Id .... is"+Invoice_Date  );
 
 
 

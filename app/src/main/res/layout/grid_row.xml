@@ -83,17 +83,7 @@
                 android:id="@+id/gridview_status"
                 android:layout_weight="1"/>
 
-            <TextView
-                android:text="-"
-                android:textStyle="bold"
-                android:gravity="start"
-                android:textColor="#444444"
-                android:textSize="13sp"
-                android:layout_marginLeft="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/gridhiphane2"
-                android:layout_weight="1"/>
+
 
 
             <TextView

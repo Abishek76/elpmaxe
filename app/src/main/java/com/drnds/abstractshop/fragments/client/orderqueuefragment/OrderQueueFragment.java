@@ -83,6 +83,7 @@ public class OrderQueueFragment extends Fragment implements SwipeRefreshLayout.O
         });
         pDialog = new ProgressDialog(getActivity(),R.style.MyAlertDialogStyle);
         pDialog.setCancelable(false);
+        pDialog.setMessage("Loading ...");
         showDialog();
 
 

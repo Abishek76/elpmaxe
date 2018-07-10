@@ -58,7 +58,7 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
     public static final String MY_PREFS_NAME= "Griview";
     SharedPreferences pref;
     private ProgressDialog pDialog;
-    //    SwipeRefreshLayout mSwipeRefreshLayout;
+        SwipeRefreshLayout mSwipeRefreshLayout;
     private int newoRderCount,Titlesearch,Titlesearchqc,Propertytyping,Propertytypingqc,Finalreview,
             Taxcerificate,Completedorders=0;
     private  String NEW_ORDERS,SEARCH_ORDES,SEARCH_QC_ORDERS,TYPING_ORDERS,TYPING_QC_ORDERS,FINAL_REVIEW_ORDERS,TAX_ORDERS,COMPLETED_ORDERS;
@@ -76,22 +76,22 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
         pref = getActivity().getSharedPreferences(MY_PREFS_NAME,Context.MODE_PRIVATE);
         griddata = new ArrayList<String>();
 
-//        mSwipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.processingswipe_container);
-//        mSwipeRefreshLayout.setOnRefreshListener(this);
-//        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
-//                R.color.colorPrimary, R.color.colorPrimary, R.color.colorPrimary);
+        mSwipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.processingswipe_container);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
+                R.color.colorPrimary, R.color.colorPrimary, R.color.colorPrimary);
         processTablist.clear();
         mAdapter.notifyDataSetChanged();
-//        mSwipeRefreshLayout.post(new Runnable() {
-//
-//            @Override
-//            public void run() {
-//
-//                mSwipeRefreshLayout.setRefreshing(true);
-//
-//                // Fetching data from server
-//            }
-//        });
+        mSwipeRefreshLayout.post(new Runnable() {
+
+            @Override
+            public void run() {
+
+                mSwipeRefreshLayout.setRefreshing(true);
+
+                // Fetching data from server
+            }
+        });
 
 
         checkInternetConnection();
@@ -215,7 +215,7 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
         return sp.getString("Client_Id", "");
     }
     public void  prepareProcessingOrder() {
-//        mSwipeRefreshLayout.setRefreshing(true);
+        mSwipeRefreshLayout.setRefreshing(true);
 
         showDialog();
 
@@ -289,7 +289,7 @@ public class ProcessingTabFragment extends Fragment  implements SwipeRefreshLayo
                     System.out.println("er1");
                     e.printStackTrace();
                 }
-//                mSwipeRefreshLayout.setRefreshing(false);
+                mSwipeRefreshLayout.setRefreshing(false);
 
 
             }

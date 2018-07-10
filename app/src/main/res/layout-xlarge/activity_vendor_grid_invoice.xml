@@ -234,6 +234,25 @@
 
 
                 <Button
+                    android:text="Preview"
+                    android:textAllCaps="true"
+                    android:textColor="#444444"
+                    android:layout_width="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_height="100dp"
+                    android:theme="@style/MyButton"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:id="@+id/pathvengrid"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:textSize="30sp"
+                    android:visibility="gone"/>
+
+
+
+                <Button
                     android:text="Submit"
                     android:textAllCaps="true"
                     android:textColor="#ffffff"

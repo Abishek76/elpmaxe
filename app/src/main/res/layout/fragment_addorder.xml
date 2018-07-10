@@ -272,7 +272,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
 
             <TextView
@@ -281,7 +282,8 @@
                 android:layout_marginTop="15dip"
                 android:text="Order Task *"
                 android:layout_marginLeft="22dp"
-                android:layout_marginBottom="5dp"/>
+                android:layout_marginBottom="5dp"
+                />
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/addordertask_spinner"
@@ -296,7 +298,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
 
             <TextView

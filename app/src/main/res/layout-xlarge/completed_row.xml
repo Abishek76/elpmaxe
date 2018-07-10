@@ -32,14 +32,14 @@
                 android:text="NSS-FL"
                 android:textStyle="bold"
                 android:gravity="start"
-                android:textColor="#205DA9"
+                android:textColor="#444444"
                 android:textSize="25sp"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:id="@+id/grid_subclient" />
             <TextView
                 android:text="-"
-                android:textColor="#205DA9"
+                android:textColor="@color/fontcolor"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textSize="25sp"
@@ -50,29 +50,14 @@
 
             <TextView
                 android:text="123456789"
-                android:textColor="#205DA9"
+                android:textColor="@color/fontcolor"
                 android:textSize="25sp"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:id="@+id/grid_orderno"
                 android:layout_marginLeft="5dp" />
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
 
-
-                <ImageView
-                    android:id="@+id/more"
-                    android:layout_width="160dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_more_vert"
-                    android:background="@null"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:paddingLeft="100dp"/>
-            </RelativeLayout>
 
         </LinearLayout>
         <LinearLayout
@@ -87,7 +72,7 @@
                 android:text="STATUS"
                 android:textStyle="bold"
                 android:gravity="start"
-                android:textColor="#205DA9"
+                android:textColor="#444444"
                 android:textSize="25sp"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -98,7 +83,7 @@
                 android:text="-"
                 android:textStyle="bold"
                 android:gravity="start"
-                android:textColor="#000000"
+                android:textColor="@color/fontcolor"
                 android:textSize="25sp"
                 android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
@@ -109,7 +94,7 @@
 
             <TextView
                 android:text="Upload Cancelled"
-                android:textColor="#205DA9"
+                android:textColor="@color/fontcolor"
                 android:textSize="25sp"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -118,49 +103,7 @@
                 android:layout_weight="1"/>
 
         </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            >
-            <TextView
-                android:text="Date"
-                android:textStyle="bold"
-                android:gravity="start"
-                android:textColor="#205DA9"
-                android:textSize="25sp"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
 
-                />
-
-
-            <TextView
-                android:text="-"
-                android:textColor="#205DA9"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="25sp"
-                android:layout_marginLeft="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-
-                />
-
-
-            <TextView
-                android:text="123456789"
-                android:textColor="#205DA9"
-                android:textSize="25sp"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:id="@+id/text_gdate"
-                android:layout_marginLeft="5dp"
-                />
-
-
-        </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
@@ -286,6 +229,51 @@
                 android:id="@+id/gridview_address"
                 android:layout_marginLeft="53dp"
                 />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_address"
+                    android:tint="@color/icongrey"
+                    android:layout_marginLeft="10dp"
+                    />
+
+                <TextView
+                    android:text="123456789"
+                    android:textColor="@color/fontcolor"
+                    android:textSize="25sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:id="@+id/text_gdate"
+                    android:layout_marginLeft="62dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/more"
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_more_vert"
+                    android:background="@null"
+                    android:layout_alignParentRight="true"
+                    android:paddingLeft="100dp"
+                    />
+            </RelativeLayout>
 
         </LinearLayout>
 

@@ -196,7 +196,7 @@ public class VendorRecyclerOrderQueueAdapter extends RecyclerView.Adapter<Vendor
                 editor.putString("Order_Number", vendororderQueue.getOderno());
                 editor.putString("Clinet_Id", vendororderQueue.getClintId());
                 editor.commit();
-                //Logger.getInstance().Log("gfdfg"+vendororderQueue.getClintId());
+                Logger.getInstance().Log("gfdfg"+vendororderQueue.getProducttype());
                 ((Activity) ctx).startActivityForResult(intent,1005);
 //                context.startActivity(intent);
 

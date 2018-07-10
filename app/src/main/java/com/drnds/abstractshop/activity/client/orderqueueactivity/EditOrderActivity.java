@@ -63,9 +63,9 @@ import static com.drnds.abstractshop.adapter.client.RecyclerOrderQueueAdapter.OR
 
 public class EditOrderActivity extends AppCompatActivity {
     Spinner spinner1,spinner2,spinner3,spinner4,spinner5,spinner6,spinner7,spinner8;
-    private EditText inputOrdernum, inputCity, inputZip, inputAddress, inputBorrowername, inputApn, inputDate,inputcustomername;
+    private EditText inputOrdernum, inputCity, inputZip, inputAddress, inputBorrowername, inputApn, inputDate,inputcustomername,inputtest;
     Button submit,upload,invoice;
-    private TextInputLayout inputLayoutborrowername,inputLayoutordernum,inputLayoutapn;
+    private TextInputLayout inputLayoutborrowername,inputLayoutordernum,inputLayoutapn,inputtestlayout;
     private String clientname,stringstate,stringcounty,stringorderpriority,stringproducttype,stringordertask,stringcountytype,stringstatus;
     private String Order_Id,Sub_Client_Name,state,producttype,Order_Assign_Type,Order_Task,countyname,statusname;
     private Toolbar toolbar;
@@ -166,6 +166,9 @@ public class EditOrderActivity extends AppCompatActivity {
 
 
         spinnercustomer=(TextView)findViewById(R.id.textviewcustomer);
+//        inputtest=(EditText) findViewById(R.id.input_test);
+//        inputtestlayout = (TextInputLayout) findViewById(R.id.input_layout_test);
+
         inputcustomername=(EditText) findViewById(R.id.input_editcustomername);
         inputLayoutborrowername = (TextInputLayout) findViewById(R.id.input_layout_editborrowername);
         inputLayoutapn = (TextInputLayout) findViewById(R.id.input_layout_editapn);
@@ -247,7 +250,6 @@ public class EditOrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Calendar newCalendar = Calendar.getInstance();
-
 
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(EditOrderActivity.this,R.style.datepicker,new DatePickerDialog.OnDateSetListener() {
@@ -438,6 +440,7 @@ public class EditOrderActivity extends AppCompatActivity {
                 try {
 
                     JSONArray jsonArray = response.getJSONArray("Client_master");
+
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
                         product.add(details.getString("Order_Type"));
@@ -898,6 +901,9 @@ public class EditOrderActivity extends AppCompatActivity {
                         String Order_Number=details.getString("Order_Number");
                         cgheckOrder = Order_Number;
                         inputOrdernum.setText(Order_Number);
+
+//                        String producttype=details.getString("Order_Type");
+//                        inputtest.setText(producttype);
 
 
                         String customername=details.getString("Sub_Client_Name");

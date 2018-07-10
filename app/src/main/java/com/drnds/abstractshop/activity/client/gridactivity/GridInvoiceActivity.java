@@ -2,9 +2,12 @@ package com.drnds.abstractshop.activity.client.gridactivity;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -44,11 +47,12 @@ import java.util.Map;
 import es.dmoral.toasty.Toasty;
 
 import static com.drnds.abstractshop.adapter.client.RecyclerOrderQueueAdapter.ORDERQUEUE;
+import static com.drnds.abstractshop.adapter.client.RecyclergridviewAdapter.GRID;
 
 public class GridInvoiceActivity extends AppCompatActivity {
 
-    private EditText inputsearchcost, inputcopycost, inputnoofpages, inputinvoicedate;
-    Button submit,preview;
+    private EditText inputsearchcost, inputcopycost, inputnoofpages, inputinvoicedate,inputdoc;
+    Button submit,preview,path;
     SharedPreferences sp, pref;
     private String Order_Id;
     private ProgressDialog pDialog;
@@ -57,6 +61,8 @@ public class GridInvoiceActivity extends AppCompatActivity {
     private TextInputLayout inputlayoutsearchcost,inputlayoutcopycost;
     double searchcost,copycost,ordercost;
     private Toolbar toolbar;
+    private Context ctx;
+
 
 
     @Override
@@ -88,6 +94,8 @@ public class GridInvoiceActivity extends AppCompatActivity {
 
 //        submit = (Button) findViewById(R.id.button_gridinvoicesubmit);
         preview = (Button) findViewById(R.id.button_gridinvoicepreview);
+        path = (Button) findViewById(R.id.pathvagrid);
+
 
         inputcopycost.setEnabled(false);
         inputsearchcost.setEnabled(false);
@@ -101,10 +109,35 @@ public class GridInvoiceActivity extends AppCompatActivity {
         pDialog.setCancelable(false);
         sp = getApplicationContext().getSharedPreferences(
                 ORDERQUEUE, 0);
+        pref= getApplicationContext().getSharedPreferences(
+                GRID, 0);
 
         Order_Id = sp.getString("Order_Id", "");
 
         getOrderdetails();
+        getPreviewdeatails();
+
+
+
+         preview.setOnClickListener(new View.OnClickListener() {
+
+                     public void onClick(View v){
+                         checkInternetConnection();   // checking internet connection
+                         if (!validatesearchcost()) {
+                             return;
+                         }
+
+                         if (!validatecopycost()) {
+                             return;
+                         }
+
+                         else{
+                         Uri uri = Uri.parse(path.getText().toString());
+                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                         startActivity(intent);
+                     }}
+
+         });
 
 //        submit.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -168,7 +201,8 @@ public class GridInvoiceActivity extends AppCompatActivity {
     public String getorderID() {
 
 
-        return sp.getString("Order_Id", "");
+        return pref.getString("Order_Id", "");
+
     }
 
 
@@ -201,6 +235,8 @@ public class GridInvoiceActivity extends AppCompatActivity {
 
 
 
+
+
     public void  getOrderdetails() {
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.INVOICE_URL +getorderID(), null, new Response.Listener<JSONObject>() {
@@ -209,7 +245,7 @@ public class GridInvoiceActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
                 try {
-//                    Log.e("responce : ", "" + response.toString());
+                    Log.e("responce : ", "" + response.toString());
                     JSONArray jsonArray = response.getJSONArray("View_Invoice_Details");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject details = jsonArray.getJSONObject(i);
@@ -223,7 +259,7 @@ public class GridInvoiceActivity extends AppCompatActivity {
                         inputnoofpages.setText(No_Of_Pages);
                         String Invoice_Date=details.getString("Invoice_Date");
                         inputinvoicedate.setText(Invoice_Date);
-                        //Logger.getInstance().Log("set Order cost " + Order_Cost);
+                        Logger.getInstance().Log("set Order cost " + getorderID());
                     }
 
                 } catch (JSONException e) {
@@ -243,6 +279,46 @@ public class GridInvoiceActivity extends AppCompatActivity {
 
         AppController.getInstance().addToRequestQueue(jsonObjReq);
     }
+
+
+    public void  getPreviewdeatails() {
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Config.INVOIC_PREVIEW_URL +getorderID(), null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+                try {
+                    Log.e("responce : ", "" + response.toString());
+                    JSONArray jsonArray = response.getJSONArray("View_Invoice_Details");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject details = jsonArray.getJSONObject(i);
+                        String Document_Path=details.getString("Document_Path");
+//                        preview.setText(Document_Path);
+                        path.setText(Document_Path);
+                        Logger.getInstance().Log("set Order cost " + Document_Path);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+            }
+        });
+
+
+        AppController.getInstance().addToRequestQueue(jsonObjReq);
+    }
+
+
+
 
 
 

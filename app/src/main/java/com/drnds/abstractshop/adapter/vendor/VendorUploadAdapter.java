@@ -147,7 +147,7 @@ public class VendorUploadAdapter extends RecyclerView.Adapter< VendorUploadAdapt
         holder.date.setText( upload .getUploadedDate());
 
 
-        //Logger.getInstance().Log("uploauri"+uploadUri);
+        Logger.getInstance().Log("uploauri"+uploadUri);
 
         if(selected_usersList.contains(uploadList.get(position)))
             holder.ll_listitem.setBackgroundColor(ContextCompat.getColor(ctx, R.color.list_item_selected_state));
