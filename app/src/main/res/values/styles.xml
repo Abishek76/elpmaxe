@@ -85,7 +85,7 @@
 
     <!--navigation theme-->
     <style name="NavigationViewTheme" parent="AppTheme">
-        <item name="colorControlHighlight">#f00109</item>
+        <item name="colorControlHighlight">#388E3C</item>
     </style>
     <!--navigation theme-->
     <color name="accent">#ffffff</color>
@@ -95,7 +95,7 @@
     </style>
 <!--recyclerview theme-->
     <style name="MyButton" parent="Theme.AppCompat.Light">
-        <item name="colorControlHighlight">#f00109</item>
+        <item name="colorControlHighlight">#388E3C</item>
         <item name="colorButtonNormal">#444444</item>
     </style>
 
@@ -110,7 +110,7 @@
         <!-- Used for the title and text -->
         <item name="android:textColorPrimary">#FFFFFF</item>
         <!-- Used for the background -->
-        <item name="android:background">#f00109</item>
+        <item name="android:background">#388E3C</item>
 
         <item name="android:textColor">#FFFFFF</item>
     </style>

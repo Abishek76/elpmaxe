@@ -13,7 +13,7 @@
         android:id="@+id/tabs_myaccount_vendor"
         app:tabGravity="fill"
         app:tabMode="fixed"
-        android:background="#f00109"
+        android:background="#388E3C"
         app:tabIndicatorColor="#ffffff"
         app:tabSelectedTextColor="#ffffff"
         app:tabIndicatorHeight="4dp"

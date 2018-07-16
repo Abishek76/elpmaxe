@@ -21,9 +21,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.drnds.abstractshop.R;
 import com.drnds.abstractshop.activity.client.WelcomeActivity;
@@ -39,6 +41,8 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.drnds.abstractshop.R.style.error;
 
 public class VendorLoginActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -107,6 +111,7 @@ public class VendorLoginActivity extends AppCompatActivity {
                 else {
                     pDialog.setMessage("Logging in ...");
                     showDialog();
+//                    getOrderdetails();
                     StringRequest stringRequest=new StringRequest(Request.Method.POST, Config.VENDORLOGIN_URL, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response)
@@ -195,6 +200,63 @@ public class VendorLoginActivity extends AppCompatActivity {
 
 
     }
+
+
+    public void  getOrderdetails() {
+
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, Config.TOKEN_URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response)
+            {
+                Logger.getInstance().Log("in response");
+
+
+                Logger.getInstance().Log("in error response"+error);
+                // Check for error node in json
+
+                TastyToast.makeText( VendorLoginActivity.this,response,TastyToast.LENGTH_LONG,TastyToast.ERROR);
+
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("volley", "Error: " + error.getMessage());
+                TastyToast.makeText( VendorLoginActivity.this,error.getMessage(),TastyToast.LENGTH_LONG,TastyToast.ERROR);
+
+                error.printStackTrace();
+
+            }
+        }){
+
+            @Override
+            public String getBodyContentType() {
+                return "application/x-www-form-urlencoded; charset=UTF-8";
+            }
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String>params= new HashMap<String, String>();
+                params.put("username","administrator");
+                params.put("password","password@$#");
+                params.put("grant_type","password");
+
+                //Logger.getInstance().Log("login details"+params);
+
+                return params;
+            }
+
+
+        };
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        AppController.getInstance().addToRequestQueue(stringRequest);
+    }
+
+
 
     //       email validation
     private boolean validateEmail() {

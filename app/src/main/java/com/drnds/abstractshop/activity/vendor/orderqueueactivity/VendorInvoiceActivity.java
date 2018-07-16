@@ -27,6 +27,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.drnds.abstractshop.R;
 import com.drnds.abstractshop.activity.client.gridactivity.GridInvoiceActivity;
+import com.drnds.abstractshop.activity.client.orderqueueactivity.PdfActivity;
 import com.drnds.abstractshop.util.AppController;
 import com.drnds.abstractshop.util.Config;
 import com.drnds.abstractshop.util.CustomRequest;
@@ -52,7 +53,7 @@ public class VendorInvoiceActivity extends AppCompatActivity {
 
 
     private EditText inputsearchcost, inputcopycost, inputnoofpages, inputinvoicedate;
-    Button submit,preview,path;
+    Button submit,preview,invoiceven;
     SharedPreferences sp, pref;
     private String Order_Id;
     private ProgressDialog pDialog;
@@ -90,7 +91,7 @@ public class VendorInvoiceActivity extends AppCompatActivity {
 
         submit = (Button) findViewById(R.id.button_venorderinvoicesubmit);
         preview = (Button) findViewById(R.id.button_venorderinvoicepreview);
-        path = (Button) findViewById(R.id.pathven);
+        invoiceven = (Button) findViewById(R.id.pathven);
 
         dateFormatter = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
 
@@ -98,6 +99,8 @@ public class VendorInvoiceActivity extends AppCompatActivity {
 
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
+        showDialog();
+
         sp = getApplicationContext().getSharedPreferences(
                 VENDORORDER, 0);
         pref = getApplicationContext().getSharedPreferences(
@@ -110,6 +113,7 @@ public class VendorInvoiceActivity extends AppCompatActivity {
 
         preview.setOnClickListener(new View.OnClickListener() {
 
+
             public void onClick(View v) {
                 checkInternetConnection();   // checking internet connection
                 if (!validatesearchcost()) {
@@ -120,9 +124,14 @@ public class VendorInvoiceActivity extends AppCompatActivity {
                     return;
                 }
                 else {
-                    Uri uri = Uri.parse(path.getText().toString());
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                    Uri uri = Uri.parse(invoiceven.getText().toString());
+//                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                    startActivity(intent);
+                    Intent intent = new Intent(VendorInvoiceActivity.this, PdfActivity.class);
+                    intent.putExtra("Pdfpath", invoiceven.getText().toString());
                     startActivity(intent);
+                    Logger.getInstance().Log("Id .... is"+invoiceven.getText().toString());
+
                 }
             }
         });
@@ -243,10 +252,14 @@ public class VendorInvoiceActivity extends AppCompatActivity {
                         inputinvoicedate.setText(Invoice_Date);
                         Logger.getInstance().Log("Id .... is"+getorderID());
 
+                        hideDialog();
+
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    hideDialog();
+
                 }
 
 
@@ -279,8 +292,10 @@ public class VendorInvoiceActivity extends AppCompatActivity {
                         JSONObject details = jsonArray.getJSONObject(i);
                         String Document_Path=details.getString("Document_Path");
 //                        preview.setText(Document_Path);
-                        path.setText(Document_Path);
+                        invoiceven.setText(Document_Path);
                         Logger.getInstance().Log("set Order cost " + Document_Path);
+                        hideDialog();
+
                     }
 
                 } catch (JSONException e) {
@@ -329,7 +344,7 @@ public class VendorInvoiceActivity extends AppCompatActivity {
                         Toasty.success(VendorInvoiceActivity.this.getApplicationContext(),"Updated  Sucessfully...", Toast.LENGTH_SHORT).show();
                         hideDialog();
 
-//                        onBackPressed();
+                        getPreviewdeatails();
                     }else {
                         Toasty.success(VendorInvoiceActivity.this.getApplicationContext(),"Not updated...",Toast.LENGTH_SHORT).show();
                         hideDialog();

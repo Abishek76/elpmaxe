@@ -53,7 +53,7 @@ public class InvoiceActivity extends AppCompatActivity {
 
     private EditText inputsearchcost, inputcopycost, inputnoofpages, inputinvoicedate;
     private TextInputLayout inputlayoutsearchcost,inputlayoutcopycost;
-    Button submit, preview,path;
+    Button submit, preview,invoiceclient;
     SharedPreferences sp, pref;
     private String Order_Id;
     private ProgressDialog pDialog;
@@ -90,7 +90,7 @@ public class InvoiceActivity extends AppCompatActivity {
         inputinvoicedate = (EditText) findViewById(R.id.input_invoicedate);
 
 //        submit = (Button) findViewById(R.id.button_orderinvoicesubmit);
-        path = (Button) findViewById(R.id.pathva);
+        invoiceclient = (Button) findViewById(R.id.pathva);
         preview = (Button) findViewById(R.id.button_orderinvoicepreview);
 
         inputcopycost.setEnabled(false);
@@ -103,14 +103,18 @@ public class InvoiceActivity extends AppCompatActivity {
         checkInternetConnection();
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
+        showDialog();
+
         sp = getApplicationContext().getSharedPreferences(
                 ORDERQUEUE, 0);
 
         Order_Id = sp.getString("Order_Id", "");
 
 
+
         getOrderdetails();
         getPreviewdeatails();
+
 
 
         preview.setOnClickListener(new View.OnClickListener() {
@@ -126,9 +130,13 @@ public class InvoiceActivity extends AppCompatActivity {
                 }
 
                 else{
-                    Uri uri = Uri.parse(path.getText().toString());
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                    Uri uri = Uri.parse(invoiceclient.getText().toString());
+//                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                    startActivity(intent);
+                    Intent intent = new Intent(InvoiceActivity.this, PdfActivity.class);
+                    intent.putExtra("Pdfpath", invoiceclient.getText().toString());
                     startActivity(intent);
+                    Logger.getInstance().Log("Id .... is"+invoiceclient.getText().toString());
                 }}
 
         });
@@ -277,6 +285,9 @@ public class InvoiceActivity extends AppCompatActivity {
                         String Invoice_Date=details.getString("Invoice_Date");
                         inputinvoicedate.setText(Invoice_Date);
                         //Logger.getInstance().Log("set Order cost " + Order_Cost);
+
+                        hideDialog();
+
                     }
 
                 } catch (JSONException e) {
@@ -313,8 +324,10 @@ public class InvoiceActivity extends AppCompatActivity {
                         JSONObject details = jsonArray.getJSONObject(i);
                         String Document_Path=details.getString("Document_Path");
 //                        preview.setText(Document_Path);
-                        path.setText(Document_Path);
-                        Logger.getInstance().Log("set Order cost " + Document_Path);
+                        invoiceclient.setText(Document_Path);
+                        Logger.getInstance().Log("invoice path " + Document_Path);
+                        hideDialog();
+
                     }
 
                 } catch (JSONException e) {

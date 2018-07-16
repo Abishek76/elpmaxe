@@ -5,7 +5,7 @@
     android:id="@+id/toolbar_simple_vendor"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="#f00109"
+    android:background="#388E3C"
     app:theme="@style/ActionBar"
     app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
     app:titleTextAppearance="@style/Toolbar.TitleText"

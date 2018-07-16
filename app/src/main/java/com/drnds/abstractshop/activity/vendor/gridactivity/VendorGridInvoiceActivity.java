@@ -26,6 +26,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.drnds.abstractshop.R;
+import com.drnds.abstractshop.activity.client.orderqueueactivity.PdfActivity;
 import com.drnds.abstractshop.activity.vendor.orderqueueactivity.VendorInvoiceActivity;
 import com.drnds.abstractshop.util.AppController;
 import com.drnds.abstractshop.util.Config;
@@ -53,12 +54,12 @@ public class VendorGridInvoiceActivity extends AppCompatActivity {
 
 
     private EditText inputsearchcost, inputcopycost, inputnoofpages, inputinvoicedate;
-    Button submit,preview,path;
+    Button submit,preview;
     SharedPreferences sp, pref;
     private String Order_Id;
     private ProgressDialog pDialog;
     private SimpleDateFormat dateFormatter;
-    private TextView inputordercost;
+    private TextView inputordercost,invoicevengrid;
     private TextInputLayout inputlayoutsearchcost,inputlayoutcopycost;
     double searchcost,copycost,ordercost;
     private Toolbar toolbar;
@@ -92,7 +93,9 @@ public class VendorGridInvoiceActivity extends AppCompatActivity {
         inputinvoicedate = (EditText) findViewById(R.id.input_vengridinvoicedate);
         preview = (Button) findViewById(R.id.button_vengridinvoicepreview);
         submit = (Button) findViewById(R.id.button_vengridinvoicesubmit);
-        path = (Button) findViewById(R.id.pathvengrid);
+//        path = (Button) findViewById(R.id.pathvengrid);
+        invoicevengrid = (TextView) findViewById(R.id.pathvengrid);
+
 
 
         dateFormatter = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
@@ -101,6 +104,8 @@ public class VendorGridInvoiceActivity extends AppCompatActivity {
         checkInternetConnection();
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
+        showDialog();
+
 
 //        sp = getApplicationContext().getSharedPreferences(
 //                VENDORORDER, 0);
@@ -130,12 +135,26 @@ public class VendorGridInvoiceActivity extends AppCompatActivity {
 
 
             else{
-                Uri uri = Uri.parse(path.getText().toString());
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
+//                Uri uri = Uri.parse(invoicevengrid.getText().toString());
+//                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                startActivity(intent);
+                    Intent intent = new Intent(VendorGridInvoiceActivity.this, PdfActivity.class);
+                    intent.putExtra("Pdfpath", invoicevengrid.getText().toString());
+                    startActivity(intent);
+                    Logger.getInstance().Log("Id .... is"+invoicevengrid.getText().toString());
             }}
 
         });
+
+//        preview.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Uri uri = Uri.parse(invoicevengrid.getText().toString());
+//                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                startActivity(intent);
+//            }
+//
+//    });
 
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -254,10 +273,15 @@ public class VendorGridInvoiceActivity extends AppCompatActivity {
                         String Invoice_Date=details.getString("Invoice_Date");
                         inputinvoicedate.setText(Invoice_Date);
                         Logger.getInstance().Log("Id .... is"+getorderID());
+
+                        hideDialog();
+
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    hideDialog();
+
                 }
 
 
@@ -289,8 +313,10 @@ public class VendorGridInvoiceActivity extends AppCompatActivity {
                         JSONObject details = jsonArray.getJSONObject(i);
                         String Document_Path=details.getString("Document_Path");
 //                        preview.setText(Document_Path);
-                        path.setText(Document_Path);
+                        invoicevengrid.setText(Document_Path);
                         Logger.getInstance().Log("set Order cost " + Document_Path);
+                        hideDialog();
+
                     }
 
                 } catch (JSONException e) {
@@ -339,7 +365,7 @@ public class VendorGridInvoiceActivity extends AppCompatActivity {
                         Toasty.success(VendorGridInvoiceActivity.this.getApplicationContext(),"Updated  Sucessfully...", Toast.LENGTH_SHORT).show();
                         hideDialog();
 
-                        onBackPressed();
+                        getPreviewdeatails();
                     }else {
                         Toasty.success(VendorGridInvoiceActivity.this.getApplicationContext(),"Not updated...",Toast.LENGTH_SHORT).show();
                         hideDialog();

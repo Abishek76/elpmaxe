@@ -7,8 +7,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
-
     <application
         android:name=".util.AppController"
         android:allowBackup="true"
@@ -194,21 +192,27 @@
             android:name=".activity.vendor.gridactivity.VendorGridInvoiceActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".activity.vendor.VendorInvoiceReportActivity"
+        <activity
+            android:name=".activity.vendor.VendorInvoiceReportActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".activity.vendor.VendorPendingReportActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.vendor.VendorPendingReportActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".activity.vendor.VendorAllReportActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.vendor.VendorAllReportActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".activity.client.PendingReportActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.client.PendingReportActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".activity.client.AllReportActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.client.AllReportActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".activity.client.orderqueueactivity.PreviewActivity"></activity>
     </application>
 
 </manifest>

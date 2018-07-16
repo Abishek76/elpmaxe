@@ -26,6 +26,8 @@ public class Config {
     //login url
     public static final String LOGIN_URL = "https://www.abstractshop.com/Orders_Api/api/LoginUser/";
 
+    public static final String TOKEN_URL = "https://abstractshop.com/Orders_Api/token";
+
     //myaccount
     public static final String UPDATE_URL = "https://www.abstractshop.com/Orders_Api/api/MyProfileEdit/";
     public static final String EDIT_URL = "https://www.abstractshop.com/Orders_Api/api/MyProfile/";

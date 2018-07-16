@@ -32,9 +32,9 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_subclient"
-            app:backgroundTint="#f00109"
+            app:backgroundTint="#388E3C"
             app:fabSize="normal"
-            app:rippleColor="#FF6E40"
+            app:rippleColor="#A5D6A7"
             android:src="@mipmap/ic_add_white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -121,6 +121,8 @@ public class EditOrderActivity extends AppCompatActivity {
         countyname = sp.getString("County","");
         producttype= sp.getString("Product_Type","");
         Sub_Client_Name = sp.getString("Sub_Client_Name","");
+        Logger.getInstance().Log("set subclient no " + Sub_Client_Name);
+
         Order_Priority = sp.getString("Order_Priority","");
         Order_Task =sp.getString("Order_Status","");
         Order_Assign_Type = sp.getString("Order_Assign_Type","");

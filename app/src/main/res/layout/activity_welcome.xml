@@ -29,7 +29,7 @@
             android:layout_above="@+id/layout_button"
             app:snap="true"
             android:padding="5dp"
-            app:fillColor="#f00109"
+            app:fillColor="#388E3C"
             app:strokeColor="#FF000000"
             />
         <LinearLayout

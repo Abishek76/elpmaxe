@@ -27,6 +27,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.drnds.abstractshop.R;
+import com.drnds.abstractshop.activity.client.orderqueueactivity.PdfActivity;
 import com.drnds.abstractshop.util.AppController;
 import com.drnds.abstractshop.util.Config;
 import com.drnds.abstractshop.util.CustomRequest;
@@ -52,7 +53,7 @@ import static com.drnds.abstractshop.adapter.client.RecyclergridviewAdapter.GRID
 public class GridInvoiceActivity extends AppCompatActivity {
 
     private EditText inputsearchcost, inputcopycost, inputnoofpages, inputinvoicedate,inputdoc;
-    Button submit,preview,path;
+    Button submit,preview,invoiceclientgrdi;
     SharedPreferences sp, pref;
     private String Order_Id;
     private ProgressDialog pDialog;
@@ -94,7 +95,7 @@ public class GridInvoiceActivity extends AppCompatActivity {
 
 //        submit = (Button) findViewById(R.id.button_gridinvoicesubmit);
         preview = (Button) findViewById(R.id.button_gridinvoicepreview);
-        path = (Button) findViewById(R.id.pathvagrid);
+        invoiceclientgrdi = (Button) findViewById(R.id.pathvagrid);
 
 
         inputcopycost.setEnabled(false);
@@ -107,6 +108,8 @@ public class GridInvoiceActivity extends AppCompatActivity {
         checkInternetConnection();
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
+        showDialog();
+
         sp = getApplicationContext().getSharedPreferences(
                 ORDERQUEUE, 0);
         pref= getApplicationContext().getSharedPreferences(
@@ -132,9 +135,13 @@ public class GridInvoiceActivity extends AppCompatActivity {
                          }
 
                          else{
-                         Uri uri = Uri.parse(path.getText().toString());
-                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                         startActivity(intent);
+//                         Uri uri = Uri.parse(invoiceclientgrdi.getText().toString());
+//                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                         startActivity(intent);
+                             Intent intent = new Intent(GridInvoiceActivity.this, PdfActivity.class);
+                             intent.putExtra("Pdfpath", invoiceclientgrdi.getText().toString());
+                             startActivity(intent);
+                             Logger.getInstance().Log("Id .... is"+invoiceclientgrdi.getText().toString());
                      }}
 
          });
@@ -260,6 +267,9 @@ public class GridInvoiceActivity extends AppCompatActivity {
                         String Invoice_Date=details.getString("Invoice_Date");
                         inputinvoicedate.setText(Invoice_Date);
                         Logger.getInstance().Log("set Order cost " + getorderID());
+
+                        hideDialog();
+
                     }
 
                 } catch (JSONException e) {
@@ -295,8 +305,10 @@ public class GridInvoiceActivity extends AppCompatActivity {
                         JSONObject details = jsonArray.getJSONObject(i);
                         String Document_Path=details.getString("Document_Path");
 //                        preview.setText(Document_Path);
-                        path.setText(Document_Path);
+                        invoiceclientgrdi.setText(Document_Path);
                         Logger.getInstance().Log("set Order cost " + Document_Path);
+                        hideDialog();
+
                     }
 
                 } catch (JSONException e) {

@@ -7,9 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
-
 import android.net.Uri;
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -21,12 +19,10 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.drnds.abstractshop.R;
-import com.drnds.abstractshop.util.Logger;
 
-
-public class PdfActivity extends AppCompatActivity {
+public class PreviewActivity extends AppCompatActivity {
     Toolbar toolbar;
-    String path;
+    String path,pr;
     WebView webView;
     private ProgressDialog pDialog;
     private DownloadManager downloadManager;
@@ -36,7 +32,7 @@ public class PdfActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pdf);
+        setContentView(R.layout.activity_preview);
         toolbar = (Toolbar) findViewById(R.id.toolbar_pdf);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
@@ -47,14 +43,12 @@ public class PdfActivity extends AppCompatActivity {
         pDialog = new ProgressDialog(this, R.style.MyAlertDialogStyle);
         pDialog.setCancelable(false);
         Intent intent = getIntent();
-        path = intent.getStringExtra("Pdfpath");
-        webView = (WebView) findViewById(R.id.pdf_webview);
-        webView.clearCache(true);
+        path = intent.getStringExtra("previewpath");
+        webView = (WebView) findViewById(R.id.preview_view);
         webView.getSettings().setJavaScriptEnabled(true);
-        Logger.getInstance().Log("Id .... is"+path);
 
         String getpath = path;
-        webView.loadUrl("https://docs.google.com/viewer?url=" + getpath);
+        webView.loadUrl("http://drive.google.com/viewerng/viewer?embedded=true&url=" + getpath);
         webView.setHorizontalScrollBarEnabled(false);
         webView.setWebViewClient(new MyWebViewClient());
 
@@ -70,7 +64,7 @@ public class PdfActivity extends AppCompatActivity {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
-            pDialog = new ProgressDialog(PdfActivity.this,R.style.MyAlertDialogStyle);
+            pDialog = new ProgressDialog(PreviewActivity.this,R.style.MyAlertDialogStyle);
             pDialog.setMessage("Please wait ...");
             pDialog.show();
         }
@@ -158,7 +152,7 @@ public class PdfActivity extends AppCompatActivity {
 
             if(referenceId == File_DownloadId) {
 
-                Toast toast = Toast.makeText(PdfActivity.this,
+                Toast toast = Toast.makeText(PreviewActivity.this,
                         "File Download Complete", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.TOP, 25, 400);
                 toast.show();

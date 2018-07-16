@@ -15,7 +15,7 @@
             android:id="@+id/tab_score_vendor"
             app:tabGravity="fill"
             app:tabMode="fixed"
-            android:background="#f00109"
+            android:background="#388E3C"
             app:tabIndicatorColor="#ffffff"
             app:tabSelectedTextColor="#ffffff"
             app:tabIndicatorHeight="4dp"
@@ -42,9 +42,9 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_search_vendor"
-            app:backgroundTint="#f00109"
+            app:backgroundTint="#388E3C"
             app:fabSize="normal"
-            app:rippleColor="#FF6E40"
+            app:rippleColor="#A5D6A7"
             android:src="@drawable/ic_search_new"
             android:layout_width="80dp"
             android:layout_height="80dp"
