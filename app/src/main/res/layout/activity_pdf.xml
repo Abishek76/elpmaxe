@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.drnds.abstractshop.activity.client.orderqueueactivity.PdfActivity">
+    tools:context="com.abstractshop.absdesk.activity.client.orderqueueactivity.PdfActivity">
     <include
         android:id="@+id/toolbar_pdf"
         layout="@layout/toolbar_custom"

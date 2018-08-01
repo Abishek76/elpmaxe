@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.drnds.abstractshop">
+    package="com.abstractshop.absdesk">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".util.AppController"
+        android:name="com.abstractshop.absdesk.util.AppController"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.client.WelcomeActivity"
+            android:name="com.abstractshop.absdesk.activity.client.WelcomeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
@@ -27,139 +27,139 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.client.LoginActivity"
+            android:name="com.abstractshop.absdesk.activity.client.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.NavigationActivity"
+            android:name="com.abstractshop.absdesk.activity.client.NavigationActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.MyaccountActivity"
+            android:name="com.abstractshop.absdesk.activity.client.MyaccountActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.subclientactivity.SubClientActivity"
+            android:name="com.abstractshop.absdesk.activity.client.subclientactivity.SubClientActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.subclientactivity.EditSubclientActivity"
+            android:name="com.abstractshop.absdesk.activity.client.subclientactivity.EditSubclientActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.createuseractivity.CreateUserActivity"
+            android:name="com.abstractshop.absdesk.activity.client.createuseractivity.CreateUserActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.createuseractivity.EditCreateUserActivity"
+            android:name="com.abstractshop.absdesk.activity.client.createuseractivity.EditCreateUserActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.gridactivity.GridviewActivity"
+            android:name="com.abstractshop.absdesk.activity.client.gridactivity.GridviewActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.orderqueueactivity.OrderQueueActivity"
+            android:name="com.abstractshop.absdesk.activity.client.orderqueueactivity.OrderQueueActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.orderqueueactivity.EditOrderActivity"
+            android:name="com.abstractshop.absdesk.activity.client.orderqueueactivity.EditOrderActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.gridactivity.EditGridViewActivity"
+            android:name="com.abstractshop.absdesk.activity.client.gridactivity.EditGridViewActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.chartactivity.PiechartActivity"
+            android:name="com.abstractshop.absdesk.activity.client.chartactivity.PiechartActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.gridactivity.GridUploadActivity"
+            android:name="com.abstractshop.absdesk.activity.client.gridactivity.GridUploadActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.SearchActivity"
+            android:name="com.abstractshop.absdesk.activity.client.SearchActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.ReportActivity"
+            android:name="com.abstractshop.absdesk.activity.client.ReportActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.ResultActivity"
+            android:name="com.abstractshop.absdesk.activity.client.ResultActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.VendorLoginActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.VendorLoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.VendorNavigationActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.VendorNavigationActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.MyaccountVendorActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.MyaccountVendorActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.gridactivity.EditGridViewVendorActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.gridactivity.EditGridViewVendorActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.VendorPiechartActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.VendorPiechartActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.orderqueueactivity.EditOrderVendorActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.orderqueueactivity.EditOrderVendorActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.EditSubclientVendorActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.EditSubclientVendorActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.EditClientVendorActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.EditClientVendorActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.VendorReportActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.VendorReportActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.gridactivity.GridViewVendorActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.gridactivity.GridViewVendorActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.VendorSearchActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.VendorSearchActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.VendorResultActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.VendorResultActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.orderqueueactivity.OrderUploadActivity"
+            android:name="com.abstractshop.absdesk.activity.client.orderqueueactivity.OrderUploadActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.orderqueueactivity.VendorUploadActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.orderqueueactivity.VendorUploadActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.gridactivity.VendorGridUploadActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.gridactivity.VendorGridUploadActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.CompletedVendorActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.CompletedVendorActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.CompletedActivity"
+            android:name="com.abstractshop.absdesk.activity.client.CompletedActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.orderqueueactivity.PdfActivity"
+            android:name="com.abstractshop.absdesk.activity.client.orderqueueactivity.PdfActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
@@ -168,7 +168,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.drnds.abstractshop"
+            android:authorities="com.abstractshop.absdesk"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -177,42 +177,42 @@
         </provider>
 
         <activity
-            android:name=".activity.client.orderqueueactivity.InvoiceActivity"
+            android:name="com.abstractshop.absdesk.activity.client.orderqueueactivity.InvoiceActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.gridactivity.GridInvoiceActivity"
+            android:name="com.abstractshop.absdesk.activity.client.gridactivity.GridInvoiceActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.orderqueueactivity.VendorInvoiceActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.orderqueueactivity.VendorInvoiceActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.gridactivity.VendorGridInvoiceActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.gridactivity.VendorGridInvoiceActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.VendorInvoiceReportActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.VendorInvoiceReportActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.VendorPendingReportActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.VendorPendingReportActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.vendor.VendorAllReportActivity"
+            android:name="com.abstractshop.absdesk.activity.vendor.VendorAllReportActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.PendingReportActivity"
+            android:name="com.abstractshop.absdesk.activity.client.PendingReportActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.client.AllReportActivity"
+            android:name="com.abstractshop.absdesk.activity.client.AllReportActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".activity.client.orderqueueactivity.PreviewActivity"></activity>
+        <activity android:name="com.abstractshop.absdesk.activity.client.orderqueueactivity.PreviewActivity"></activity>
     </application>
 
 </manifest>

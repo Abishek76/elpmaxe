@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.drnds.abstractshop.activity.client.gridactivity.GridviewActivity">
+    tools:context="com.abstractshop.absdesk.activity.client.gridactivity.GridviewActivity">
     <include
         android:id="@+id/toolbar_report"
         layout="@layout/toolbar_custom"
