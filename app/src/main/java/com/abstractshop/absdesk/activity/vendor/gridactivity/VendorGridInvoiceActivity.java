@@ -271,7 +271,7 @@ public class VendorGridInvoiceActivity extends AppCompatActivity {
                         inputnoofpages.setText(No_Of_Pages);
                         String Invoice_Date=details.getString("Invoice_Date");
                         inputinvoicedate.setText(Invoice_Date);
-//                        Logger.getInstance().Log("Id .... is"+getorderID());
+                        Logger.getInstance().Log("Id .... is"+getorderID());
 
                         hideDialog();
 
